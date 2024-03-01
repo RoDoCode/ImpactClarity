@@ -1,110 +1,89 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+Coaches E-Commerce Site
 
-Welcome Rory Dow,
+Business to Customer
+Single Payment system (not subscription)
+Product is affordable video tutorials designed to encourage sign up to online or in-person coaching sessions. 
+Some customers will be satisfied with videos, this acts as passive income for the coach and filters favourable clients who are familiar and already like coach’s style.
+Video tutorials are 25 minutes each(could even be 15 mins if that’s preferred). They come in sets. Access to video sets can be purchased individually or bundles. 
+Suggest £10 a set or £25 for 3. This is cheap(need to balance self-valuation with accessibility - NEEDS DISCUSSION WITH COACH - openly addressing this low cost might be most confident thing of all- cheap videos because session are where the real work happens
+Discount codes need to work so they can be distributed on social media
+A newsletter with subscription option needs to open once with a pop-up including offer of discount. Newsletter released with each new set of videos. No regular spam bullshit. 
+Online “E-Session” slots. Clients can book these appointments and pre-pay. Coach must keep these appointment and block out unavailability ahead of time. Could offer first session free after sign-up for discovery and assessment. This could be achieved with a calendar booking system.
+On-demand E-session slots are a chance to engage in a new client. A method of connecting with a tentative potential client which is the challenge as people lacking confidence struggle to reach out. COACH DICTATE PRICE PLEASE
+Contact form for In-person sessions. Need to discuss preferences of the coach
+Selling tickets to group session is also a great way to offer an affordable entry for tentative clients. Now it’s likely early on that anyone booking may find themselves in a one-to-one. This can be made clear that it’s a potential on quieter weeks and a bonus for them if they are so lucky to get a private session at a discounted group rate. COACH DICTATE PRICES PLEASE
+About Section needs to address the history of the coach and blend every story with how that relates to the type of coaching being offered.
+Testimonials (can be fake or real depending on availability) can create a form for these to be recorded electronically after sessions if necessary. Maybe ask professionals coach has worked with previously for one liner quotes. Too awkward then ask family or I will make them up. 
+Resources section : this is where the coach can show their knowledge and keenness to impart confidence and wisdom on the client. Can be a list of book, sites, videos. Must not redirect to other coaches unless agreed with other coach previously and not funneling business away. Good to inform, no point shooting self in the foot. 
+Tech Specs : 
+Need to be able to login with email, username or social accounts links, namely Facebook and Google 
+Need to be able to pay with card, Apple Pay or PayPal
+Bookings should be able to push an appointment to Google calendar of client or outlook calendar.
+A video conferencing tool might be useful. Equally an emailed video link for Google chat or zoom might be better quality and just as good. Offer FaceTime as an alternative option for IPhone users. 
+Needs its own domain
+Not expecting drastic traffic. Heroku hosting should be fine.
+Accessibility :
+site will be fully accessible with hidden features for users with disabilities, image tags and text on all features for clients with screen readers. 
+Pathing :
+users can browse all content and videos without playing them while not logged in. Only logged in accounts can access the videos they have paid for.
+Account page of users shows previous purchases and session bookings 
+Booked Sessions :
+Authorised accounts could pay for sessions in singles or bundles. This contains all the coaches payments to a single platform. Organised their schedule and leaves room for moving or rebooking sessions.
+This keeps cash out of the equation which feels more professional and keeps the coaches image clean. Also avoids issues with clients forgetting to pay or not bringing cash on the day.
+If the coach needs to rebook there needs to be a process for this. The client account is refunded a session, an email is sent, and they are able to rebook a free slot in the calendar. 
+Vibe :
+Confidence / Clarity / impact 
+Practicing what you preach is important. Messages and processes need to be extra clear and effective.
+There is a tendency towards some pushy salesmanship from some coaches site. Particularly Americans that I’ve looked over. This could be a culture thing. Driving with negative fear building statements (“you don’t know what you’re missing”, “can you afford not to take this course”). But I really don’t like this and think there is a gentle pragmatic approach that allows the client to come to you willingly or walk off if they feel it’s not right. 
+This positive gentle approach also fosters a more positive community, client retention and recommendations by word of mouth. 
+Aesthetically there needs to be a clear brand image. A logo and continuation in the typography. 
+Classy, legible, soothing tones. I like off-white skin tones with a single brand colour. 
+A three word mantra for a tag line. This defines your brand. They are the words the client says to their friend across the water cooler.
+Trustworthy, quality service, approachable by all
+Business Services :
+It’s good to advertise B2B services but we will keep this to a contact form with a brief About Section describing the business courses. No business will buy online and it distracts/intimidates private clients. 
+Gifting : 
+Session or session bundles as well as video access can be purchased as a gift. This does not authorise the buyer account but generates a code and email. This is sent to the recipient email. The recipient can create an account and cash in the gift of videos or sessions which will be debited to their account
+CONTENT TYPES :
+Content always needs to include a practical tip for the client. What can they do to improve. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Videos:
+example of problem behaviour / description of why people do this / practical solutions 
+Theory vids : mindset and ways to encourage this 
+Video set examples : 
+Confidence Vocal Techniques
+Clarity in Body Language
+Managing Confrontation 
+Business Communication 
+Confident Lifestyle Choices
+Communicating in Close Relationships
+Parenting - Communicating with Children
+Women in Business - Dealing with Challenges
+Successful Interview Technique
+Managing People with Clarity
+Impact Public Speaking
+Feeling Comfortable in Social Settings
+First Impressions with Gravity
+Video quality needs to be high, sound quality needs to be immaculate, setting should be calming and focused on coach. No AI blur effects. Waist to head unless legs are needed for content. Looking at the lense. Should feel natural, like a one to one. 
+These are tasters for clients to feel a little of what coach’s E-session feel like. They should feel satisfied with the content and keen absorbers should want to feel comfortable with wanting to ask more questions, this is what sessions are for. 
+Complex videos should be book ended with an acknowledgment that this is an overview and that watchers who find the content helpful but feel they need more should reach out for a discovery chat, don’t push bookings or further payments. Need to speak and see if coach can help first. 
+Rules: 
+Clients can cancel up to 24 hours before a session.
+Session token is refunded and they can book again. 
+Within 24 hours session is consumed.
+More than 15 minutes lateness will result in cancellation. No reason, no problem. Valid reason given via email then coach can refund token at own discretion. (Simple tool for this in site will be included. 
+If client buys several session and then doesn’t want the remainder after a session it is fine to refund these. No point being stingey if it costed coach no more time. No refund on gifted sessions. 
+Session must be used within 12 months or they will be cancelled. This encourages use.
 
-## Gitpod Reminders
+Media Theory:
+Rotate one inspirational tid bit – one video with advice for screen actors – one advert for coaching – one – one video for communication coaching – one tid bit poster – one advert – one 
+Video with useful tip taken while walking
+Board with quote from someone you admire and a break down of what that means to you
+Board advert for coaching
+Video snippet from an interview
+Board advice for screen actors or coaching for communicating
+Board advert for coaching
+Rinse repeat
+NEED TO INCLUDE MASSIVE LIST OF KEYWORDS HIDDEN BEHIND VIDEO FOR SEO
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
