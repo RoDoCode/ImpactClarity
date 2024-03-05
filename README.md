@@ -1,75 +1,85 @@
 
-Site Features:
+# Site Features :
 - Single Payment system (not subscription), using Stripe. Users can pay by card or using ApplePay or GooglePay.
+- Discount code functionality
+- Purchasing video tutorial access and session tokens
+- Session calendar booking system
+- Newsletter sign-up modal
+- Confidentiality procedures displayed
+- After session review form for testimonials
+- Testimonials side scroller
+- About the Coach Section
+- Contact form for in-person sessions
+- A resources section
+- Login with email, username or social accounts links, namely Facebook and Google 
+- Bookings should be able to push an appointment to Google calendar of client or outlook calendar.
+- A video conferencing tool or an emailed video link for GoogleChat/Zoom/Teams. (Potentially offer FaceTime as an alternative option for IPhone users). 
+- Its own domain
+- Fully accessible with hidden features for users with disabilities, image tags and text on all features for clients with screen readers.
+- Gifting functionality
 
-Business Plan & Analysis:
-- After discussion with a coach currently working in the industry it's clear this is a premium service, generally expected to be more expensive than psychotherapy sessions for example which have a continuous expectation of repeated sessions, Communications Coaching is more often a sort of finishing schooling, sometimes a single session is all that is required to teach the necessary skill or technique to solve a clients specific challenge. Most commonly a short set of 5 or 6 sessions is what clients settle on. They iterate and perfect communication techniques by taking what they have learned in a session back into their lives, trying it out, then returning to the coach with the result for further development, practice and advice. This model means that clients have a much shorter half-life in communication coaching than in other comparable coaching industries. 
 
-- Video tutorials are purposefully affordable, designed to encourage sign up to online or in-person coaching sessions. They are an introduction to the coaches voice and style. 
-- Some customers will be satisfied with videos, this acts as passive income for the coach and filters favourable clients who are familiar and already like coach’s style.
-- Video tutorials are 25 minutes each. They are released in Tutorial Series. Access to Tutorials and Tutorial Series can be purchased individually or bundles.
+# Business Plan & Analysis :
+- After **discussion with a coach** currently working in the industry it's clear this is a **premium service**, generally expected to be more expensive than psychotherapy sessions for example which have a continuous expectation of repeated sessions, Communications Coaching is more often a sort of finishing schooling, sometimes a single session is all that is required to teach the necessary skill or technique to solve a clients specific challenge. Most commonly a **short set of 5 or 6 sessions** is what clients settle on. They iterate and perfect communication techniques by taking what they have learned in a session back into their lives, trying it out, then returning to the coach with the result for further development, practice and advice. This model means that clients have a much shorter half-life in communication coaching than in other comparable coaching industries. 
 
-- €10 for a single video tutorial, €25 a bundle of three or €50 for Tutorial Series of 6 or more videos. This is considered relatively cheap as the clients who usually require this service are already successful in their field and looking to hone their interpersonal skills to a fine point. (Pricing is difficult from the persepective of the coach, too high and you alienate a portion of your client-base, too low and you undervalue yourself. We have to balance self-valuation with accessibility. Openly addressing this low cost in the content can be most confident thing of all. Stating that videos have been made affordable because session are where the majority of progress is made).
+- **Video tutorials** are purposefully affordable, designed to encourage sign up to online or in-person coaching sessions. They are an introduction to the coaches voice and style. 
+- Some customers will be satisfied with videos, this acts as **passive income** for the coach and filters favourable clients who are familiar and already like coach’s style.
+- Video tutorials are 25 minutes each. They are released in **Tutorial Series**. Access to Tutorials and Tutorial Series can be **purchased individually or bundles**.
 
-- E-sessions start at €120 for a single session. This reduces depending on the number of session tokens purchased at one time.
+- €10 for a single video tutorial, €25 a bundle of three or €50 for Tutorial Series of 6 or more videos. This is considered relatively cheap as the clients who usually require this service are already successful in their field and looking to hone their interpersonal skills to a fine point. (Pricing is difficult from the persepective of the coach, too high and you alienate a portion of your client-base, too low and you undervalue yourself. We have to balance self-valuation with accessibility. Openly addressing this low cost in the content can be most confident thing to do. Stating that videos have been made affordable because session are where the majority of progress is made).
 
-- My discussion with a working coach made it clear that there is a large range of pricing based on the client themselves. Students looking for interview preparation are given vastly reduced rates compared to CEOs of large comapnies or civil servants working in politics for example. In the cash-in-hand analog world this is simple, the coach changes the rate by simply saying a lower or higher number in the moment. When we try to systematize this for the online business we need a discreet method for this so that clients paying higher prices do not feel that the price is unfair. My solution to this is a dynamic system for the Coach User to generate and distribute discount codes.
-- Discount codes need to work cleanly and effectively so they can be distributed on social media, in newsletters, in direct communications. We can also use the account registration process to filter the users and target which grade of discount is sent to them in emails, or even inside on-site advertisements. 
+- **E-sessions** start at €120 for a single session. This reduces depending on the number of session **tokens** purchased at one time.
 
-A newsletter with subscription option needs to open once with a pop-up including offer of discount. Newsletter released with each new set of videos. No regular spam bullshit. 
+- My discussion with a working coach made it clear that there is a large range of pricing based on the client themselves. **Students** looking for interview preparation are given vastly reduced rates compared to **CEOs** of large companies or **civil servants** working in politics for example. In the cash-in-hand analog world this is simple, the coach changes the rate by simply saying a lower or higher number in the moment and agreeing this with the client. When we try to systematize this for the **online business** we need a discreet method for this so that clients paying higher prices do not feel that the price is unfair or inflated. My solution to this is a dynamic system for the Coach User to generate and distribute discount codes.
+- **Discount codes** need to work cleanly and effectively so they can be distributed on **social media**, in **newsletters**, in **direct communications**. We can also use the account registration process to filter the users and target which grade of discount is sent to them in emails, or even inside on-site advertisements. 
 
-Online “E-Session” slots. Clients can book these appointments and pre-pay. Coach must keep these appointment and block out unavailability ahead of time. Could offer first session free after sign-up for discovery and assessment. This could be achieved with a calendar booking system.
+- A **newsletter with subscription** option needs to open once with a pop-up including offer of discount. Newsletter is distributed with each new set of videos, or major event. I believe a policy of **minimizing spamming** registered clients will encourage retainment of this client-base.
 
-On-demand E-session slots are a chance to engage in a new client. A method of connecting with a tentative potential client which is the challenge as people lacking confidence struggle to reach out. COACH DICTATE PRICE PLEASE
+- Online “**E-Session**” slots. Clients can book these appointments and pre-pay by purchasing tokens. The client redeems the tokens by booking a time slot for an appointment. The Coach must keep these appointments and block out unavailability ahead of time to avoid cancellations or clashes. This is achieved with a **calendar booking system**. Similar to the AirBnB booking model.
+- The coach will offer first session free after sign-up for a **discovery and assessment** chat. Usually 15 minutes. 
+- **Discovery sessions** are a chance to engage with a new client. A method of connecting with a tentative potential client. It's important to acknowledge that some, certainly not all, but some clients are interested because they feel they are lacking in confidence, this trait itself means they may struggle to reach out. Knowing that a proportion of the Coaches target market is skittish is important. These people need to be shown that this is a safe, trustworthy, reliable service, even more than other clients. The first interaction needs to be made easy, the coach approachable and the service is clearly confidential. **Confidentiality is key** to this industry. 
 
-Contact form for In-person sessions. Need to discuss preferences of the coach
+- **Contact form** for In-person sessions. This is a more intimate and ultimately extranious service but it is an extension of the business and needs to be available. 
 
-Selling tickets to group session is also a great way to offer an affordable entry for tentative clients. Now it’s likely early on that anyone booking may find themselves in a one-to-one. This can be made clear that it’s a potential on quieter weeks and a bonus for them if they are so lucky to get a private session at a discounted group rate. COACH DICTATE PRICES PLEASE
+- Selling tickets to **group sessions** is also a great way to offer an affordable entry for tentative clients. Now it’s likely early on that anyone booking may find themselves in a one-to-one. This can be made clear that it’s a potential on quieter weeks and a bonus for them if they are so lucky to get a private session at a discounted group rate. 
 
-About Section needs to address the history of the coach and blend every story with how that relates to the type of coaching being offered.
+- **About Section** needs to address the history of the coach and blend every story with how that relates to the type of coaching being offered. 
 
-Testimonials (can be fake or real depending on availability) can create a form for these to be recorded electronically after sessions if necessary. Maybe ask professionals coach has worked with previously for one liner quotes. Too awkward then ask family or I will make them up. 
-Resources section : this is where the coach can show their knowledge and keenness to impart confidence and wisdom on the client. Can be a list of book, sites, videos. Must not redirect to other coaches unless agreed with other coach previously and not funneling business away. Good to inform, no point shooting self in the foot. 
+- **Testimonials** (unfortunetly fabricated, currently) are a chance for helpful, honest and precise advertising of the service being provided. We can create a form for these to be recorded electronically after sessions. Asking professional colleagues of the coach for one liner quotes is also effective. 
 
-Tech Specs : 
-Need to be able to login with email, username or social accounts links, namely Facebook and Google 
-Need to be able to pay with card, Apple Pay or PayPal
-Bookings should be able to push an appointment to Google calendar of client or outlook calendar.
-A video conferencing tool might be useful. Equally an emailed video link for Google chat or zoom might be better quality and just as good. Offer FaceTime as an alternative option for IPhone users. 
-Needs its own domain
-Not expecting drastic traffic. Heroku hosting should be fine.
+- **Resources section**; this is where the coach can show their knowledge and keenness to impart confidence and wisdom on the client. Can be a list of book, sites, videos. Must not redirect to other coaches unless agreed with other coach previously and not funneling business away. Good to inform, no point shooting self in the foot. 
 
-Accessibility :
-site will be fully accessible with hidden features for users with disabilities, image tags and text on all features for clients with screen readers. 
+- **Pathing**; un-authorised users can browse all content and videos without playing them while not logged in. Only logged in accounts can access the videos they have paid for.
+Account page of users shows previous purchases and session bookings. Some taster content needs to be available. 
 
-Pathing :
-users can browse all content and videos without playing them while not logged in. Only logged in accounts can access the videos they have paid for.
-Account page of users shows previous purchases and session bookings 
+- **Gifting**; session or session bundles as well as video access can be purchased as a gift. This does not authorise the buyer account but generates a code and email sent to a target email address. This is sent to the recipient email. The recipient can create an account and cash in the gift of videos or sessions which will be debited to their account.
 
-Booked Sessions :
-Authorised accounts could pay for sessions in singles or bundles. This contains all the coaches payments to a single platform. Organised their schedule and leaves room for moving or rebooking sessions.
-This keeps cash out of the equation which feels more professional and keeps the coaches image clean. Also avoids issues with clients forgetting to pay or not bringing cash on the day.
-If the coach needs to rebook there needs to be a process for this. The client account is refunded a session, an email is sent, and they are able to rebook a free slot in the calendar. 
+- **Business Services**; it’s good to advertise B2B services but we will keep this to a contact form with a brief About Section describing the business courses. No business will buy online and it distracts/intimidates private clients. 
 
-Vibe :
-Confidence / Clarity / impact 
-Practicing what you preach is important. Messages and processes need to be extra clear and effective.
-There is a tendency towards some pushy salesmanship from some coaches site. Particularly Americans that I’ve looked over. This could be a culture thing. Driving with negative fear building statements (“you don’t know what you’re missing”, “can you afford not to take this course”). But I really don’t like this and think there is a gentle pragmatic approach that allows the client to come to you willingly or walk off if they feel it’s not right. 
-This positive gentle approach also fosters a more positive community, client retention and recommendations by word of mouth. 
-Aesthetically there needs to be a clear brand image. A logo and continuation in the typography. 
-Classy, legible, soothing tones. I like off-white skin tones with a single brand colour. 
-A three word mantra for a tag line. This defines your brand. They are the words the client says to their friend across the water cooler.
-Trustworthy, quality service, approachable by all
+- Only authorised accounts are able to purchase products. All the coaches **payments are contained** to the single platform. No cash or transfers to negotiate. The calendar organises their schedule and leaves room for moving or rebooking sessions.
+- Keeping cash out of the equation feels **more professional** and keeps the coaches interactions **focused on the client**. Also avoids issues with clients forgetting to pay or not bringing cash on the day. Everything is automated and upfront.
+- If the coach needs to rebook, there needs to be a process for this. The client account is refunded a session, an email is sent, and they are able to rebook a free slot in the calendar. 
 
-Business Services :
-It’s good to advertise B2B services but we will keep this to a contact form with a brief About Section describing the business courses. No business will buy online and it distracts/intimidates private clients. 
+# Rules : <br>
+**Clear rules and boundaries** are key for keeping the interactions **smooth and professional** and supporting the client's feeling of trust. 
+- Clients can **cancel** up to 24 hours before a session. Session token is **refunded** and they can book again. 
+- **Cancellations** within 24 hours from the booked session slot and the token is consumed.
+- More than 15 minutes **lateness** will result in cancellation. No reason, no problem, this is a no-blame platform. Valid reason given via email then coach can refund token at own discretion. (Simple tool for this in site will be included). 
+- If client buys several session and then doesn’t want the remainder after a session it is fine to **refund** these. No point being stingey if it costed coach no more time. No refund on gifted sessions. 
+- Session must be used within 12 months or they will be **cancelled**. This encourages use.
 
-Gifting : 
-Session or session bundles as well as video access can be purchased as a gift. This does not authorise the buyer account but generates a code and email. This is sent to the recipient email. The recipient can create an account and cash in the gift of videos or sessions which will be debited to their account
+# Aesthetics, Vibe & Feeling :
+## Confidence / Clarity / impact 
+- Practicing what you preach is important. Messages and processes need to be extra clear and effective.
+- There is a tendency towards some pushy salesmanship from some coaches site. Particularly Americans that I’ve looked over. This could be a culture thing. Driving with negative fear building statements (“you don’t know what you’re missing”, “can you afford not to take this course”). But I really don’t like this and think there is a gentle pragmatic approach that allows the client to come to you willingly or walk off if they feel it’s not right. 
+- This positive gentle approach also fosters a more positive community, client retention and recommendations by word of mouth. 
+- Aesthetically there needs to be a clear brand image. A logo and continuation in the typography. 
+- Classy, legible, soothing tones. I like off-white skin tones with a single brand colour. 
+- A three word mantra for a tag line. This defines your brand. They are the words the client says to their friend across the water cooler.
+- A Trustworthy, quality service, approachable by all
 
-CONTENT TYPES :
+# CONTENT TYPES :
 Content always needs to include a practical tip for the client. What can they do to improve. 
-
 
 Videos:
 example of problem behaviour / description of why people do this / practical solutions 
@@ -92,13 +102,6 @@ Video quality needs to be high, sound quality needs to be immaculate, setting sh
 These are tasters for clients to feel a little of what coach’s E-session feel like. They should feel satisfied with the content and keen absorbers should want to feel comfortable with wanting to ask more questions, this is what sessions are for. 
 Complex videos should be book ended with an acknowledgment that this is an overview and that watchers who find the content helpful but feel they need more should reach out for a discovery chat, don’t push bookings or further payments. Need to speak and see if coach can help first. 
 
-Rules: 
-Clients can cancel up to 24 hours before a session.
-Session token is refunded and they can book again. 
-Within 24 hours session is consumed.
-More than 15 minutes lateness will result in cancellation. No reason, no problem. Valid reason given via email then coach can refund token at own discretion. (Simple tool for this in site will be included. 
-If client buys several session and then doesn’t want the remainder after a session it is fine to refund these. No point being stingey if it costed coach no more time. No refund on gifted sessions. 
-Session must be used within 12 months or they will be cancelled. This encourages use.
 
 Media Theory:
 Rotate one inspirational tid bit – one video with advice for screen actors – one advert for coaching – one – one video for communication coaching – one tid bit poster – one advert – one 
