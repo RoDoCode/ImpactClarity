@@ -1,5 +1,16 @@
+# James Dunne Coaching - A Communication Coaching Website
+<img src="static/images/screen_01.png" ><br>
+<hr>
 
-# Site Features :
+## Overview
+This project is designed and developed as a platform for a communications coaching business. User's are able to purchase access to educational videos in single units or sets of videos. They are also able to purchase tokens which are used to book one to one online coaching sessions. All these functionalities are available to any user with an account. <br>
+The website was created for private clients to manage their coaching sessions, B2C, but there is no reason that businesses wouldn't also use a client profile, B2B; a single member of an HR department could distribute session tokens to many members of a company through the gifting mechanic. <br>
+**James Dunne Coaching - cookbook building website** was developed using Python (Django), HTML, CSS and JavaScript by storing the data in a PostgreSQL database.
+<br><br>
+The fully deployed project can be accessed at [this link](https://jdcoaching-49c095ee8d82.herokuapp.com/).<br><br>
+
+
+## Site Features :
 - Single Payment system (not subscription), using Stripe. Users can pay by card or using ApplePay or GooglePay.
 - Discount code functionality
 - Purchasing video tutorial access and session tokens
@@ -17,9 +28,11 @@
 - Its own domain
 - Fully accessible with hidden features for users with disabilities, image tags and text on all features for clients with screen readers.
 - Gifting functionality
+- links to social accounts
+- code of conduct page
 
 
-# Business Plan & Analysis :
+## Business Plan & Analysis :
 - After **discussion with a coach** currently working in the industry it's clear this is a **premium service**, generally expected to be more expensive than psychotherapy sessions for example which have a continuous expectation of repeated sessions, Communications Coaching is more often a sort of finishing schooling, sometimes a single session is all that is required to teach the necessary skill or technique to solve a clients specific challenge. Most commonly a **short set of 5 or 6 sessions** is what clients settle on. They iterate and perfect communication techniques by taking what they have learned in a session back into their lives, trying it out, then returning to the coach with the result for further development, practice and advice. This model means that clients have a much shorter half-life in communication coaching than in other comparable coaching industries. 
 
 - **Video tutorials** are purposefully affordable, designed to encourage sign up to online or in-person coaching sessions. They are an introduction to the coaches voice and style. 
@@ -60,7 +73,7 @@ Account page of users shows previous purchases and session bookings. Some taster
 - Keeping cash out of the equation feels **more professional** and keeps the coaches interactions **focused on the client**. Also avoids issues with clients forgetting to pay or not bringing cash on the day. Everything is automated and upfront.
 - If the coach needs to rebook, there needs to be a process for this. The client account is refunded a session, an email is sent, and they are able to rebook a free slot in the calendar. 
 
-# Rules : <br>
+## Rules : <br>
 **Clear rules and boundaries** are key for keeping the interactions **smooth and professional** and supporting the client's feeling of trust. 
 - Clients can **cancel** up to 24 hours before a session. Session token is **refunded** and they can book again. 
 - **Cancellations** within 24 hours from the booked session slot and the token is consumed.
@@ -68,64 +81,60 @@ Account page of users shows previous purchases and session bookings. Some taster
 - If client buys several session and then doesn’t want the remainder after a session it is fine to **refund** these. No point being stingey if it costed coach no more time. No refund on gifted sessions. 
 - Session must be used within 12 months or they will be **cancelled**. This encourages use.
 
-# Aesthetics, Vibe & Feeling :
-## Confidence / Clarity / impact 
+## Aesthetics, Vibe & Feeling :
+### Confidence / Clarity / impact 
 - Practicing what you preach is important. Messages and processes need to be extra clear and effective.
-- There is a tendency towards some pushy salesmanship from some coaches site. Particularly Americans that I’ve looked over. This could be a culture thing. Driving with negative fear building statements (“you don’t know what you’re missing”, “can you afford not to take this course”). But I really don’t like this and think there is a gentle pragmatic approach that allows the client to come to you willingly or walk off if they feel it’s not right. 
+- There is a tendency towards some pushy salesmanship from some coaches site. This could be a culture thing within subsets of the industry. Driving with negative fear building statements (“you don’t know what you’re missing”, “can you afford not to take this course”). But I really don’t like this and think there is a gentle pragmatic approach that allows the client to come to you willingly or walk off if they feel it’s not right. 
 - This positive gentle approach also fosters a more positive community, client retention and recommendations by word of mouth. 
 - Aesthetically there needs to be a clear brand image. A logo and continuation in the typography. 
-- Classy, legible, soothing tones. I like off-white skin tones with a single brand colour. 
+- Classy, legible, soothing tones. I like off-white skin tones with a single bolder brand colour lightly sprinkled in. 
 - A three word mantra for a tag line. This defines your brand. They are the words the client says to their friend across the water cooler.
-- A Trustworthy, quality service, approachable by all
+- A Trustworthy, Quality service, Approachable by all.
 
-# CONTENT TYPES :
-Content always needs to include a practical tip for the client. What can they do to improve. 
+## CONTENT TYPES :
+Content always needs to include a practical tips for the client. What can they do to improve. It's easy to wax lyrical about confidence and communicating when talking to a camera. We are naturally used to aback and forth interaction, this is when we conversationally handover useful tips organically. However defining this as a media policy encourages the coach and content editor to remember that this is not a standard conversation and they need to impart useful advice as if the user had already expressed their problem and requested specific assistance in the area the video is focusing on. <br>
+#### example of problem behaviour / description of why people do this / practical solutions 
 
-Videos:
-example of problem behaviour / description of why people do this / practical solutions 
-Theory vids : mindset and ways to encourage this 
-Video set examples : 
-Confidence Vocal Techniques
-Clarity in Body Language
-Managing Confrontation 
-Business Communication 
-Confident Lifestyle Choices
-Communicating in Close Relationships
-Parenting - Communicating with Children
-Women in Business - Dealing with Challenges
-Successful Interview Technique
-Managing People with Clarity
-Impact Public Speaking
-Feeling Comfortable in Social Settings
-First Impressions with Gravity
-Video quality needs to be high, sound quality needs to be immaculate, setting should be calming and focused on coach. No AI blur effects. Waist to head unless legs are needed for content. Looking at the lense. Should feel natural, like a one to one. 
-These are tasters for clients to feel a little of what coach’s E-session feel like. They should feel satisfied with the content and keen absorbers should want to feel comfortable with wanting to ask more questions, this is what sessions are for. 
-Complex videos should be book ended with an acknowledgment that this is an overview and that watchers who find the content helpful but feel they need more should reach out for a discovery chat, don’t push bookings or further payments. Need to speak and see if coach can help first. 
+### Example Video Tutorial Series: 
+    - Confidence Vocal Techniques
+    - Clarity in Body Language
+    - Managing Confrontation 
+    - Business Communication 
+    - Confident Lifestyle Choices
+    - Communicating in Close Relationships
+    - Parenting - Communicating with Children
+    - Women in Business - Dealing with Challenges
+    - Successful Interview Technique
+    - Managing People with Clarity
+    - Impact Public Speaking
+    - Feeling Comfortable in Social Settings
+    - First Impressions with Gravity
+
+### Standards: 
+- Video quality needs to be high, sound quality needs to be immaculate, setting should be calming and focused on coach. No AI blur effects. Waist to head unless legs are needed for content. Looking at the lense. Should feel natural, like a one to one. 
+- These are tasters for clients to feel a little of what coach’s E-session feel like. They should feel satisfied with the content and keen absorbers should want to feel comfortable with wanting to ask more questions, this is what sessions are for. 
+- Complex videos should be book ended with an acknowledgment that this is an overview and that watchers who find the content helpful but feel they need more should reach out for their free discovery chat which came included with their account, don’t push bookings or further payments. Clients and coach need to speak and see how coach can help first.
+- Always remember this is a human interaction in which we are overcoming the distance caused by the camera.
 
 
-Media Theory:
-Rotate one inspirational tid bit – one video with advice for screen actors – one advert for coaching – one – one video for communication coaching – one tid bit poster – one advert – one 
-Video with useful tip taken while walking
-Board with quote from someone you admire and a break down of what that means to you
-Board advert for coaching
-Video snippet from an interview
-Board advice for screen actors or coaching for communicating
-Board advert for coaching
-Rinse repeat
-NEED TO INCLUDE MASSIVE LIST OF KEYWORDS HIDDEN BEHIND VIDEO FOR SEO
+## Social Media Theory:
+### Instgram Post Schedule:
+- Rotate one of each of these types of posts daily: <br><br>
 
---------------------------------
+- Video with useful tip taken while walking
+- Board with quote from someone coach admires and a break down of what that means to them in the post notes
+- Board advert for coaching session or the site (boiler plate post notes)
+- Video snippet from an interview with coach
+- Board advice for specific client demographic in need of coaching for communicating
+- Board advert for tutorial videos
+- Video direct to camera with advice of the week ( this is optional at coaches discretion )
+Rinse & Repeat <br>
 
-# James Dunne Coaching - A Communication Coaching Website
-<img src="static/images/screen_01.png" ><br>
-<hr>
+#### Instagram content details:
+- We will always include an extensicve list of keywords hidden within videos and images for search engine optimization to reach the largest number of relevant users connect by the social platforms algorithm.
+- A backlog of this content can be made so that posting is a 5 minute activity for the coach each morning or every other morning. 
+- Creating an account which is connected to as many organisations and groups as possible to increase reach of content to users who are interested is key to this social media strategy. 
 
-## Overview
-This project is designed and developed as a platform for a communications coaching business. User's are able to purchase access to educational videos in single units or sets of videos. They are also able to purchase tokens which are used to book one to one online coaching sessions. All these functionalities are available to any user with an account. <br>
-The website was created for private clients to manage their coaching sessions, B2C, but there is no reason that businesses wouldn't also use a client profile, B2B; a single member of an HR department could distribute session tokens to many members of a company through the gifting mechanic. <br>
-**James Dunne Coaching - cookbook building website** was developed using Python (Django), HTML, CSS and JavaScript by storing the data in a PostgreSQL database.
-<br><br>
-The fully deployed project can be accessed at [this link](https://jdcoaching-49c095ee8d82.herokuapp.com/).<br><br>
 
 ## UX
 This site was created respecting the Five Planes Of Website Design:<br>
