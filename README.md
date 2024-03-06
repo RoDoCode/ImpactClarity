@@ -118,7 +118,7 @@ Content always needs to include a practical tips for the client. What can they d
 
 ## Coaching Differentiation:
 There are many different types of coaching and often the same coach can offer several forms of coaching based on their skill set. These types of coaching are umbrella terms for groups of skills and techniques as well as types of interactions the coach and client expect to have with each other. <br>
-This is another way to separate price brackets. We can either keep the price of a token the same and clients can exchange a token for any type of session booking, the price differentiated with discount codes or there are different types of session tokens as well as discount codes. This seems to me to be a more effective way of handling. Different coaching session types can also have an effect of the booking system, longer or shorter session slots for example. The coach will be able to see on their schedule the type of coaching sessions they have for the day ahead.<br>
+This is another way to separate price brackets. We could keep the price of a token fixed and clients can exchange a token for any type of session booking; the price differentiated with discount codes. Or there are different types of session tokens as well as discount codes. This seems to me to be a more effective way of handling. Different coaching session types can also have an effect of the booking system, longer or shorter session slots for example. The coach will be able to see on their schedule the type of coaching sessions they have for the day ahead.<br>
 Session type examples:
 - Communication Coaching
 - Confidence Coaching
