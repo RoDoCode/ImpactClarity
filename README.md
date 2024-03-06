@@ -1,13 +1,13 @@
-# James Dunne Coaching - A Communication Coaching Website
+# Impact Clarity Coaching - A Communication Coaching Website
 <img src="static/images/screen_01.png" ><br>
 <hr>
 
 ## Overview
-This project is designed and developed as a platform for a communications coaching business. User's are able to purchase access to educational videos in single units or sets of videos. They are also able to purchase tokens which are used to book one to one online coaching sessions. All these functionalities are available to any user with an account. <br>
+This project is designed and developed as a platform for a communication coaching business. User's are able to purchase access to educational videos in single units or sets of videos. They are also able to purchase tokens which are used to book one-to-one online coaching sessions. All these functionalities are available to any user with an account. <br>
 The website was created for private clients to manage their coaching sessions, B2C, but there is no reason that businesses wouldn't also use a client profile, B2B; a single member of an HR department could distribute session tokens to many members of a company through the gifting mechanic. <br>
-**James Dunne Coaching - cookbook building website** was developed using Python (Django), HTML, CSS and JavaScript by storing the data in a PostgreSQL database.
+**Impact Clarity Coaching** was developed using Python (Django), HTML, CSS and JavaScript by storing the data in a PostgreSQL database.
 <br><br>
-The fully deployed project can be accessed at [this link](https://jdcoaching-49c095ee8d82.herokuapp.com/).<br><br>
+The fully deployed project can be accessed at [this link](https://impactclarity.com/).<br><br>
 
 
 ## Site Features :
@@ -25,34 +25,34 @@ The fully deployed project can be accessed at [this link](https://jdcoaching-49c
 - Login with email, username or social accounts links, namely Facebook and Google 
 - Bookings should be able to push an appointment to Google calendar of client or outlook calendar.
 - A video conferencing tool or an emailed video link for GoogleChat/Zoom/Teams. (Potentially offer FaceTime as an alternative option for IPhone users). 
-- Its own domain
+- Site bespoke domain
 - Fully accessible with hidden features for users with disabilities, image tags and text on all features for clients with screen readers.
 - Gifting functionality
-- links to social accounts
+- links to coach related social accounts
 - code of conduct page
 
 
 ## Business Plan & Analysis :
-- After **discussion with a coach** currently working in the industry it's clear this is a **premium service**, generally expected to be more expensive than psychotherapy sessions for example which have a continuous expectation of repeated sessions, Communications Coaching is more often a sort of finishing schooling, sometimes a single session is all that is required to teach the necessary skill or technique to solve a clients specific challenge. Most commonly a **short set of 5 or 6 sessions** is what clients settle on. They iterate and perfect communication techniques by taking what they have learned in a session back into their lives, trying it out, then returning to the coach with the result for further development, practice and advice. This model means that clients have a much shorter half-life in communication coaching than in other comparable coaching industries. 
+- After **discussion with a coach** currently working in the industry it's clear this is a **premium service**, generally expected to be more expensive than psychotherapy sessions for example which have a continuous expectation of repeated sessions, Communications Coaching is more often a sort of finishing schooling, sometimes a single session is all that's required to teach the necessary skill or technique to solve a clients specific challenge. Most commonly a **short set of 5 or 6 sessions** is what clients settle on. They iterate and perfect communication techniques by taking what they have learned in a session back into their lives, trying it out, then returning to the coach with the result for further development, practice and advice. This model means that clients have a much shorter half-life in communication coaching than in other comparable coaching industries. An active media strategy to encourage high enough traffic to make the business sustainable is required for this reason. 
 
 - **Video tutorials** are purposefully affordable, designed to encourage sign up to online or in-person coaching sessions. They are an introduction to the coaches voice and style. 
 - Some customers will be satisfied with videos, this acts as **passive income** for the coach and filters favourable clients who are familiar and already like coach’s style.
 - Video tutorials are 25 minutes each. They are released in **Tutorial Series**. Access to Tutorials and Tutorial Series can be **purchased individually or bundles**.
 
-- €10 for a single video tutorial, €25 a bundle of three or €50 for Tutorial Series of 6 or more videos. This is considered relatively cheap as the clients who usually require this service are already successful in their field and looking to hone their interpersonal skills to a fine point. (Pricing is difficult from the persepective of the coach, too high and you alienate a portion of your client-base, too low and you undervalue yourself. We have to balance self-valuation with accessibility. Openly addressing this low cost in the content can be most confident thing to do. Stating that videos have been made affordable because session are where the majority of progress is made).
+- €10 for a single video tutorial, €25 a bundle of three or €50 for Tutorial Series of 6 or more videos. This is considered relatively cheap as the clients who usually require this service are already successful in their field and looking to hone their interpersonal skills to a fine point. (Pricing is difficult from the persepective of the coach, too high and you alienate a portion of your client-base, too low and you undervalue yourself. We have to balance self-valuation with accessibility. Openly addressing this costing challenge in the content can be the most confident thing to do. Stating something along the lines of "videos have been made affordable because session are where the majority of progress is made".
 
 - **E-sessions** start at €120 for a single session. This reduces depending on the number of session **tokens** purchased at one time.
 
-- My discussion with a working coach made it clear that there is a large range of pricing based on the client themselves. **Students** looking for interview preparation are given vastly reduced rates compared to **CEOs** of large companies or **civil servants** working in politics for example. In the cash-in-hand analog world this is simple, the coach changes the rate by simply saying a lower or higher number in the moment and agreeing this with the client. When we try to systematize this for the **online business** we need a discreet method for this so that clients paying higher prices do not feel that the price is unfair or inflated. My solution to this is a dynamic system for the Coach User to generate and distribute discount codes.
+- My discussion with a working coach made it clear that there is a large range of pricing based on the client themselves. **Students** looking for interview preparation are given vastly reduced rates compared to **CEOs** of large companies which differs again from **civil servants** working in politics for example. In the cash-in-hand analog world this is simple, the coach changes the rate by simply saying a lower or higher number in the moment and agreeing this with the client. When we try to systematize this for the **online business** we need a discreet (in both senses) method for this so that clients paying higher prices do not feel that the price is unfair or inflated. My solution to this is a dynamic system for the Coach User to generate and distribute discount codes along with differentiated coaching sessions.
 - **Discount codes** need to work cleanly and effectively so they can be distributed on **social media**, in **newsletters**, in **direct communications**. We can also use the account registration process to filter the users and target which grade of discount is sent to them in emails, or even inside on-site advertisements. 
 
-- A **newsletter with subscription** option needs to open once with a pop-up including offer of discount. Newsletter is distributed with each new set of videos, or major event. I believe a policy of **minimizing spamming** registered clients will encourage retainment of this client-base.
+- A **newsletter with subscription** option needs to open once with a pop-up including offer of discount. Repeated pop-up are a nuisance and have been avoided. Newsletter is distributed each time a new set of videos is released, or at major events deemed by the coach. I believe a policy of **minimizing spamming** registered clients will encourage retainment of this client-base.
 
 - Online “**E-Session**” slots. Clients can book these appointments and pre-pay by purchasing tokens. The client redeems the tokens by booking a time slot for an appointment. The Coach must keep these appointments and block out unavailability ahead of time to avoid cancellations or clashes. This is achieved with a **calendar booking system**. Similar to the AirBnB booking model.
 - The coach will offer first session free after sign-up for a **discovery and assessment** chat. Usually 15 minutes. 
-- **Discovery sessions** are a chance to engage with a new client. A method of connecting with a tentative potential client. It's important to acknowledge that some, certainly not all, but some clients are interested because they feel they are lacking in confidence, this trait itself means they may struggle to reach out. Knowing that a proportion of the Coaches target market is skittish is important. These people need to be shown that this is a safe, trustworthy, reliable service, even more than other clients. The first interaction needs to be made easy, the coach approachable and the service is clearly confidential. **Confidentiality is key** to this industry. 
+- **Discovery sessions** are a chance to engage with a new client. A method of connecting with a tentative potential client. It's important to acknowledge that some, certainly not all, but some clients are interested because they feel they are lacking in confidence, this trait itself means they may struggle to reach out. Knowing that a proportion of the Coaches target market is skittish is important. These people need to be shown that this is a safe, trustworthy, reliable service, even more than other clients. The first interaction needs to be made easy, the coach approachable and the service clearly confidential. **Confidentiality is key** to this industry. 
 
-- **Contact form** for In-person sessions. This is a more intimate and ultimately extranious service but it is an extension of the business and needs to be available. 
+- **Contact form** for In-person sessions. This is a more intimate service but it is an extension of the business and needs to be available via the platform. 
 
 - Selling tickets to **group sessions** is also a great way to offer an affordable entry for tentative clients. Now it’s likely early on that anyone booking may find themselves in a one-to-one. This can be made clear that it’s a potential on quieter weeks and a bonus for them if they are so lucky to get a private session at a discounted group rate. 
 
