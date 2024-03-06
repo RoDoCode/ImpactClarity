@@ -116,6 +116,22 @@ Content always needs to include a practical tips for the client. What can they d
 - Complex videos should be book ended with an acknowledgment that this is an overview and that watchers who find the content helpful but feel they need more should reach out for their free discovery chat which came included with their account, don’t push bookings or further payments. Clients and coach need to speak and see how coach can help first.
 - Always remember this is a human interaction in which we are overcoming the distance caused by the camera.
 
+## Coaching Differentiation:
+There are many different types of coaching and often the same coach can offer several forms of coaching based on their skill set. These types of coaching are umbrella terms for groups of skills and techniques as well as types of interactions the coach and client expect to have with each other. <br>
+This is another way to separate price brackets. We can either keep the price of a token the same and clients can exchange a token for any type of session booking, the price differentiated with discount codes or there are different types of session tokens as well as discount codes. This seems to me to be a more effective way of handling. Different coaching session types can also have an effect of the booking system, longer or shorter session slots for example. The coach will be able to see on their schedule the type of coaching sessions they have for the day ahead.<br>
+Session type examples:
+- Communication Coaching
+- Confidence Coaching
+- Mindset Coaching
+- Vocal Coaching
+- Interview Coaching
+- Corporate Interaction Coaching
+- Management Coaching
+- Parenting Coaching
+- Role Playing Session
+- 6-Week Confident Course
+The last example is a bundle course. The purchase buys 6 tokens, for one session each week. <br>
+The Coach should be able to book slots for clients and manage tokens in user accounts.  
 
 ## Social Media Theory:
 ### Instgram Post Schedule:
