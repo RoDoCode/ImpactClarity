@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-4=0yhe4(99o0zo%fd#jq88zgxe7=w%%jhn@e*34@3jserl4%2l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-rodocode-jdcoaching-jrulornkxu8.ws-eu108.gitpod.io']
+ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io']
 
 
 # Application definition
