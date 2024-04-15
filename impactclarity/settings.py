@@ -30,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # DEBUG = 'DEVELOPMENT' in os.environ
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io', 'local-host', 'impactclarity.herokuapp.com']
+ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io', 'local-host', 'https://impactclarity-158dbf752d6b.herokuapp.com']
 
 
 # Application definition
