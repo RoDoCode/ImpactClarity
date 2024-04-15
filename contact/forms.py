@@ -4,5 +4,5 @@ from django import forms
 
 class ContactForm(forms.ModelForm):
     class Meta:
-        model = CollaborateRequest
+        model = ContactRequest
         fields = ('name', 'email', 'message')
