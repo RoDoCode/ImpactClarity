@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 from .env import *
 
@@ -29,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # DEBUG = 'DEVELOPMENT' in os.environ
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io', 'local-host', 'impactclarity.herokuapp.com']
 
 
 # Application definition
@@ -137,6 +138,7 @@ if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
+    'default': dj_database_url.parse('your-database-url-here')
 else:
     DATABASES = {
         'default': {
@@ -144,6 +146,7 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+
 
 
 # Password validation
