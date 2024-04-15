@@ -24,13 +24,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-4=0yhe4(99o0zo%fd#jq88zgxe7=w%%jhn@e*34@3jserl4%2l'
-# SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = True
 
-ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io', 'local-host', 'https://impactclarity-158dbf752d6b.herokuapp.com']
+ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io', 'localhost', 'https://impactclarity-158dbf752d6b.herokuapp.com']
 
 
 # Application definition
