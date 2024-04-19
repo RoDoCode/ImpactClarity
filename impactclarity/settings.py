@@ -30,7 +30,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 # DEBUG = True
 
-ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io', 'localhost', 'https://impactclarity-158dbf752d6b.herokuapp.com', 'impactclarity-158dbf752d6b.herokuapp.com']
+ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io',
+    'localhost', 
+    'https://impactclarity-158dbf752d6b.herokuapp.com', 
+    'impactclarity-158dbf752d6b.herokuapp.com',
+    'www.impactclarity.com']
 
 
 # Application definition
