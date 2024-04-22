@@ -28,6 +28,10 @@ class Product(models.Model):
                                  blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    duration = models.PositiveIntegerField(default=20)
+    series_no = models.ForeignKey("Series.series_no", on_delete=models.SET_NULL, null=True, verbose_name='Series Number')
+    video_url = models.()
+    video = models.()
 
     def __str__(self):
         return self.name
