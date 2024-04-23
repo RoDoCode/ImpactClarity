@@ -16,6 +16,22 @@ class Category(models.Model):
         return self.friendly_name
 
 
+class Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Series'
+
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    series_no = models.PositiveIntegerField(unique=True, max_length=3)
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
 class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True,
                                  on_delete=models.SET_NULL)
@@ -28,10 +44,10 @@ class Product(models.Model):
                                  blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    duration = models.PositiveIntegerField(default=20)
+    duration = models.PositiveIntegerField(default=20, max_length=3)
     series_no = models.ForeignKey("Series.series_no", on_delete=models.SET_NULL, null=True, verbose_name='Series Number')
-    video_url = models.()
-    video = models.()
+    video_url = models.URLField(max_length=1024, null=True, blank=True)
+    video = models.FileField(upload_to="uploads/", null=True, blank=True)
 
     def __str__(self):
         return self.name
