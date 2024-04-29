@@ -11,7 +11,8 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'price',
         'rating',
-        'image',
+        'image_url',
+        'video_url',
     )
 
     ordering = ('sku',)
@@ -21,6 +22,15 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
+    )
+
+
+class SeriesAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'name',
+        'series_no',
+        'categories',
     )
 
 

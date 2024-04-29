@@ -23,8 +23,7 @@ class Series(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     series_no = models.PositiveIntegerField(unique=True)
-    category = models.ForeignKey('Category', null=True, blank=True,
-                                 on_delete=models.SET_NULL)
+    categories = models.ManyToManyField(Category, related_name='series', blank=True,)
 
     def __str__(self):
         return self.name
