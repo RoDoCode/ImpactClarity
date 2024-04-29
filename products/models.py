@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 import uuid
 
 
@@ -44,7 +45,7 @@ class Product(models.Model):
                                  blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    duration = models.PositiveIntegerField(default=20)
+    duration = models.CharField(default="20 minutes", max_length=254, null=True, blank=True)
     series_no = models.ForeignKey("Series", on_delete=models.SET_NULL, null=True, verbose_name='Series Number')
     video_url = models.URLField(max_length=1024, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
