@@ -32,7 +32,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 # DEBUG = True
 
 ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io',
-    'localhost', 
+    'localhost', '8000-rodocode-impactclarity-6rhr6dufy0o.ws-eu110.gitpod.io',
     'https://impactclarity-158dbf752d6b.herokuapp.com', 
     'impactclarity-158dbf752d6b.herokuapp.com',
     'www.impactclarity.com']
