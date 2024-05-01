@@ -75,7 +75,7 @@ def remove_from_bag(request, item_id):
 
 # ADDING/ADJUSTING/REMOVING SERIES IN BAG
 
-def add_to_bag(request, item_id):
+def add_series_to_bag(request, item_id):
     """ Add a quantity of the specified series to the shopping bag """
 
     series = get_object_or_404(Series, pk=item_id)
@@ -95,7 +95,7 @@ def add_to_bag(request, item_id):
     return redirect(redirect_url)
 
 
-def adjust_bag(request, item_id):
+def adjust_series_in_bag(request, item_id):
     """Adjust the quantity of the specified series to the specified amount"""
 
     series = get_object_or_404(Series, pk=item_id)
@@ -117,7 +117,7 @@ def adjust_bag(request, item_id):
     return redirect(reverse('view_bag'))
 
 
-def remove_from_bag(request, item_id):
+def remove_series_from_bag(request, item_id):
     """Remove the item from the shopping bag"""
 
     try:
@@ -137,7 +137,7 @@ def remove_from_bag(request, item_id):
 
 # ADDING/ADJUSTING/REMOVING CoachingToken IN BAG
 
-def add_to_bag(request, item_id):
+def add_token_to_bag(request, item_id):
     """ Add a quantity of the specified coachingtoken to the shopping bag """
 
     coachingtoken = get_object_or_404(CoachingToken, pk=item_id)
@@ -158,7 +158,7 @@ def add_to_bag(request, item_id):
     return redirect(redirect_url)
 
 
-def adjust_bag(request, item_id):
+def adjust_token_in_bag(request, item_id):
     """Adjust the quantity of the specified coachingtoken to the specified amount"""
 
     coachingtoken = get_object_or_404(CoachingToken, pk=item_id)
@@ -180,7 +180,7 @@ def adjust_bag(request, item_id):
     return redirect(reverse('view_bag'))
 
 
-def remove_from_bag(request, item_id):
+def remove_token_from_bag(request, item_id):
     """Remove the item from the shopping bag"""
 
     try:
