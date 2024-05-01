@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <div class="image-container my-5">
+                <!-- <div class="image-container my-5">
                     {% if product.image_url %}
                         <a href="{{ product.image_url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}">
@@ -24,8 +24,31 @@
                             <img class="card-img-top img-fluid" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
                         </a>
                     {% endif %}
+                </div> -->
+                <div class="product-images">
+                    {% if product.image_url %}
+                        <img id="main-image" src="{{ product.image_url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <a href="">
+                            <img id="main-image" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
+                        </a>
+                    {% endif %}
+                    <div class="thumbnails">
+                        <img class="thumbnail" src="{{ product.image_url }}" alt="Thumbnail 1" data-large="path/to/large/image1.jpg">
+                        <img class="thumbnail" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="Thumbnail 2" data-large="path/to/large/image2.jpg">
+                        <img class="thumbnail" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="Thumbnail 2" data-large="path/to/large/image2.jpg">
+                    </div>
                 </div>
             </div>
+            <script type="text/javascript">
+                document.querySelectorAll('.thumbnail').forEach(item => {
+                    item.addEventListener('mouseover', event => {
+                        const mainImage = document.getElementById('main-image');
+                        mainImage.src = item.getAttribute('data-large');  // Change the source of the main image
+                    });
+                });
+            </script>
+            ----------
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
                     <h1 class="mb-0">{{ product.name }}</h1>

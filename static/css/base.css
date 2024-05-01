@@ -182,6 +182,26 @@ input[name='q']::placeholder {
     overflow-y: auto;
 }
 
+/* -------------------------------- Product Slides */
+
+
+#main-image { 
+    width: 100%; 
+    height: auto; 
+}
+
+.thumbnails img {
+    width: 100px;  /* Smaller width */
+    height: auto;
+    cursor: pointer;
+    padding: 5px;
+    border: 2px solid transparent;
+}
+
+.thumbnails img:hover {
+    border: 2px solid blue;  /* Highlight on hover */
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
