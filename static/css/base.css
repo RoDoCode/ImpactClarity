@@ -190,8 +190,14 @@ input[name='q']::placeholder {
     height: auto; 
 }
 
+#main-image, #main-video { 
+    width: 100%; 
+    height: auto;
+    display: block;
+}
+
 .thumbnails img {
-    width: 100px;  /* Smaller width */
+    width: 100px;
     height: auto;
     cursor: pointer;
     padding: 5px;

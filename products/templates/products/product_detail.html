@@ -29,26 +29,71 @@
                     {% if product.image_url %}
                         <img id="main-image" src="{{ product.image_url }}" alt="{{ product.name }}">
                     {% else %}
-                        <a href="">
-                            <img id="main-image" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
-                        </a>
+                        <img id="main-image" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
                     {% endif %}
+                    {% if product.video_url %}
+                        <video id="main-video" style="display: none; width: 100%; height: auto;" controls>
+                            <source src="{{ product.video_url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% else %}
+                        <img id="main-image" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
+                    {% endif %}
+                    <video id="video" style="display: none; width: 100%; height: auto;" controls>
+                        <source src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/tutrial_intro_31.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video id="video" style="display:none;">
+                        <source src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/tutrial_intro_31.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="canvas" style="display:none;"></canvas>
                     <div class="thumbnails">
-                        <img class="thumbnail" src="{{ product.image_url }}" alt="Thumbnail 1" data-large="path/to/large/image1.jpg">
-                        <img class="thumbnail" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="Thumbnail 2" data-large="path/to/large/image2.jpg">
-                        <img class="thumbnail" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="Thumbnail 2" data-large="path/to/large/image2.jpg">
+                        <img class="thumbnail" src="{{ product.image_url }}" alt="Thumbnail 1" data-large="{{ product.image_url }}">
+                        <img class="thumbnail" id="output" src="path/to/default/image.jpg" alt="Vide Thumbnail" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/tutrial_intro_31.mp4" data-type="video">
+                        <img class="thumbnail" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="Thumbnail 2" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png">
                     </div>
                 </div>
             </div>
             <script type="text/javascript">
                 document.querySelectorAll('.thumbnail').forEach(item => {
-                    item.addEventListener('mouseover', event => {
+                    item.addEventListener('click', event => {
                         const mainImage = document.getElementById('main-image');
-                        mainImage.src = item.getAttribute('data-large');  // Change the source of the main image
+                        const mainVideo = document.getElementById('main-video');
+                        const newSrc = item.getAttribute('data-large');
+                        const contentType = item.getAttribute('data-type');
+
+                        if (contentType === 'video') {
+                            mainVideo.src = newSrc;
+                            mainVideo.style.display = 'block';
+                            mainImage.style.display = 'none';
+                        } else {
+                            mainImage.src = newSrc;
+                            mainImage.style.display = 'block';
+                            mainVideo.style.display = 'none';
+                        }
+
+                        mainImage.onerror = function() {
+                            this.src = 'https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png';
+                        };
                     });
                 });
             </script>
-            ----------
+            <script>
+                const video = document.getElementById('video');
+                video.addEventListener('loadeddata', () => {
+                    video.currentTime = 1; // Adjust as needed to capture the right frame
+                });
+
+                video.addEventListener('seeked', () => {
+                    const canvas = document.getElementById('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    const img = document.getElementById('output');
+                    img.src = canvas.toDataURL('image/jpeg'); // Convert frame to JPEG
+                });
+            </script>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
                     <h1 class="mb-0">{{ product.name }}</h1>
