@@ -31,6 +31,7 @@ class SeriesAdmin(admin.ModelAdmin):
         'name',
         'series_no',
         'video_url',
+        'screenshot',
     )
 
 

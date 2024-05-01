@@ -21,11 +21,15 @@ class Category(models.Model):
 
 class Series(models.Model):
 
+    class Meta:
+        verbose_name_plural = 'Series'
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     series_no = models.PositiveIntegerField(unique=True)
     categories = models.ManyToManyField(Category, related_name='series', blank=True,)
     video_url = models.URLField(max_length=1024, null=True, blank=True)
+    screenshot = models.URLField(max_length=1024, null=True, blank=True)
 
     def __str__(self):
         return self.name
