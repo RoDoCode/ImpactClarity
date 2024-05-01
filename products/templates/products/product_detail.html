@@ -31,25 +31,19 @@
                     {% else %}
                         <img id="main-image" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
                     {% endif %}
-                    {% if product.video_url %}
-                        <video id="main-video" style="display: none; width: 100%; height: auto;" controls>
-                            <source src="{{ product.video_url }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    {% else %}
-                        <img id="main-image" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
-                    {% endif %}
-                    <video id="video" style="display: none; width: 100%; height: auto;" controls>
-                        <source src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/tutrial_intro_31.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
+                    <video id="main-video" style="display:none; width: 100%; height: auto;" controls>
+                        <source src="{{ product.series_no.video_url }}" type="video/mp4">
                     </video>
                     <video id="video" style="display:none;">
-                        <source src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/tutrial_intro_31.mp4" type="video/mp4">
+                        <source src="{{ product.series_no.video_url }}" type="video/mp4">
                     </video>
                     <canvas id="canvas" style="display:none;"></canvas>
                     <div class="thumbnails">
                         <img class="thumbnail" src="{{ product.image_url }}" alt="Thumbnail 1" data-large="{{ product.image_url }}">
-                        <img class="thumbnail" id="output" src="path/to/default/image.jpg" alt="Vide Thumbnail" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/tutrial_intro_31.mp4" data-type="video">
+                        <video class="thumbnail" alt="Vide Thumbnail" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/tutrial_intro_31.mp4" data-type="video">
+                            <source src="{{ product.series_no.video_url }}" type="video/mp4">
+                        </video>
+                        <!-- <img class="thumbnail" id="output" src="path/to/default/image.jpg" alt="Vide Thumbnail" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/tutrial_intro_31.mp4" data-type="video"> -->
                         <img class="thumbnail" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="Thumbnail 2" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png">
                     </div>
                 </div>
@@ -79,19 +73,26 @@
                 });
             </script>
             <script>
-                const video = document.getElementById('video');
-                video.addEventListener('loadeddata', () => {
-                    video.currentTime = 1; // Adjust as needed to capture the right frame
-                });
+                document.addEventListener('DOMContentLoaded', function () {
+                    const video = document.getElementById('video');
+                    video.preload = 'auto';
+                    video.load();
 
-                video.addEventListener('seeked', () => {
-                    const canvas = document.getElementById('canvas');
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    const img = document.getElementById('output');
-                    img.src = canvas.toDataURL('image/jpeg'); // Convert frame to JPEG
+                    video.onloadeddata = () => {
+                        video.currentTime = 0;  // Seek to the very start
+                    };
+
+                    video.onseeked = () => {
+                        const canvas = document.getElementById('canvas');
+                        if (canvas) {
+                            canvas.width = video.videoWidth;
+                            canvas.height = video.videoHeight;
+                            const ctx = canvas.getContext('2d');
+                            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                            const img = document.getElementById('output');
+                            img.src = canvas.toDataURL('image/jpeg'); // Convert frame to JPEG
+                        }
+                    };
                 });
             </script>
             <div class="col-12 col-md-6 col-lg-4">
