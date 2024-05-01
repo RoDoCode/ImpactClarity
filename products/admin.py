@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category
+from .models import Product, Category, Series
 
 # Register your models here.
 
@@ -30,10 +30,10 @@ class SeriesAdmin(admin.ModelAdmin):
         'friendly_name',
         'name',
         'series_no',
-        'categories',
         'video_url',
     )
 
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Series, SeriesAdmin)
