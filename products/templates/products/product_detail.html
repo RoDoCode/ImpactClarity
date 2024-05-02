@@ -13,18 +13,7 @@
     <div class="overlay"></div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <!-- <div class="image-container my-5">
-                    {% if product.image_url %}
-                        <a href="{{ product.image_url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
-                        </a>
-                    {% endif %}
-                </div> -->
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2" style="padding-top: 25px;">
                 <div class="product-images">
                     {% if product.image_url %}
                         <img id="main-image" src="{{ product.image_url }}" alt="{{ product.name }}">
@@ -34,17 +23,16 @@
                     <video id="main-video" style="display:none; width: 100%; height: auto;" controls>
                         <source src="{{ product.series_no.video_url }}" type="video/mp4">
                     </video>
-                    <video id="video" style="display:none;">
-                        <source src="{{ product.series_no.video_url }}" type="video/mp4">
-                    </video>
-                    <canvas id="canvas" style="display:none;"></canvas>
                     <div class="thumbnails">
                         <img class="thumbnail" src="{{ product.image_url }}" alt="Thumbnail 1" data-large="{{ product.image_url }}">
                         <video class="thumbnail" alt="Video Thumbnail" style="width:100px; height:100px; cursor:pointer; padding: 5px; border: 2px solid transparent; vertical-align: middle; object-fit:cover;" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/tutrial_intro_31.mp4" data-type="video">
                             <source src="{{ product.series_no.video_url }}" type="video/mp4">
                         </video>
-                        <!-- <img class="thumbnail" id="output" src="path/to/default/image.jpg" alt="Vide Thumbnail" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/tutrial_intro_31.mp4" data-type="video"> -->
-                        <img class="thumbnail" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="Thumbnail 2" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png">
+                        {% if product.series_no.screenshot %}
+                            <img class="thumbnail" src="{{ product.series_no.screenshot }}" alt="{{ product.name }} thumbnail 2" data-large="{{ product.series_no.screenshot }}">
+                        {% else %}
+                            <img class="thumbnail" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }} thumbnail 2" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png">
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -70,29 +58,6 @@
                             this.src = 'https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png';
                         };
                     });
-                });
-            </script>
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const video = document.getElementById('video');
-                    video.preload = 'auto';
-                    video.load();
-
-                    video.onloadeddata = () => {
-                        video.currentTime = 0;  // Seek to the very start
-                    };
-
-                    video.onseeked = () => {
-                        const canvas = document.getElementById('canvas');
-                        if (canvas) {
-                            canvas.width = video.videoWidth;
-                            canvas.height = video.videoHeight;
-                            const ctx = canvas.getContext('2d');
-                            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                            const img = document.getElementById('output');
-                            img.src = canvas.toDataURL('image/jpeg'); // Convert frame to JPEG
-                        }
-                    };
                 });
             </script>
             <div class="col-12 col-md-6 col-lg-4">
