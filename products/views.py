@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, Series
 from .forms import ProductForm
 
 # Create your views here.
@@ -143,3 +143,89 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+# Series View Settings
+
+def series_detail(request, series_id):
+    """ A view to show individual series details """
+
+    series = get_object_or_404(Series, pk=series_id)
+
+    context = {
+        'series': series,
+    }
+
+    return render(request, 'series/series_detail.html', context)
+
+
+@login_required
+def add_series(request):
+    """ Add a series to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = SeriesForm(request.POST, request.FILES)
+        if form.is_valid():
+            series = form.save()
+            messages.success(request, 'Successfully added series!')
+            return redirect(reverse('series_detail', args=[series.id]))
+        else:
+            messages.error(request,
+                           ('Failed to add series. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = SeriesForm()
+
+    template = 'series/add_series.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def edit_series(request, series_id):
+    """ Edit a series in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    series = get_object_or_404(Series, pk=series_id)
+    if request.method == 'POST':
+        form = SeriesForm(request.POST, request.FILES, instance=series)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated series!')
+            return redirect(reverse('series_detail', args=[series.id]))
+        else:
+            messages.error(request,
+                           ('Failed to update series. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = SeriesForm(instance=series)
+        messages.info(request, f'You are editing {series.name}')
+
+    template = 'series/edit_series.html'
+    context = {
+        'form': form,
+        'series': series,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_series(request, series_id):
+    """ Delete a series from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    series = get_object_or_404(Series, pk=series_id)
+    series.delete()
+    messages.success(request, 'Series deleted!')
+    return redirect(reverse('series'))
