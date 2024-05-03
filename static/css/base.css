@@ -23,8 +23,19 @@ body {
     text-transform: uppercase;
 }
 
+.sub-title {
+    color:#483636;
+    font-weight: bold;
+}
+
 .main-logo-link {
     width: fit-content;
+    padding: 0px !important;
+}
+
+.nav-link {
+    padding-top: 0.1rem !important;
+    padding-bottom: 0.1rem !important;
 }
 
 .shop-now-button {
@@ -329,8 +340,13 @@ input[name='q']::placeholder {
         font-size: 2rem;
     }
 
+    .discovery-font {
+        font-size: 1.5rem;
+    }
+
     .nav-link {
-        padding: 0.15rem;
+        padding-right: 0.15rem !important;
+        padding-left: 0.15rem !important;
     }
 
     .nav-link i.fa-lg {
