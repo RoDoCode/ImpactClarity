@@ -146,9 +146,9 @@ def delete_product(request, product_id):
 
 
 # Series View Settings
-
+"""
 def series_detail(request, series_id):
-    """ A view to show individual series details """
+     A view to show individual series details 
 
     series = get_object_or_404(Series, pk=series_id)
 
@@ -157,6 +157,12 @@ def series_detail(request, series_id):
     }
 
     return render(request, 'series/series_detail.html', context)
+"""
+
+def series_detail(request, series_no):
+    series = get_object_or_404(Series, series_no=series_no)
+    products = Product.objects.filter(series_no=series)
+    return render(request, 'series/series_detail.html', {'series': series, 'products': products})
 
 
 @login_required

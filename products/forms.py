@@ -29,7 +29,7 @@ class SeriesForm(forms.ModelForm):
         model = Series
         fields = '__all__'
 
-    image = forms.ImageField(label='Image',
+    screenshot = forms.ImageField(label='Screenshot',
                              required=False,
                              widget=CustomClearableFileInput)
 
