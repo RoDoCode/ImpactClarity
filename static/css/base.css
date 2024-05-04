@@ -337,11 +337,11 @@ input[name='q']::placeholder {
     }
 
     .display-4.logo-font.text-black {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .discovery-font {
-        font-size: 1.5rem;
+        font-size: 0.9rem !important;
     }
 
     .nav-link {
