@@ -208,7 +208,7 @@ input[name='q']::placeholder {
 }
 
 .thumbnails img {
-    width: 100px;
+    width: 25%;
     height: auto;
     cursor: pointer;
     padding: 5px;
@@ -216,7 +216,34 @@ input[name='q']::placeholder {
 }
 
 .thumbnails img:hover {
-    border: 2px solid blue;  /* Highlight on hover */
+    border: 2px solid teal;  /* Highlight on hover */
+}
+
+.thumbnails .video_thumbnail_container:hover {
+    border: 2px solid teal;  /* Highlight on hover */
+}
+
+.video_thumbnail_container {
+    position: relative;
+    display: inline-block; 
+    width: 25%; 
+    border: 2px solid transparent;
+    /* or block depending on your layout */
+}
+
+.video_container video {
+    display: block; /* This removes any bottom margin/gap */
+    width: 100%; /* Adjust as necessary */
+    height: auto; /* Adjust as necessary */
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* This centers the icon perfectly */
+    font-size: 45px; /* Adjust size as needed */
+    color: teal; /* Adjust color as needed */
 }
 
 /* -------------------------------- Media Queries */
