@@ -33,6 +33,9 @@ class Series(models.Model):
     video_url = models.URLField(max_length=1024, null=True, blank=True)
     screenshot = models.URLField(max_length=1024, null=True, blank=True)
 
+    def count_products(self):
+        return self.product_set.count()
+
     def __str__(self):
         return self.name
 
