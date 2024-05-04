@@ -162,7 +162,7 @@ def series_detail(request, series_id):
 def series_detail(request, series_no):
     series = get_object_or_404(Series, series_no=series_no)
     products = Product.objects.filter(series_no=series)
-    return render(request, 'series/series_detail.html', {'series': series, 'products': products})
+    return render(request, 'products/series_detail.html', {'series': series, 'products': products})
 
 
 @login_required
