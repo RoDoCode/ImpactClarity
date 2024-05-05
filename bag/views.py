@@ -88,7 +88,7 @@ def add_series_to_bag(request, item_id):
                             f'is already in your bag, you only need 1'))
     else:
         bag[item_id] = quantity
-        messages.success(request, f'Added {series.name} to your bag')
+        messages.success(request, f'Added {series.friendly_name} to your bag')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
