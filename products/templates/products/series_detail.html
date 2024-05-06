@@ -16,37 +16,62 @@
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2" style="padding-top: 25px;">
                 <div class="product-images">
 
-                    <h1>{{ series.name }}</h1>
+                    <h1>{{ series.friendly_name }}</h1>
                     <p>{{ series.description }}</p>
                     <p>€{{ series.price }}</p>
-                    <div>
+                    <div class="row justify-content-center">
                         {% for product in products %}
-                            <div>
-                                {% if product.image_url %}
-                                    <img id="series-product-image" src="{{ product.image_url }}" alt="{{ product.name }}">
-                                {% else %}
-                                    <img id="series-product-image" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
-                                {% endif %}
-                                <h2>{{ product.name }}</h2>
-                                {% if product.category %}
-                                    <p class="small mt-1 mb-0">
-                                        <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                        </a>
-                                    </p>
-                                {% endif %}
-                                {% if product.duration %}
-                                    <small class="text-muted"><i class="fas fa-clock mr-1"></i>{{ product.duration }}</small><br>
-                                {% else %}
-                                    <small class="text-muted">No Duration</small><br>
-                                {% endif %}
-                                {% if product.rating %}
-                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                                {% else %}
-                                    <small class="text-muted">No Rating</small>
-                                {% endif %}
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                <div class="card h-100 border-0">
+                                    {% if product.image_url %}
+                                        <img class="card-img-top img-fluid" id="series-product-image" src="{{ product.image_url }}" alt="{{ product.name }}">
+                                    {% else %}
+                                        <img class="card-img-top img-fluid" id="series-product-image" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
+                                    {% endif %}
+                                    <h2>{{ product.name }}</h2>
+                                    {% if product.category %}
+                                        <p class="small mt-1 mb-0">
+                                            <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                            </a>
+                                        </p>
+                                    {% endif %}
+                                    {% if product.duration %}
+                                        <small class="text-muted"><i class="fas fa-clock mr-1"></i>{{ product.duration }}</small><br>
+                                    {% else %}
+                                        <small class="text-muted">No Duration</small><br>
+                                    {% endif %}
+                                    {% if product.rating %}
+                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                    {% else %}
+                                        <small class="text-muted">No Rating</small>
+                                    {% endif %}
+                                    <div class="card-body pb-0 pt-1">
+                                        {% if forloop.counter|divisibleby:1 %}
+                                            <div class="col-12 d-sm-none mb-5">
+                                                <hr>
+                                            </div>
+                                        {% endif %}                        
+                                        {% if forloop.counter|divisibleby:2 %}
+                                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                                                <hr>
+                                            </div>
+                                        {% endif %}
+                                        {% if forloop.counter|divisibleby:3 %}
+                                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                                                <hr>
+                                            </div>
+                                        {% endif %}
+                                        {% if forloop.counter|divisibleby:4 %}
+                                            <div class="col-12 d-none d-xl-block mb-5">
+                                                <hr>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
                             </div>
                         {% endfor %}
+
                     </div>
 
                     {% if request.user.is_superuser %}
