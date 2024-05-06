@@ -12,5 +12,5 @@ urlpatterns = [
          views.delete_product,
          name='delete_product'),
     path('series/<int:series_no>/', series_detail, name='series_detail'),
-    path('series/all/', series, name='series'),
+    path('series/all/', views.series, name='series'),
 ]
