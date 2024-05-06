@@ -158,6 +158,11 @@ def series_detail(request, series_id):
 
     return render(request, 'series/series_detail.html', context)
 """
+def series(request):
+    series = Series.objects.all()
+    context = {'series': series,}
+    return render(request, 'products/series.html', context)
+
 
 def series_detail(request, series_no):
     series = get_object_or_404(Series, series_no=series_no)
