@@ -46,6 +46,11 @@ body {
     text-decoration: underline;
 }
 
+.foot-titles {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
 .shop-now-button {
     background: #483636;
     color: white;
