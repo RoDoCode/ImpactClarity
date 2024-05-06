@@ -152,26 +152,46 @@
     <!-- Footer -->
     <footer class="footer mt-auto pt-3 pb-0 dark-bg" style="width:100%;">
         <div class="container-fluid px-0 mx-0" style="background-color:#483636; width:100%;">
-          <div class="row justify-content-between" style="width:100%;">
-            <div class="col-auto">
+          <div class="row justify-content-evenly" style="width:100%;">
+            <div class="my-2 px-5 col-lg-3 col-sm-12 justify-content-center align-items-start">
               <p class="m-0 text-center text-white">
-                {% block copyright %} Copyright RJCD Development {% endblock copyright %} | Created for educational purposes
-              </p>
+                {% block copyright %}Created for educational purposes
+              </p><br>
+              <p class="m-0 text-center text-white">
+                Copyright RJCD Development{% endblock copyright %}
+              </p><br>
+              <a href="#" class="text-white text-center no-underline">Privacy Policy</a><br>
+              <a href="#" class="text-white text-center no-underline">Terms of Service</a>
             </div>
-            <div class="col-auto">
-              <p class="m-0 text-center text-white">
-                Follow us: 
-                <a href="https://www.facebook.com/profile.php?id=100093114066543"
-                target="_blank" style="color:white;" aria-current="facebook-link" alt-text="facebook-link"><i class="fab fa-facebook-square ms-3"></i>Facebook</a>
-  
-                <a href="https://twitter.com/RoDoCode"
-                target="_blank" style="color:white;" aria-current="twitter-link" alt-text="twitter-link"><i class="fab fa-twitter-square ms-3"></i>Twitter</a>
-  
-                <a href="https://www.instagram.com"
-                  target="_blank" style="color:white;" aria-current="instagram-link" alt-text="instagram-link"><i class="fab fa-instagram-square ms-3"></i>Insta</a>
-  
-                <a href="https://www.youtube.com/@MrRollable"
-                target="_blank" style="color:white;" aria-current="youtube-link" alt-text="youtube-link"><i class="fab fa-youtube-square ms-3"></i>Youtube</a>
+            <div class="my-2 px-5 col-lg-3 col-sm-12 text-center justify-content-center align-items-start">
+                <a href="{% url 'series' %}" class="text-white no-underline">Series</a><br>
+                <a href="{% url 'products' %}" class="text-white no-underline">Tutorials</a><br>
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <a href="{% url 'add_product' %}" class="text-white no-underline">Product Management</a><br>
+                    {% endif %}
+                    <a href="{% url 'profile' %}" class="text-white no-underline">My Profile</a><br>
+                    <a href="{% url 'account_logout' %}" class="text-white no-underline">Logout</a><br>
+                {% else %}
+                    <a href="{% url 'account_signup' %}" class="text-white no-underline">Register</a><br>
+                    <a href="{% url 'account_login' %}" class="text-white no-underline">Login</a>
+                {% endif %}
+            </div>
+            <div class="my-2 px-2 col-lg-3 col-sm-12 justify-content-center align-items-start"></div>
+            <div class="my-2 px-2 col-lg-3 col-sm-12 justify-content-center align-items-start">
+              <p class="my-2 px-5 text-start text-white">
+                Follow us on: <br>
+                <a class="no-underline" href="https://www.facebook.com/profile.php?id=100093114066543"
+                target="_blank" style="color:white;" aria-current="facebook-link" alt-text="facebook-link"><i class="fab fa-facebook-square ms-3"></i> Facebook</a>
+                <br>
+                <a class="no-underline" href="https://twitter.com/RoDoCode"
+                target="_blank" style="color:white;" aria-current="twitter-link" alt-text="twitter-link"><i class="fab fa-twitter-square ms-3"></i> Twitter</a>
+                <br>
+                <a class="no-underline" href="https://www.instagram.com"
+                  target="_blank" style="color:white;" aria-current="instagram-link" alt-text="instagram-link"><i class="fab fa-instagram-square ms-3"></i> Insta</a>
+                <br>
+                <a class="no-underline" href="https://www.youtube.com/@MrRollable"
+                target="_blank" style="color:white;" aria-current="youtube-link" alt-text="youtube-link"><i class="fab fa-youtube-square ms-3"></i> Youtube</a>
               </p>
             </div>
           </div>

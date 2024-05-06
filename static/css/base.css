@@ -38,6 +38,14 @@ body {
     padding-bottom: 0.1rem !important;
 }
 
+.no-underline {
+    text-decoration: none;
+}
+
+.no-underline:hover {
+    text-decoration: underline;
+}
+
 .shop-now-button {
     background: #483636;
     color: white;
