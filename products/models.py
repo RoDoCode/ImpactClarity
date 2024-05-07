@@ -32,6 +32,7 @@ class Series(models.Model):
     categories = models.ManyToManyField(Category, related_name='series', blank=True,)
     video_url = models.URLField(max_length=1024, null=True, blank=True)
     screenshot = models.URLField(max_length=1024, null=True, blank=True)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
 
     def count_products(self):
         return self.product_set.count()
