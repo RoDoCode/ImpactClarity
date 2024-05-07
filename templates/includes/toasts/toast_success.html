@@ -22,6 +22,8 @@
                         <div class="col-3 my-1">
                             {% if item.product.image_url %}
                             <img class="w-100" src="{{ item.product.image_url }}" alt="{{ item.product.name }}">
+                            {% elif item.series.image_url %}
+                            <img class="w-100" src="{{ item.series.image_url }}" alt="{{ item.series.name }}">
                             {% else %}
                             <img class="w-100" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ item.product.name }}">
                             {% endif %}
