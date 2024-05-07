@@ -36,7 +36,11 @@
                     {% for series in series %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
-                                {% if series.screenshot %}
+                                {% if series.image_url %}
+                                <a href="{% url 'series_detail' series.pk %}">
+                                    <img class="card-img-top img-fluid" src="{{ series.image_url }}" alt="{{ series.friendly_name }}">
+                                </a>
+                                {% elif series.screenshot %}
                                 <a href="{% url 'series_detail' series.pk %}">
                                     <img class="card-img-top img-fluid" src="{{ series.screenshot }}" alt="{{ series.friendly_name }}">
                                 </a>
