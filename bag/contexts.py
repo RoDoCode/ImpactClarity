@@ -1,33 +1,43 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from products.models import Product
+from products.models import Product, Series, CoachingToken
 
 
 def bag_contents(request):
-
     bag_items = []
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
 
-    for item_id, item_data in bag.items():
+    for item_key, item_data in bag.items():
+
+        item_type, item_id = item_key.split('_')
+        item_id = int(item_id)
+
+        if item_type == 'product':
+            item = get_object_or_404(Product, pk=item_id)
+        elif item_type == 'series':
+            item = get_object_or_404(Series, pk=item_id)
+        elif item_type == 'token':
+            item = get_object_or_404(Series, pk=item_id)
+        else:
+            continue
+
         if isinstance(item_data, int):
-            product = get_object_or_404(Product, pk=item_id)
-            total += item_data * product.price
+            total += item_data * item.price
             product_count += item_data
             bag_items.append({
-                'item_id': item_id,
+                'item_id': item_key,
                 'quantity': item_data,
-                'product': product,
+                'product': item,
             })
         else:
-            product = get_object_or_404(Product, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
                 total += quantity * product.price
                 product_count += quantity
                 bag_items.append({
-                    'item_id': item_id,
+                    'item_id': item_key,
                     'quantity': quantity,
                     'product': product,
                     'size': size,

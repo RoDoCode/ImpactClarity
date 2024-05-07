@@ -20,12 +20,14 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    if item_id in list(bag.keys()):
+    product_key = f'product_{item_id}'
+
+    if product_key in bag:
         messages.info(request,
                             (f"Oops, '{product.name}' "
                             f"is already in your bag, you only need one"))
     else:
-        bag[item_id] = quantity
+        bag[product_key] = quantity
         messages.success(request, f'Added {product.name} to your bag')
 
     request.session['bag'] = bag
@@ -82,12 +84,14 @@ def add_series_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    if item_id in list(bag.keys()):
+    series_key = f'series_{item_id}'
+
+    if series_key in bag:
         messages.info(request,
                             (f'Oops {series.name} '
                             f'is already in your bag, you only need 1'))
     else:
-        bag[item_id] = quantity
+        bag[series_key] = quantity
         messages.success(request, f'Added {series.friendly_name} to your bag')
 
     request.session['bag'] = bag
