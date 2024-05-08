@@ -24,7 +24,8 @@ def add_to_bag(request, item_id):
     print("Current Bag Contents:", bag)
 
     if product_key in bag:
-        messages.info(request,
+        messages.info(
+            request,
             (f"Oops, '{product.name}' "
              f"is already in your bag, you only need one"))
     else:
@@ -62,7 +63,7 @@ def remove_from_bag(request, item_id):
     """Remove the item from the shopping bag"""
     try:
         bag = request.session.get('bag', {})
-        
+
         if item_id in bag:
             item_type, product_id = item_id.split('_')
             product = get_object_or_404(Product, pk=product_id)  
@@ -90,9 +91,10 @@ def add_series_to_bag(request, item_id):
     bag = request.session.get('bag', {})
     series_key = f'series_{item_id}'
     if series_key in bag:
-        messages.info(request,
-                            (f'Oops {series.name} '
-                            f'is already in your bag, you only need 1'))
+        messages.info(
+            request,
+            (f'Oops {series.name} '
+             f'is already in your bag, you only need 1'))
     else:
         bag[series_key] = quantity
         messages.success(request, f'Added {series.friendly_name} to your bag')
@@ -123,7 +125,6 @@ def adjust_series_in_bag(request, item_id):
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
     
-
 
 def remove_series_from_bag(request, item_id):
     """Remove the item from the shopping bag"""

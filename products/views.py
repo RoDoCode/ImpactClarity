@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category, Series
-from .forms import ProductForm
+from .forms import ProductForm, SeriesForm
 
 # Create your views here.
 
@@ -46,7 +46,8 @@ def all_products(request):
                                ("You didn't enter any search criteria!"))
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -144,20 +145,7 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
 
-
 # Series View Settings
-"""
-def series_detail(request, series_id):
-     A view to show individual series details 
-
-    series = get_object_or_404(Series, pk=series_id)
-
-    context = {
-        'series': series,
-    }
-
-    return render(request, 'series/series_detail.html', context)
-"""
 def series(request):
     series = Series.objects.all()
     context = {'series': series,}
@@ -167,7 +155,10 @@ def series(request):
 def series_detail(request, series_no):
     series = get_object_or_404(Series, series_no=series_no)
     products = Product.objects.filter(series_no=series)
-    return render(request, 'products/series_detail.html', {'series': series, 'products': products})
+    return render(
+        request,
+        'products/series_detail.html',
+        {'series': series, 'products': products})
 
 
 @login_required
