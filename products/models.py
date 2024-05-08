@@ -29,7 +29,11 @@ class Series(models.Model):
     description = models.TextField(null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2, default=34.99)
     series_no = models.PositiveIntegerField(unique=True)
-    categories = models.ManyToManyField(Category, related_name='series', blank=True,)
+    categories = models.ManyToManyField(
+        Category,
+        related_name='series',
+        blank=True,
+    )
     video_url = models.URLField(max_length=1024, null=True, blank=True)
     screenshot = models.URLField(max_length=1024, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
@@ -51,12 +55,26 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True,
-                                 blank=True)
+    rating = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        null=True,
+        blank=True
+    )
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    duration = models.CharField(default="20 minutes", max_length=254, null=True, blank=True)
-    series_no = models.ForeignKey("Series", on_delete=models.SET_NULL, null=True, verbose_name='Series Number')
+    duration = models.CharField(
+        default="20 minutes",
+        max_length=254,
+        null=True,
+        blank=True
+    )
+    series_no = models.ForeignKey(
+        "Series",
+        on_delete=models.SET_NULL,
+        null=True,
+        verbose_name='Series Number'
+    )
     video_url = models.URLField(max_length=1024, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -94,7 +112,11 @@ class CoachingToken(models.Model):
 
 
 class CoachingSession(models.Model):
-    coach = models.ForeignKey(User, on_delete=models.CASCADE, related_name='coaching_sessions')
+    coach = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='coaching_sessions'
+    )
     date_time = models.DateTimeField()
     topic = models.CharField(max_length=200)
 

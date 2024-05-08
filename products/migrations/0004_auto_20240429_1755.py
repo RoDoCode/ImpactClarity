@@ -18,10 +18,19 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CoachingSession',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID'
+                )),
                 ('date_time', models.DateTimeField()),
                 ('topic', models.CharField(max_length=200)),
-                ('coach', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='coaching_sessions', to=settings.AUTH_USER_MODEL)),
+                ('coach', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='coaching_sessions',
+                    to=settings.AUTH_USER_MODEL
+                )),
             ],
         ),
         migrations.RemoveField(
@@ -39,7 +48,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='created_at',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            field=models.DateTimeField(
+                auto_now_add=True,
+                default=django.utils.timezone.now
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
@@ -50,18 +62,44 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='series',
             name='categories',
-            field=models.ManyToManyField(blank=True, related_name='series', to='products.Category'),
+            field=models.ManyToManyField(
+                blank=True,
+                related_name='series',
+                to='products.Category'
+            ),
         ),
         migrations.CreateModel(
             name='CoachingToken',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('price', models.DecimalField(decimal_places=2, max_digits=6)),
-                ('identifier_code', models.UUIDField(default=uuid.uuid4, editable=False, unique=True)),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID'
+                )),
+                ('price', models.DecimalField(
+                    decimal_places=2,
+                    max_digits=6
+                )),
+                ('identifier_code', models.UUIDField(
+                    default=uuid.uuid4,
+                    editable=False,
+                    unique=True
+                )),
                 ('purchase_date', models.DateTimeField(auto_now_add=True)),
                 ('is_used', models.BooleanField(default=False)),
-                ('session', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='tokens', to='products.coachingsession')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tokens', to=settings.AUTH_USER_MODEL)),
+                ('session', models.ForeignKey(
+                    blank=True,
+                    null=True,
+                    on_delete=django.db.models.deletion.SET_NULL,
+                    related_name='tokens',
+                    to='products.coachingsession'
+                )),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='tokens',
+                    to=settings.AUTH_USER_MODEL
+                )),
             ],
         ),
     ]

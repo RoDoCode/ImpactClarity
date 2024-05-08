@@ -48,7 +48,6 @@ class UserProfile(models.Model):
         related_name='token_user',
         blank=True,)
 
-
     def __str__(self):
         return self.user.username
 

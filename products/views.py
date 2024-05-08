@@ -145,10 +145,11 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
 
+
 # Series View Settings
 def series(request):
     series = Series.objects.all()
-    context = {'series': series,}
+    context = {'series': series, }
     return render(request, 'products/series.html', context)
 
 
