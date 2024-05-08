@@ -78,7 +78,6 @@ class Product(models.Model):
     video_url = models.URLField(max_length=1024, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-
     def __str__(self):
         return self.name
 
