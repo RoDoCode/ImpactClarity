@@ -1,4 +1,4 @@
-{% if item.item_type == product %}
+{% if item.item_type == 'product' %}
 <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
     <div class="form-group">
@@ -28,7 +28,7 @@
 <a class="update-link text-info"><small>Update Product Qty</small></a>
 <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
 
-{% elif item.item_type == series %}
+{% elif item.item_type == 'series' %}
 <form class="form update-form" method="POST" action="{% url 'adjust_series_in_bag' item.item_id %}">
     {% csrf_token %}
     <div class="form-group">

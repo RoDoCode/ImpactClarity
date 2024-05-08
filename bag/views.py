@@ -45,6 +45,7 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
     product_key = f'product_{product_id}'
+    print("Current Bag Contents:", bag)
     if quantity > 0:
         bag[product_key] = quantity
         messages.success(request, f'Updated {product.name} quantity to {quantity}')
@@ -114,6 +115,7 @@ def adjust_series_in_bag(request, item_id):
             messages.success(request, f'Removed {series.name} from your bag')
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+    
 
 
 def remove_series_from_bag(request, item_id):
