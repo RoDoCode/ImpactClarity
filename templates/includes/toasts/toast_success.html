@@ -29,7 +29,13 @@
                             {% endif %}
                         </div>
                         <div class="col-9">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            {% if item.item_id|slice:":7" == 'product' %}
+                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            {% elif item.item_id|slice:":6" == "series" %}
+                                <p class="my-0"><strong>{{ item.product.friendly_name }}</strong></p>
+                            {% else %}
+                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            {% endif %}
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                     </div>
