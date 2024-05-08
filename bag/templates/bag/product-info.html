@@ -1,3 +1,10 @@
-<p class="my-0"><strong>{{ item.product.name }}</strong></p>
-<p class="my-0"><strong>Duration: </strong>{% if item.product.duration %}{{ item.product.duration }}{% else %}N/A{% endif %}</p>
-<p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+{% if item.item_id|slice:":7" == 'product' %}
+    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+    <p class="my-0"><strong>Duration: </strong>{% if item.product.duration %}{{ item.product.duration }}{% else %}N/A{% endif %}</p>
+    <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+{% elif item.item_id|slice:":6" == "series" %}
+    <p class="my-0"><strong>{{ item.product.friendly_name }}</strong></p>
+    <p class="my-0"><strong>Contains: </strong>{{ item.product.count_products }} videos</p>
+{% else %}
+    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+{% endif %}
