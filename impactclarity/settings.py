@@ -31,12 +31,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 # DEBUG = True
 
-ALLOWED_HOSTS = ['8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io',
-    'localhost', '8000-rodocode-impactclarity-6rhr6dufy0o.ws-eu110.gitpod.io', 
+ALLOWED_HOSTS = [
+    '8000-rodocode-impactclarity-t39ma5fpiyk.ws-eu110.gitpod.io',
+    'localhost',
+    '8000-rodocode-impactclarity-6rhr6dufy0o.ws-eu110.gitpod.io',
     '8000-rodocode-impactclarity-6rhr6dufy0o.ws-eu111.gitpod.io',
-    'https://impactclarity-158dbf752d6b.herokuapp.com', 
+    'https://impactclarity-158dbf752d6b.herokuapp.com',
     'impactclarity-158dbf752d6b.herokuapp.com',
-    'www.impactclarity.com']
+    'www.impactclarity.com'
+]
 
 
 # Application definition
@@ -86,13 +89,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates', 'allauth'),],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 
+            'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+                'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
@@ -157,16 +163,20 @@ CSRF_TRUSTED_ORIGINS = [
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'NumericPasswordValidator',
     },
 ]
 

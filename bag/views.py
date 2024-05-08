@@ -66,7 +66,7 @@ def remove_from_bag(request, item_id):
 
         if item_id in bag:
             item_type, product_id = item_id.split('_')
-            product = get_object_or_404(Product, pk=product_id)  
+            product = get_object_or_404(Product, pk=product_id)
             bag.pop(item_id)
             messages.success(request, f'Removed {product.name} from your bag')
             request.session['bag'] = bag
@@ -124,7 +124,7 @@ def adjust_series_in_bag(request, item_id):
             messages.success(request, f'Removed {series.name} from your bag')
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
-    
+
 
 def remove_series_from_bag(request, item_id):
     """Remove the item from the shopping bag"""
@@ -143,6 +143,7 @@ def remove_series_from_bag(request, item_id):
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
 
+
 # ADDING/ADJUSTING/REMOVING CoachingToken IN BAG
 
 def add_token_to_bag(request, item_id):
@@ -155,9 +156,10 @@ def add_token_to_bag(request, item_id):
 
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
-        messages.success(request,
-                            (f'Updated {coachingtoken.name} '
-                            f'quantity to {bag[item_id]}'))
+        messages.success(
+            request,
+            (f'Updated {coachingtoken.name} quantity to {bag[item_id]}')
+        )
     else:
         bag[item_id] = quantity
         messages.success(request, f'Added {coachingtoken.name} to your bag')
