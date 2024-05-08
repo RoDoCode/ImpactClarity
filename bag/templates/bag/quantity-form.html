@@ -1,4 +1,4 @@
-{% if item.item_type == 'product' %}
+{% if item.item_id|slice:":7" == 'product' %}
 <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
     <div class="form-group">
@@ -26,9 +26,9 @@
     </div>
 </form>
 <a class="update-link text-info"><small>Update Product Qty</small></a>
-<a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+<a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
 
-{% elif item.item_type == 'series' %}
+{% elif item.item_id|slice:":6" == "series" %}
 <form class="form update-form" method="POST" action="{% url 'adjust_series_in_bag' item.item_id %}">
     {% csrf_token %}
     <div class="form-group">
@@ -65,7 +65,7 @@
         <div class="input-group input-group-{{ item.item_id }}">
             <div class="input-group-prepend">
                 <button class="decrement-qty btn btn-sm btn-black rounded-0 decrement-qty_{{ item.item_id }}" 
-                    data-item_id="{{ item.item_id }}" data-size="{{ item.size }}">
+                    data-item_id="{{ item.item_id }}">
                     <span>
                         <i class="fas fa-minus fa-sm"></i>
                     </span>

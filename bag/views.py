@@ -21,6 +21,7 @@ def add_to_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     product_key = f'product_{item_id}'
+    print("Current Bag Contents:", bag)
 
     if product_key in bag:
         messages.info(request,
@@ -45,7 +46,6 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
     product_key = f'product_{product_id}'
-    print("Current Bag Contents:", bag)
     if quantity > 0:
         bag[product_key] = quantity
         messages.success(request, f'Updated {product.name} quantity to {quantity}')
