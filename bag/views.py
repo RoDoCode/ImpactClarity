@@ -25,8 +25,8 @@ def add_to_bag(request, item_id):
 
     if product_key in bag:
         messages.info(request,
-                            (f"Oops, '{product.name}' "
-                            f"is already in your bag, you only need one"))
+            (f"Oops, '{product.name}' "
+             f"is already in your bag, you only need one"))
     else:
         bag[product_key] = quantity
         messages.success(request, f'Added {product.name} to your bag')
@@ -48,7 +48,8 @@ def adjust_bag(request, item_id):
     product_key = f'product_{product_id}'
     if quantity > 0:
         bag[product_key] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {quantity}')
+        messages.success(request, f'Updated {product.name} quantity '
+                                  f'to {quantity}')
     else:
         if product_key in bag:
             bag.pop(product_key)
@@ -62,10 +63,9 @@ def remove_from_bag(request, item_id):
     try:
         bag = request.session.get('bag', {})
         
-        # Check if item_id directly exists in the bag (assuming item_id includes prefix)
         if item_id in bag:
             item_type, product_id = item_id.split('_')
-            product = get_object_or_404(Product, pk=product_id)  # Ensure this ID refers to a Product
+            product = get_object_or_404(Product, pk=product_id)  
             bag.pop(item_id)
             messages.success(request, f'Removed {product.name} from your bag')
             request.session['bag'] = bag
@@ -78,29 +78,12 @@ def remove_from_bag(request, item_id):
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
 
-"""
-def remove_from_bag(request, item_id):
-    Remove the item from the shopping bag
-
-    try:
-        product = get_object_or_404(Product, pk=item_id)
-        bag = request.session.get('bag', {})
-
-        bag.pop(item_id)
-        messages.success(request, f'Removed {product.name} from your bag')
-
-        request.session['bag'] = bag
-        return HttpResponse(status=200)
-
-    except Exception as e:
-        messages.error(request, f'Error removing item: {e}')
-        return HttpResponse(status=500)
-"""
 
 # ADDING/ADJUSTING/REMOVING SERIES IN BAG
 
 def add_series_to_bag(request, item_id):
     """ Add a quantity of the specified series to the shopping bag """
+
     series = get_object_or_404(Series, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -119,6 +102,7 @@ def add_series_to_bag(request, item_id):
 
 def adjust_series_in_bag(request, item_id):
     """Adjust the quantity of the specified series to the specified amount"""
+
     try:
         series_id = int(item_id.split('_')[1])
     except (IndexError, ValueError):
@@ -130,7 +114,8 @@ def adjust_series_in_bag(request, item_id):
     series_key = f'series_{series_id}'
     if quantity > 0:
         bag[series_key] = quantity
-        messages.success(request, f'Updated {series.friendly_name} quantity to {quantity}')
+        messages.success(request, f'Updated {series.friendly_name} '
+                                  f'quantity to {quantity}')
     else:
         if series_key in bag:
             bag.pop(series_key)
@@ -156,7 +141,6 @@ def remove_series_from_bag(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
-
 
 # ADDING/ADJUSTING/REMOVING CoachingToken IN BAG
 
@@ -194,7 +178,8 @@ def adjust_token_in_bag(request, item_id):
     token_key = f'token_{token_id}'
     if quantity > 0:
         bag[token_key] = quantity
-        messages.success(request, f'Updated {token.name} quantity to {quantity}')
+        messages.success(request, f'Updated {token.name} '
+                                  f'quantity to {quantity}')
     else:
         if token_key in bag:
             bag.pop(token_key)
@@ -211,7 +196,8 @@ def remove_token_from_bag(request, item_id):
         bag = request.session.get('bag', {})
 
         bag.pop(item_id)
-        messages.success(request, f'Removed {coachingtoken.name} from your bag')
+        messages.success(request, f'Removed {coachingtoken.name} '
+                                  f'from your bag')
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
