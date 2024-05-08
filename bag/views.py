@@ -36,22 +36,22 @@ def add_to_bag(request, item_id):
 
 def adjust_bag(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
-
-    product = get_object_or_404(Product, pk=item_id)
+    try:
+        product_id = int(item_id.split('_')[1])
+    except (IndexError, ValueError):
+        messages.error(request, 'Invalid product identifier')
+        return redirect('view_bag')
+    product = get_object_or_404(Product, pk=product_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
-
+    product_key = f'product_{product_id}'
     if quantity > 0:
-        bag[item_id] = quantity
-        messages.success(request,
-                            (f'Updated {product.name} '
-                            f'quantity to {bag[item_id]}'))
+        bag[product_key] = quantity
+        messages.success(request, f'Updated {product.name} quantity to {quantity}')
     else:
-        bag.pop(item_id)
-        messages.success(request,
-                            (f'Removed {product.name} '
-                            f'from your bag'))
-
+        if product_key in bag:
+            bag.pop(product_key)
+            messages.success(request, f'Removed {product.name} from your bag')
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
@@ -78,14 +78,11 @@ def remove_from_bag(request, item_id):
 
 def add_series_to_bag(request, item_id):
     """ Add a quantity of the specified series to the shopping bag """
-
     series = get_object_or_404(Series, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
-
     series_key = f'series_{item_id}'
-
     if series_key in bag:
         messages.info(request,
                             (f'Oops {series.name} '
@@ -93,29 +90,28 @@ def add_series_to_bag(request, item_id):
     else:
         bag[series_key] = quantity
         messages.success(request, f'Added {series.friendly_name} to your bag')
-
     request.session['bag'] = bag
     return redirect(redirect_url)
 
 
 def adjust_series_in_bag(request, item_id):
     """Adjust the quantity of the specified series to the specified amount"""
-
-    series = get_object_or_404(Series, pk=item_id)
+    try:
+        series_id = int(item_id.split('_')[1])
+    except (IndexError, ValueError):
+        messages.error(request, 'Invalid series identifier')
+        return redirect('view_bag')
+    series = get_object_or_404(Series, pk=series_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
-
+    series_key = f'series_{series_id}'
     if quantity > 0:
-        bag[item_id] = quantity
-        messages.success(request,
-                            (f'Updated {series.name} '
-                            f'quantity to {bag[item_id]}'))
+        bag[series_key] = quantity
+        messages.success(request, f'Updated {series.friendly_name} quantity to {quantity}')
     else:
-        bag.pop(item_id)
-        messages.success(request,
-                            (f'Removed {series.name} '
-                            f'from your bag'))
-
+        if series_key in bag:
+            bag.pop(series_key)
+            messages.success(request, f'Removed {series.name} from your bag')
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
@@ -162,23 +158,23 @@ def add_token_to_bag(request, item_id):
 
 
 def adjust_token_in_bag(request, item_id):
-    """Adjust the quantity of the specified coachingtoken to the specified amount"""
-
-    coachingtoken = get_object_or_404(CoachingToken, pk=item_id)
+    """Adjust the quantity of the specified series to the specified amount"""
+    try:
+        token_id = int(item_id.split('_')[1])
+    except (IndexError, ValueError):
+        messages.error(request, 'Invalid token identifier')
+        return redirect('view_bag')
+    token = get_object_or_404(CoachingToken, pk=token_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
-
+    token_key = f'token_{token_id}'
     if quantity > 0:
-        bag[item_id] = quantity
-        messages.success(request,
-                            (f'Updated {coachingtoken.name} '
-                            f'quantity to {bag[item_id]}'))
+        bag[token_key] = quantity
+        messages.success(request, f'Updated {token.name} quantity to {quantity}')
     else:
-        bag.pop(item_id)
-        messages.success(request,
-                            (f'Removed {coachingtoken.name} '
-                            f'from your bag'))
-
+        if token_key in bag:
+            bag.pop(token_key)
+            messages.success(request, f'Removed {token.name} from your bag')
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 

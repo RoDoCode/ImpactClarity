@@ -19,8 +19,8 @@ def bag_contents(request):
             item = get_object_or_404(Product, pk=item_id)
         elif item_type == 'series':
             item = get_object_or_404(Series, pk=item_id)
-        elif item_type == 'token':
-            item = get_object_or_404(Series, pk=item_id)
+        elif item_type == 'coachingtoken':
+            item = get_object_or_404(CoachingToken, pk=item_id)
         else:
             continue
 
@@ -33,6 +33,10 @@ def bag_contents(request):
                 'product': item,
             })
         else:
+            continue
+        
+        """
+        else:
             for size, quantity in item_data['items_by_size'].items():
                 total += quantity * product.price
                 product_count += quantity
@@ -40,8 +44,8 @@ def bag_contents(request):
                     'item_id': item_key,
                     'quantity': quantity,
                     'product': product,
-                    'size': size,
                 })
+        """
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
