@@ -29,9 +29,11 @@ class SeriesForm(forms.ModelForm):
         model = Series
         fields = '__all__'
 
-    screenshot = forms.ImageField(label='Screenshot',
-                             required=False,
-                             widget=CustomClearableFileInput)
+    screenshot = forms.ImageField(
+        label='Screenshot',
+        required=False,
+        widget=CustomClearableFileInput
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

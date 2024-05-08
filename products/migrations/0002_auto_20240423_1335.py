@@ -19,7 +19,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='video',
-            field=models.FileField(blank=True, null=True, upload_to='uploads/'),
+            field=models.FileField(
+                blank=True,
+                null=True,
+                upload_to='uploads/'
+            ),
         ),
         migrations.AddField(
             model_name='product',
@@ -29,16 +33,38 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Series',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID'
+                )),
                 ('name', models.CharField(max_length=254)),
-                ('friendly_name', models.CharField(blank=True, max_length=254, null=True)),
-                ('series_no', models.PositiveIntegerField(max_length=3, unique=True)),
-                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.category')),
+                ('friendly_name', models.CharField(
+                    blank=True,
+                    max_length=254,
+                    null=True
+                )),
+                ('series_no', models.PositiveIntegerField(
+                    max_length=3,
+                    unique=True
+                )),
+                ('category', models.ForeignKey(
+                    blank=True,
+                    null=True,
+                    on_delete=django.db.models.deletion.SET_NULL,
+                    to='products.category'
+                )),
             ],
         ),
         migrations.AddField(
             model_name='product',
             name='series_no',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='products.series', verbose_name='Series Number'),
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to='products.series',
+                verbose_name='Series Number'
+            ),
         ),
     ]

@@ -13,6 +13,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='duration',
-            field=models.CharField(blank=True, default='20 minutes', max_length=254, null=True),
+            field=models.CharField(
+                blank=True,
+                default='20 minutes',
+                max_length=254,
+                null=True
+            ),
         ),
     ]

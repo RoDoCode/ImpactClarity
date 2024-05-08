@@ -18,6 +18,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='series',
             name='price',
-            field=models.DecimalField(decimal_places=2, default=34.99, max_digits=6),
+            field=models.DecimalField(
+                decimal_places=2,
+                default=34.99,
+                max_digits=6
+            ),
         ),
     ]
