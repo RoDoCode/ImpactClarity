@@ -139,7 +139,8 @@ input[name='q']::placeholder {
 }
 
 #mc_embed_signup{
-    background:#fff;
+    background:#483636;
+    color:rgb(235, 235, 235);
     clear:left; 
     font:14px Helvetica,Arial,sans-serif; 
     width: px;
