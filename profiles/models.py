@@ -38,15 +38,12 @@ class UserProfile(models.Model):
     series_access = models.ManyToManyField(
         Series,
         related_name='series_user',
-        blank=True,)
+        blank=True, null=True,)
     product_access = models.ManyToManyField(
         Product,
         related_name='product_user',
-        blank=True,)
-    token_access = models.ManyToManyField(
-        CoachingToken,
-        related_name='token_user',
-        blank=True,)
+        blank=True, null=True,)
+
 
     def __str__(self):
         return self.user.username
