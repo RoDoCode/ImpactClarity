@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile
+from .models import Series, UserProfile, Product
+from django.http import HttpResponseForbidden
 from .forms import UserProfileForm
 
 from checkout.models import Order
@@ -53,14 +54,7 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
-def library(request):
-    if request.user.is_authenticated:
-        user_profile = UserProfile.objects.get(user=request.user)
-        series_list = user_profile.series_access.all()
-        return render(request, 'library.html', {'series_list': series_list})
-    else:
-        return render(request, 'library.html')
-
+@login_required
 def library(request):
     if request.user.is_authenticated:
         try:
@@ -76,3 +70,17 @@ def library(request):
         return render(request, 'library.html', context)
     else:
         return render(request, 'library.html')
+
+
+@login_required
+def series_library(request, series_no):
+    series = get_object_or_404(Series, series_no=series_no)
+    user_profile = UserProfile.objects.get(user=request.user)
+    if series not in user_profile.series_access.all():
+        return HttpResponseForbidden("You do not have access to this series.")
+    products = Product.objects.filter(series_no=series)
+    return render(
+        request,
+        'products/series_library.html',
+        {'series': series, 'products': products}
+    )
