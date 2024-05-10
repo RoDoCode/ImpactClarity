@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import handler404
+from .views import handler404, handler403, handler500
 
 
 urlpatterns = [
@@ -32,4 +32,19 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
+def custom_403(request, exception):
+    return render(request, "403.html", status=403)
+
+
+def custom_404(request, exception):
+    return render(request, "404.html", status=404)
+
+
+def custom_500(request, exception):
+    return render(request, "500.html", status=500)
+
+
 handler404 = 'impactclarity.views.handler404'
+handler403 = custom_403
+handler404 = 'impactclarity.views.handler500'
