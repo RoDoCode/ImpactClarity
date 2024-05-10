@@ -11,64 +11,42 @@
 
 {% block content %}
 <div class="overlay"></div>
-  <div class="container mt-5">
-    <h2 class="logo-font">About</h2>
+  <div class="container mt-0">
+    <div class="row">
+        <div class="col text-center mt-0">
+            <h2 class="logo-font">About</h2>
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+    <br>
     
-    <h3>Jo Dow Communication Coaching</h3>
-    <p>Jo Dow is a Communications Coach specializing in Presentation and Authenticity. He is one of a small number of coaches who have worked as part of RADA Business to deliver world-class communication training to some of the most influential organizations in the world.</p>
-    <p>His intuitive approach is tailored to his clients' exact needs, responding to their challenges and goals with individual-specific insights and clarity on how they deliver.</p>
+    {{ about.content_1 | safe }}
     
     <div class="row">
-        <div class="col-md-6">
-            <h4>Jo Dow</h4>
-            <p>Communication Coach & Roleplay Facilitator</p>
-            <p>Jo trained at the Guildhall School of Music and Drama under Patsy Rodenburg OBE and, after 25 years on TV, film, and stage, has been a regular character in many iconic series. He has appeared in over 500 episodes, ranging from live studio sitcoms to police dramas and groundbreaking medical dramas.</p>
-            <p>He has also trained communicators for the Cabinet Office, civil service, and many business organizations across the world.</p>
+        <div class="col-md-4">
+            {{ about.content_2 | safe }}
         </div>
-        <div class="col-md-6">
-            <h4>Testimonials</h4>
-            <blockquote class="blockquote">
-                <p class="mb-0">"Working with Jo significantly increased my confidence and helped eliminate much of the fear and self-doubt I felt about public speaking. Previously, I was extremely anxious and strongly disliked having to speak in public, despite it being a regular requirement for me."</p>
-                <footer class="blockquote-footer">Former Professional Sportsman</footer>
-            </blockquote>
-            <blockquote class="blockquote">
-                <p class="mb-0">"This program is outstanding; I highly recommend it for other business areas where communication and presentation of results are crucial."</p>
-                <footer class="blockquote-footer">Arsenic</footer>
-            </blockquote>
-            <blockquote class="blockquote">
-                <p class="mb-0">"I can affirm with confidence that Jo has guided me toward greater clarity, strengthened my character, and enhanced my effectiveness as a leader. Jo's approach to coaching is thoughtful, targeted, and nurturing."</p>
-                <footer class="blockquote-footer">Business Leader</footer>
-            </blockquote>
+        <br>
+        <div class="col-md-4 mt-1">
+            <img class="mt-2" id="about-image" src="{{ about.about_image }}" style="width:100%; height:auto;" alt="{{ about.title }}" >
+        </div>
+        <div class="col-md-4 mt-1">
+            {{ about.content_3 | safe }}
         </div>
     </div>
     <div class="footer">
       <div class="w-row">
         <div class="w-col w-col-6"></div>
         <div class="text-right w-col w-col-6">
-          <div class="logowrap"><img src="images/pm-logo.png" width="253" alt="Jo Dow Communication Coaching" srcset="images/ic-logo-p-500.png 500w, images/ic-logo.png 506w" sizes="(max-width: 479px) 67vw, 253px"></div>
+          <div class="logowrap"><img src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/logo-05.png" width="253" alt="Jo Dow Communication Coaching"></div>
           <div class="soc-wrap w-clearfix"><a href="https://www.linkedin.com/in/rory-dow/" target="_blank" class="soc-box linkedin w-inline-block"></a><a href="https://twitter.com/RoDoCode" target="_blank" class="soc-box w-inline-block"></a></div>
           <div class="footer-nav">copyright jo dow 2024</div>
-          <div class="footer-nav"><a href="privacy-policy.html" class="link">privacy</a> | <a href="cookies.html" class="link">cookies</a></div>
+          <div class="footer-nav"><a href="https://www.termsfeed.com/live/aa5b659d-1f0b-4037-9b0c-4d6aeaf5bbcb" class="link">privacy</a> | <a href="{% static 'sitemap.xml' %}" class="link">sitemap</a></div>
         </div>
       </div>
     </div>
   </div>
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-4 text-center">
-            {% if "placeholder" in about.about_image.url %}
-            <img src="{% static 'images/nobody.jpg' %}" width="75%" 
-            alt="placeholder image" >
-            {% else %}
-            <img src="{{ about.about_image.url }}" width="75%" 
-            alt="{{ about.title }}">
-            {% endif %}
-        </div>
-        <div class="col-8">
-            <h2>{{ about.title }}</h2>
-            {{ about.content | safe }}
-        </div>
-    </div>
     <div class="row">
         <div class="col text-right">
             <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
