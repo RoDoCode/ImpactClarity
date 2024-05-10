@@ -35,6 +35,7 @@ def profile(request):
     return render(request, template, context)
 
 
+@login_required
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -50,3 +51,28 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+def library(request):
+    if request.user.is_authenticated:
+        user_profile = UserProfile.objects.get(user=request.user)
+        series_list = user_profile.series_access.all()
+        return render(request, 'library.html', {'series_list': series_list})
+    else:
+        return render(request, 'library.html')
+
+def library(request):
+    if request.user.is_authenticated:
+        try:
+            user_profile = UserProfile.objects.get(user=request.user)
+        except UserProfile.DoesNotExist:
+            return render(request, 'library.html', {'error': 'UserProfile not found.'})
+        series_list = user_profile.series_access.all()
+        product_list = user_profile.product_access.all()
+        context = {
+            'series_list': series_list,
+            'product_list': product_list
+        }
+        return render(request, 'library.html', context)
+    else:
+        return render(request, 'library.html')
