@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /accounts/
 Disallow: /admin/
 Disallow: /bag/
-Sitemap: https://www.impactclarity.com/sitemap.xml
+Sitemap: https://www.impactclarity.com/static/sitemap.xml
