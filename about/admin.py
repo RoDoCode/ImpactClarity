@@ -7,7 +7,9 @@ class AboutAdmin(admin.ModelAdmin):
         'title',
         'about_image',
         'updated_on',
-        'content',
+        'content_1',
+        'content_2',
+        'content_3',
     )
 
 
