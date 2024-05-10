@@ -1,9 +1,14 @@
 from django.contrib import admin
 from .models import About
-from django_summernote.admin import SummernoteModelAdmin
 
 
-@admin.register(About)
-class AboutAdmin(SummernoteModelAdmin):
+class AboutAdmin(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'about_image',
+        'updated_on',
+        'content',
+    )
 
-    summernote_fields = ('content',)
+
+admin.site.register(About, AboutAdmin)
