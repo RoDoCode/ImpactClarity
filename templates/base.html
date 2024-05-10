@@ -145,6 +145,17 @@
     {% block page_header %}
     {% endblock %}
 
+    {% if request.path != '/' and request.path != request.build_absolute_uri|slice:":request.get_full_path|length" %}
+
+    <button onclick="goBack()" type="button" class="btn btn-dark ml-4" style="">Go Back</button>
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
+
+    {% endif %}
+
     {% block content %}
     {% endblock %}
 
