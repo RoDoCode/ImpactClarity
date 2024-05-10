@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'home',
     'about',
-    'client',
     'coach',
     'contact',
     'products',
