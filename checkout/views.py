@@ -46,12 +46,6 @@ def checkout(request):
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
-            'country': request.POST['country'],
-            'postcode': request.POST['postcode'],
-            'town_or_city': request.POST['town_or_city'],
-            'street_address1': request.POST['street_address1'],
-            'street_address2': request.POST['street_address2'],
-            'county': request.POST['county'],
         }
 
         order_form = OrderForm(form_data)
@@ -65,7 +59,6 @@ def checkout(request):
             for item_key, item_data in bag.items():
                 item_type, item_id = item_key.split('_')
                 item_id = int(item_id)
-
                 if item_type == 'product':
                     try:
                         product = Product.objects.get(id=item_id)
@@ -139,12 +132,6 @@ def checkout(request):
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
-                    'country': profile.default_country,
-                    'postcode': profile.default_postcode,
-                    'town_or_city': profile.default_town_or_city,
-                    'street_address1': profile.default_street_address1,
-                    'street_address2': profile.default_street_address2,
-                    'county': profile.default_county,
                 })
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
@@ -183,12 +170,6 @@ def checkout_success(request, order_number):
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
-                'default_country': order.country,
-                'default_postcode': order.postcode,
-                'default_town_or_city': order.town_or_city,
-                'default_street_address1': order.street_address1,
-                'default_street_address2': order.street_address2,
-                'default_county': order.county,
             }
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
@@ -202,13 +183,19 @@ def checkout_success(request, order_number):
                     product = Product.objects.get(id=item_id)
                     profile.product_access.add(product)
                 except Product.DoesNotExist:
-                    messages.error(request, f"Product with id {item_id} does not exist.")
+                    messages.error(
+                        request,
+                        f"Product with id {item_id} does not exist."
+                    )
             elif item_type == 'series':
                 try:
                     series = Series.objects.get(id=item_id)
                     profile.series_access.add(series)
                 except Series.DoesNotExist:
-                    messages.error(request, f"Series with id {item_id} does not exist.")
+                    messages.error(
+                        request,
+                        f"Series with id {item_id} does not exist."
+                    )
 
         # Save any changes to the user profile
         profile.save()

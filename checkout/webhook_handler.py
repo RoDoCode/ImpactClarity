@@ -57,13 +57,7 @@ class StripeWH_Handler:
         )
 
         billing_details = stripe_charge.billing_details  # updated
-        shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2)  # updated
-
-        # Clean data in the shipping details
-        for field, value in shipping_details.address.items():
-            if value == "":
-                shipping_details.address[field] = None
 
         # Update profile information if save_info was checked
         profile = None
@@ -72,18 +66,6 @@ class StripeWH_Handler:
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
                 profile.default_phone_number = shipping_details.phone
-                profile.default_country = shipping_details.address.country
-                profile.default_postcode = (
-                    shipping_details.address.postal_code
-                )
-                profile.default_town_or_city = shipping_details.address.city
-                profile.default_street_address1 = (
-                    shipping_details.address.line1
-                )
-                profile.default_street_address2 = (
-                    shipping_details.address.line2
-                )
-                profile.default_county = shipping_details.address.state
                 profile.save()
 
         order_exists = False
@@ -94,12 +76,6 @@ class StripeWH_Handler:
                     full_name__iexact=shipping_details.name,
                     email__iexact=billing_details.email,
                     phone_number__iexact=shipping_details.phone,
-                    country__iexact=shipping_details.address.country,
-                    postcode__iexact=shipping_details.address.postal_code,
-                    town_or_city__iexact=shipping_details.address.city,
-                    street_address1__iexact=shipping_details.address.line1,
-                    street_address2__iexact=shipping_details.address.line2,
-                    county__iexact=shipping_details.address.state,
                     grand_total=grand_total,
                     original_bag=bag,
                     stripe_pid=pid,
@@ -123,35 +99,35 @@ class StripeWH_Handler:
                     user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
-                    country=shipping_details.address.country,
-                    postcode=shipping_details.address.postal_code,
-                    town_or_city=shipping_details.address.city,
-                    street_address1=shipping_details.address.line1,
-                    street_address2=shipping_details.address.line2,
-                    county=shipping_details.address.state,
                     original_bag=bag,
                     stripe_pid=pid,
                 )
-                for item_id, item_data in json.loads(bag).items():
-                    product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            quantity=item_data,
-                        )
-                        order_line_item.save()
-                    else:
-                        for size, quantity in (
-                            item_data['items_by_size'].items()
-                        ):
+                for item_key, item_data in json.loads(bag).items():
+                    item_type, item_id = item_key.split('_')
+                    if item_type == 'product':
+                        try:
+                            product = Product.objects.get(id=item_id)
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
-                                quantity=quantity,
-                                product_size=size,
+                                quantity=item_data,
+                                series=None,
                             )
                             order_line_item.save()
+                        except Product.DoesNotExist:
+                            pass
+                    elif item_type == 'series':
+                        try:
+                            series = Series.objects.get(id=item_id)
+                            order_line_item = OrderLineItem(
+                                order=order,
+                                series=series,
+                                quantity=item_data,
+                                product=None,
+                            )
+                            order_line_item.save()
+                        except Series.DoesNotExist:
+                            pass
             except Exception as e:
                 if order:
                     order.delete()
