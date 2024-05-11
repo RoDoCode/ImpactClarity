@@ -61,7 +61,11 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
-            for item_id, item_data in bag.items():
+
+            for item_key, item_data in bag.items():
+                item_type, item_id = item_key.split('_')
+                item_id = int(item_id)
+
                 try:
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
