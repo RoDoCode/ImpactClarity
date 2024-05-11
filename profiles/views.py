@@ -60,16 +60,16 @@ def library(request):
         try:
             user_profile = UserProfile.objects.get(user=request.user)
         except UserProfile.DoesNotExist:
-            return render(request, 'library.html', {'error': 'UserProfile not found.'})
+            return render(request, 'profiles/library.html', {'error': 'UserProfile not found.'})
         series_list = user_profile.series_access.all()
         product_list = user_profile.product_access.all()
         context = {
             'series_list': series_list,
             'product_list': product_list
         }
-        return render(request, 'library.html', context)
+        return render(request, 'profiles/library.html', context)
     else:
-        return render(request, 'library.html')
+        return render(request, 'profiles/library.html')
 
 
 @login_required
@@ -81,6 +81,19 @@ def series_library(request, series_no):
     products = Product.objects.filter(series_no=series)
     return render(
         request,
-        'products/series_library.html',
+        'profiles/series_library.html',
         {'series': series, 'products': products}
     )
+
+
+@login_required
+def product_viewer(request, product_id):
+    """ A view to show individual product video """
+
+    product = get_object_or_404(Product, pk=product_id)
+    if product not in user_profile.product_access.all():
+        return HttpResponseForbidden("You do not have access to this tutorial.")
+    context = {
+        'product': product,
+    }
+    return render(request, 'profiles/product_viewer.html', context)

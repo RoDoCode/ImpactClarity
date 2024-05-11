@@ -31,7 +31,13 @@
                 <a href="{% url 'products' %}?category=activewear,essentials,jeans,shirts" class="dropdown-item">Presenting with Impact</a>
             </div>
         </li>
-
+        {% if request.user.is_authenticated %}
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'library' %}" id="nav-link">
+                Library
+            </a>
+        </li>
+        {% endif %}
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'about' %}" id="nav-link">
                 About

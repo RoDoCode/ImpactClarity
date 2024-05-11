@@ -38,11 +38,11 @@ class UserProfile(models.Model):
     series_access = models.ManyToManyField(
         Series,
         related_name='series_user',
-        blank=True, null=True,)
+        blank=True,)
     product_access = models.ManyToManyField(
         Product,
         related_name='product_user',
-        blank=True, null=True,)
+        blank=True,)
 
 
     def __str__(self):
