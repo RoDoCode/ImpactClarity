@@ -8,7 +8,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 
-from products.models import Product
+from products.models import Product, Series
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
@@ -66,31 +66,43 @@ def checkout(request):
                 item_type, item_id = item_key.split('_')
                 item_id = int(item_id)
 
-                try:
-                    product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
+                if item_type == 'product':
+                    try:
+                        product = Product.objects.get(id=item_id)
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
                             quantity=item_data,
                         )
                         order_line_item.save()
-                    else:
-                        for size, quantity in (
-                            item_data['items_by_size'].items()
-                        ):
-                            order_line_item = OrderLineItem(
-                                order=order,
-                                product=product,
-                                quantity=quantity,
-                                product_size=size,
-                            )
-                            order_line_item.save()
-                except Product.DoesNotExist:
+                    except Product.DoesNotExist:
+                        messages.error(request, (
+                            "One of the products in your bag wasn't "
+                            "found in our database. "
+                            "Please call us for assistance!")
+                        )
+                        order.delete()
+                        return redirect(reverse('view_bag'))
+                elif item_type == 'series':
+                    try:
+                        series = Series.objects.get(id=item_id)
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                        order_line_item.save()
+                    except Series.DoesNotExist:
+                        messages.error(request, (
+                            "One of the series in your bag wasn't "
+                            "found in our database. "
+                            "Please call us for assistance!")
+                        )
+                        order.delete()
+                        return redirect(reverse('view_bag'))
+                else:
                     messages.error(request, (
-                        "One of the products in your bag wasn't "
-                        "found in our database. "
-                        "Please call us for assistance!")
+                        "The items in your bag arent recognised")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
