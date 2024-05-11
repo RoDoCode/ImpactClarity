@@ -182,6 +182,25 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
+        bag = request.session.get('bag', {})
+        for item_key, quantity in bag.items():
+            item_type, item_id = item_key.split('_')
+            if item_type == 'product':
+                try:
+                    product = Product.objects.get(id=item_id)
+                    profile.product_access.add(product)
+                except Product.DoesNotExist:
+                    messages.error(request, f"Product with id {item_id} does not exist.")
+            elif item_type == 'series':
+                try:
+                    series = Series.objects.get(id=item_id)
+                    profile.series_access.add(series)
+                except Series.DoesNotExist:
+                    messages.error(request, f"Series with id {item_id} does not exist.")
+
+        # Save any changes to the user profile
+        profile.save()
+
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
