@@ -17,6 +17,7 @@ def add_to_bag(request, item_id):
 
     product = get_object_or_404(Product, pk=item_id)
     series = product.series_no
+    series_key = f'series_{series.pk}'
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
@@ -27,7 +28,7 @@ def add_to_bag(request, item_id):
             request,
             (f"Oops, '{product.name}' "
              f"is already in your bag, you only need one"))
-    elif series in bag:
+    elif series_key in bag:
         messages.info(
             request,
             (f"Oops, '{product.name}' "
