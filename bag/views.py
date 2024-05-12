@@ -93,6 +93,7 @@ def add_series_to_bag(request, item_id):
     """ Add a quantity of the specified series to the shopping bag """
 
     series = get_object_or_404(Series, pk=item_id)
+    products = Product.objects.filter(series_no=series)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
@@ -101,8 +102,17 @@ def add_series_to_bag(request, item_id):
         messages.info(
             request,
             (f'Oops {series.name} '
-             f'is already in your bag, you only need 1'))
+             f'is already in your bag, you only need 1')) 
+    elif products in bag:
+        messages.info(
+            request,
+            (f'Some of the episodes in your bag are already in '
+            f'that series, so we removed them from your bag'
+            f' and added the series'))
+        bag[series_key] = quantity
     else:
+        print(bag)
+        print(products)
         bag[series_key] = quantity
         messages.success(request, f'Added {series.friendly_name} to your bag')
     request.session['bag'] = bag
