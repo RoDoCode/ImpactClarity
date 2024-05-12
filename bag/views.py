@@ -23,6 +23,7 @@ def add_to_bag(request, item_id):
     bag = request.session.get('bag', {})
     product_key = f'product_{item_id}'
     print("Current Bag Contents:", bag)
+    print(bag)
     if product_key in bag:
         messages.info(
             request,
@@ -34,9 +35,6 @@ def add_to_bag(request, item_id):
             (f"Oops, '{product.name}' "
              f"is already in '{series.friendly_name}', no need to add it twice"))
     else:
-        print(series)
-        print(series.name)
-        print(bag)
         bag[product_key] = quantity
         messages.success(request, f'Added {product.name} to your bag')
     request.session['bag'] = bag
