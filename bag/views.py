@@ -101,20 +101,24 @@ def add_series_to_bag(request, item_id):
     if series_key in bag:
         messages.info(
             request,
-            (f'Oops {series.name} '
-             f'is already in your bag, you only need 1')) 
-    elif products in bag:
-        messages.info(
-            request,
-            (f'Some of the episodes in your bag are already in '
-            f'that series, so we removed them from your bag'
-            f' and added the series'))
-        bag[series_key] = quantity
+            f'Oops {series.name} is already in your bag, you only need 1')
     else:
-        print(bag)
-        print(products)
+        any_removed = False
+        for product in products:
+            product_key = f'product_{product.pk}'
+            if product_key in bag:
+                del bag[product_key]
+                any_removed = True
         bag[series_key] = quantity
-        messages.success(request, f'Added {series.friendly_name} to your bag')
+        if any_removed:
+            messages.info(
+                request,
+                f'Some of the episodes in your bag were already '
+                f'in {series.friendly_name}, so we removed them from your '
+                f'bag and added the series')
+        else:
+            messages.success(request, f'Added {series.friendly_name}'
+                f' to your bag')
     request.session['bag'] = bag
     return redirect(redirect_url)
 
