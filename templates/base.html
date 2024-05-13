@@ -149,10 +149,18 @@
 
     <button onclick="goBack()" type="button" class="btn btn-dark ml-4">Go Back</button>
     <script>
-    function goBack() {
-        window.history.back();
-    }
+        function goBack() {
+            window.history.back();
+            setTimeout(function() {
+                window.location.reload();
+            }, 100); // adjust delay time as necessary
+        }
     </script>
+
+    {% endif %}
+    {% if request.path == '/products/' %}
+    <a href="{% url 'series' %}">
+    <button type="button" class="btn btn-info ml-4">All Series</button></a>
 
     {% endif %}
 
