@@ -97,6 +97,11 @@ body {
     color: #ffffff !important;
 }
 
+.lib-prod-disc > p {
+    text-align: center;
+    color: black !important;
+}
+
 .border-black {
     border: 1px solid black !important;
 }
@@ -117,6 +122,14 @@ body {
 	position: fixed;
 	background: white;
 	z-index: -1;
+}
+
+.icon-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    z-index: 10;
 }
 
 a.category-badge > span.badge:hover {

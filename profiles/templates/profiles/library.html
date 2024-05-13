@@ -19,39 +19,63 @@
             </div>
         </div>
         {% if user.is_authenticated %}
-            {% if series_list %}
-        <div class="row">
-            <h3 class="logo-font">My Tutorial Series</h3>
-                <ul>
+        {% if series_list %}
+            <div class="row">
+                <h3 class="logo-font ml-5 mt-3 my-3">My Tutorial Series</h3>
+                <div class="row ml-4">
                     {% for series in series_list %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 hover-shadow">
                             <div class="card h-80 border-0 mt-3">
-                                <li>
-                                    <a href="{% url 'series_library' series.pk %}">
-                                        <img class="img-fluid" src="{{ series.image_url }}" alt="{{ series.friendly_name }}"><p>{{ series.friendly_name }}</p>
-                                    </a>
-                                </li> 
+                                <a class="lib-prod-disc mx-3 my-3" href="{% url 'series_library' series.pk %}">
+                                    <img class="card-img-top img-fluid" src="{{ series.image_url }}" alt="{{ series.friendly_name }}">
+                                    <p class="text-center text-black"><strong>{{ series.friendly_name }}</strong></p>
+                                    <p class="text-center text-black" style="color: black !important; text-align: center !important;">{{ series.description|truncatechars:100|safe }}</p>
+                                </a>
+
+                                {% if forloop.counter|divisibleby:1 %}
+                                <div class="col-12 d-sm-none mb-5">
+                                    <hr>
+                                </div>
+                                {% endif %}                        
+                                {% if forloop.counter|divisibleby:2 %}
+                                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                                        <hr>
+                                    </div>
+                                {% endif %}
+                                {% if forloop.counter|divisibleby:3 %}
+                                    <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                                        <hr>
+                                    </div>
+                                {% endif %}
+                                {% if forloop.counter|divisibleby:4 %}
+                                    <div class="col-12 d-none d-xl-block mb-0">
+                                        <hr>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
-                </ul>
-            <hr class="w-50 mb-1">    
-            {% endif %}
-        </div>
+                </div>
+            </div>
+            <hr class="w-50 mb-1">
         {% endif %}
+        {% endif %}
+
         {% if user.is_authenticated %}
-            {% if product_list %}
+        {% if product_list %}
         <div class="row">
-            <h3 class="logo-font ml-5">My Individual Tutorials</h3>
-                <div class="row">
+            <h3 class="logo-font ml-5 mt-3 my-3">My Individual Tutorials</h3>
+                <div class="row ml-4">
                     {% for product in product_list %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 hover-shadow">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 hover-shadow position-relative">
                             <div class="card h-80 border-0 mt-3">
                                 <a class="mx-3 my-3" href="{% url 'product_viewer' product.pk %}">
                                     <img class="card-img-top img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}">
                                     <p class="text-center text-black"><strong>{{ product.name }}</strong></p>
-                                    <p class="text-black">{{ product.description }}</p>
+                                    <p class="text-center text-black">{{ product.description }}</p>
                                 </a>
+                                <i class="fa-solid fa-circle-dot icon-top-right"></i>
+
                                 {% if forloop.counter|divisibleby:1 %}
                                 <div class="col-12 d-sm-none mb-5">
                                     <hr>
