@@ -46,6 +46,10 @@ body {
     text-decoration: underline;
 }
 
+.faint-shadow {
+    box-shadow: 1px 1px 10px 10px rgba(179, 178, 178, 0.3);
+}
+
 .hover-shadow:hover {
     box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.3);
 }
@@ -385,12 +389,17 @@ input[name='q']::placeholder {
     color: teal; /* Adjust color as needed */
 }
 
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
+  }
+
+  .library-card {
+    max-width: 23.5% !important;
   }
 }
 
@@ -490,6 +499,10 @@ input[name='q']::placeholder {
     .header-container {
         padding-top: 134px;
     }
+
+    .library-card {
+        max-width: 23.5% !important;
+      }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
@@ -542,6 +555,10 @@ input[name='q']::placeholder {
     .increment-qty, .decrement-qty {
         padding: .25rem .5rem !important;
     }
+
+    .library-card {
+        max-width: 47% !important;
+      }
 }
 
 @media (max-width: 600px) {
