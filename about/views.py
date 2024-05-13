@@ -13,3 +13,10 @@ def about_me(request):
         "about/about.html",
         {"about": about},
     )
+
+
+def resources(request):
+    """
+    Renders the resources page
+    """
+    return render(request, "resources.html",)
