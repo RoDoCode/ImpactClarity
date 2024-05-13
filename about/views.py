@@ -19,4 +19,4 @@ def resources(request):
     """
     Renders the resources page
     """
-    return render(request, "resources.html",)
+    return render(request, "about/resources.html",)
