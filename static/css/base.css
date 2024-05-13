@@ -526,3 +526,9 @@ input[name='q']::placeholder {
         padding: .25rem .5rem !important;
     }
 }
+
+@media (max-width: 600px) {
+    body {
+      background-position: 70% center; /* Adjust these values to focus on a different part of the image */
+    }
+}
