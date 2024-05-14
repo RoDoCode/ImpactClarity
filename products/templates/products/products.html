@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
+    <div class="overlay-3"></div>
     <div class="container-fluid mb-5 pb-5">
         <div class="row">
             <div class="col text-center mt-0">
@@ -52,7 +52,7 @@
                 </div>
                 <div class="row">
                     {% for product in products %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 hover-shadow">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 hover-shadow" style="background:white;">
                             <div class="card h-80 border-0 mt-3">
                                 {% if product.image_url %}
                                 <a href="{% url 'product_detail' product.id %}">

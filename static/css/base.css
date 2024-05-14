@@ -72,7 +72,7 @@ body {
 
 .btn-outline-black {
     background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
+    color: black !important;
     border: 1px solid black;
 }
 
@@ -139,13 +139,13 @@ body {
 }
 
 .overlay-3 {
-	width: auto;
+    height: 100%;
+	width: 100%;
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: url('https://impactclarity.s3.eu-north-1.amazonaws.com/media/image_fx_an_abstract_photo_that_represents_wisdom_drea+(1).png') no-repeat center center fixed;
+	background: url('/media/grey-abstract-background.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
 	z-index: -1;
 }
 
