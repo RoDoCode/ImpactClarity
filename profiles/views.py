@@ -91,6 +91,7 @@ def product_viewer(request, product_id):
     """ A view to show individual product video """
 
     product = get_object_or_404(Product, pk=product_id)
+    user_profile = UserProfile.objects.get(user=request.user)
     if product not in user_profile.product_access.all():
         return HttpResponseForbidden("You do not have access to this tutorial.")
     context = {
