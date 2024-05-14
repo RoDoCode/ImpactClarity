@@ -26,9 +26,17 @@ def add_to_bag(request, item_id):
     product_key = f'product_{item_id}'
 
     if product_key in bag:
-        messages.info(request, f"Oops, '{product.name}' is already in your bag, you only need one.")
+        messages.info(
+            request,
+            f"Oops, '{product.name}' is already"
+            f" in your bag, you only need one."
+        )
     elif series_key in bag:
-        messages.info(request, f"Oops, '{product.name}' is already in '{series.friendly_name}', no need to add it twice.")
+        messages.info(
+            request,
+            f"Oops, '{product.name}' is already"
+            f" in '{series.friendly_name}', no need to add it twice."
+        )
     elif request.user.is_authenticated:
         try:
             user_profile = UserProfile.objects.get(user=request.user)
@@ -36,9 +44,17 @@ def add_to_bag(request, item_id):
             product_list = user_profile.product_access.all()
 
             if series in series_list:
-                messages.info(request, f"Oops, you already own '{product.name}' in '{series.friendly_name}', check your library.")
+                messages.info(
+                    request,
+                    f"Oops, you already own '{product.name}' "
+                    f"in '{series.friendly_name}', check your library."
+                )
             elif product in product_list:
-                messages.info(request, f"Oops, you already own '{product.name}', check your library.")
+                messages.info(
+                    request,
+                    f"Oops, you already own "
+                    f"'{product.name}', check your library."
+                )
             else:
                 bag[product_key] = quantity
                 messages.success(request, f'Added {product.name} to your bag.')
@@ -103,22 +119,29 @@ def add_series_to_bag(request, item_id):
     """ Add a quantity of the specified series to the shopping bag """
     series = get_object_or_404(Series, pk=item_id)
     products = Product.objects.filter(series_no=series)
-    quantity = int(request.POST.get('quantity', 1))  # Default quantity to 1 if not specified
-    redirect_url = request.POST.get('redirect_url', '/')  # Default redirect if not specified
+    quantity = int(request.POST.get('quantity', 1))
+    redirect_url = request.POST.get('redirect_url', '/')
 
     bag = request.session.get('bag', {})
     series_key = f'series_{item_id}'
 
     if series_key in bag:
-        messages.info(request, f'Oops {series.name} is already in your bag, you only need 1')
+        messages.info(
+            request,
+            f'Oops {series.name} is already in your bag, you only need 1'
+        )
     elif request.user.is_authenticated:
         try:
             user_profile = UserProfile.objects.get(user=request.user)
             series_list = user_profile.series_access.all()
             if series in series_list:
-                messages.info(request, f"Oops, you already own '{series.friendly_name}', check your library")
+                messages.info(
+                    request,
+                    f"Oops, you already own "
+                    f"'{series.friendly_name}', check your library"
+                )
             else:
-                pass  # Here you might want to add logic if there's anything else to do when user is authenticated
+                pass
         except UserProfile.DoesNotExist:
             messages.error(request, "Your user profile could not be found.")
             return redirect(redirect_url)
@@ -133,9 +156,15 @@ def add_series_to_bag(request, item_id):
         if any_removed:
             messages.info(
                 request,
-                f'Some of the episodes in your bag were already in {series.friendly_name}, so we removed them from your bag and added the series')
+                f'Some of the episodes in your bag were already in '
+                f'{series.friendly_name}, so we removed them from your '
+                f'bag and added the series')
         else:
-            messages.success(request, f'Added {series.friendly_name} to your bag')
+            messages.success(
+                request, 
+                f'Added {series.friendly_name} '
+                f'to your bag'
+            )
 
     request.session['bag'] = bag
     return redirect(redirect_url)
