@@ -38,19 +38,4 @@ urlpatterns = [
         views.remove_series_from_bag,
         name='remove_series_from_bag'
     ),
-    path(
-        'add/token/<item_id>/',
-        views.add_token_to_bag,
-        name='add_token_to_bag'
-    ),
-    path(
-        'adjust/token/<item_id>/',
-        views.adjust_token_in_bag,
-        name='adjust_token_in_bag'
-    ),
-    path(
-        'remove/token/<item_id>/',
-        views.remove_token_from_bag,
-        name='remove_token_from_bag'
-    ),
 ]
