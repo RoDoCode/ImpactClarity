@@ -11,3 +11,13 @@ class About(models.Model):
 
     def __str__(self):
         return self.title
+
+class Resource(models.Model):
+    title = models.CharField(max_length=200)
+    name_1 = models.CharField(max_length=200)
+    url_1 = models.URLField(max_length=1024, null=True, blank=True)
+    name_2 = models.CharField(max_length=200)
+    url_2 = models.URLField(max_length=1024, null=True, blank=True)
+
+    def __str__(self):
+        return self.title

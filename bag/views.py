@@ -3,7 +3,7 @@ from django.shortcuts import (
 )
 from django.contrib import messages
 
-from products.models import Product, Series, CoachingToken
+from products.models import Product, Series
 from profiles.models import UserProfile
 
 

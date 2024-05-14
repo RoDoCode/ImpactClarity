@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from products.models import Product, Series, CoachingToken
+from products.models import Product, Series
 
 
 def bag_contents(request):
@@ -19,8 +19,6 @@ def bag_contents(request):
             item = get_object_or_404(Product, pk=item_id)
         elif item_type == 'series':
             item = get_object_or_404(Series, pk=item_id)
-        elif item_type == 'coachingtoken':
-            item = get_object_or_404(CoachingToken, pk=item_id)
         else:
             continue
 
