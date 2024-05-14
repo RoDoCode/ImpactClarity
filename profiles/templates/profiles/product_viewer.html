@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay-2"></div>
+        <div class="container-fluid">
+            <div class="row" style="justify-content:center;">
+                <div class="col-12 col-md-12 col-lg-6">
+                    <video id="main-video" style="width: 100%; height: auto;" controls>
+                        <source src="{{ product.video_url }}" type="video/mp4">
+                    </video>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6">
+                    <h1 class="mb-0"><strong>{{ product.name }}</strong></h1>
+                    <p class="mt-3">{{ product.description }}</p>
+                    <p class="mt-3"><strong>This video is part of the"{{product.series_no.friendly_name}}" Tutorial Series. <a href="{% url 'series_library' product.series_no.id %}" style="color:blue;">Click here</a> to view the full tutorial series page.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
