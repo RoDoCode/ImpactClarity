@@ -1,13 +1,15 @@
 # Impact Clarity Coaching - A Communication Coaching Website
-<img src="static/images/screen_01.png" ><br>
+<img src="static/ReadMeFiles/images/amiresponsive.PNG" ><br>
 <hr>
 
 ## Overview
-This project is designed and developed as a platform for a communication coaching business. User's are able to purchase access to educational videos in single units or sets of videos. They are also able to purchase tokens which are used to book one-to-one online coaching sessions. All these functionalities are available to any user with an account. <br>
-The website was created for private clients to manage their coaching sessions, B2C, but there is no reason that businesses wouldn't also use a client profile, B2B; a single member of an HR department could distribute session tokens to many members of a company through the gifting mechanic. <br>
+This project is designed and developed as a platform for a communication coaching business. User's are able to purchase access to educational videos in single units or sets of videos. They are also able to read about the coach, in this case Jo Dow, and make contact to arrange coaching sessiong. All these functionalities are available to any user with an account. <br>
+The website was created for private clients to purchase tutorials, B2C, but there is no reason that businesses wouldn't also use a client profile, B2B; a single member of an HR department could distribute acces to a company account to any members of a company looking for training. <br>
 **Impact Clarity Coaching** was developed using Python (Django), HTML, CSS and JavaScript by storing the data in a PostgreSQL database.
 <br><br>
-The fully deployed project can be accessed at [this link](https://impactclarity.com/).<br><br>
+The fully deployed project can be accessed at [this link](https://www.impactclarity.com/). 
+If that does not register as secure when you visit it means the ssl certificate generated for the site may have expired. Use this link to visit the heroku direct url [here](https://www.impactclarity.)
+<br><br>
 
 
 ## Site Features :
