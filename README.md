@@ -3,35 +3,27 @@
 <hr>
 
 ## Overview
-This project is designed and developed as a platform for a communication coaching business. User's are able to purchase access to educational videos in single units or sets of videos. They are also able to read about the coach, in this case Jo Dow, and make contact to arrange coaching sessiong. All these functionalities are available to any user with an account. <br>
-The website was created for private clients to purchase tutorials, B2C, but there is no reason that businesses wouldn't also use a client profile, B2B; a single member of an HR department could distribute acces to a company account to any members of a company looking for training. <br>
+This project is designed and developed as a platform for a communication coaching business. User's are able to purchase access to educational videos in single units or sets of videos. They are also able to read about the coach, in this case Jo Dow, and make contact to arrange coaching sessiong as well as access resources recommended by the coach. All these functionalities are available to any user with an account. <br>
+The website was created for private clients to purchase tutorials, B2C, its a private educational platform for professionals to learn techniques to improve their communication in the workplace. <br>
 **Impact Clarity Coaching** was developed using Python (Django), HTML, CSS and JavaScript by storing the data in a PostgreSQL database.
 <br><br>
 The fully deployed project can be accessed at [this link](https://www.impactclarity.com/). 
-If that does not register as secure when you visit it means the ssl certificate generated for the site may have expired. Use this link to visit the heroku direct url [here](https://www.impactclarity.)
+If that does not register as secure when you visit it means the ssl certificate generated for the site may have expired. Use this link to visit the heroku direct url [here](https://impactclarity-158dbf752d6b.herokuapp.com/)
 <br><br>
 
 
 ## Site Features :
 - Single Payment system (not subscription), using Stripe. Users can pay by card or using ApplePay or GooglePay.
-- Discount code functionality
-- Purchasing video tutorial access and session tokens
-- Session calendar booking system
+- Purchasing video tutorial access and series access
 - Newsletter sign-up modal
-- Confidentiality procedures displayed
-- After session review form for testimonials
-- Testimonials side scroller
+- Privacy Policy procedures displayed
 - About the Coach Section
-- Contact form for in-person sessions
+- Contact form for feedback or organising coaching sessions.
 - A resources section
-- Login with email, username or social accounts links, namely Facebook and Google 
-- Bookings should be able to push an appointment to Google calendar of client or outlook calendar.
-- A video conferencing tool or an emailed video link for GoogleChat/Zoom/Teams. (Potentially offer FaceTime as an alternative option for IPhone users). 
+- Login with email, username or social accounts links, namely Google  
 - Site bespoke domain
 - Fully accessible with hidden features for users with disabilities, image tags and text on all features for clients with screen readers.
-- Gifting functionality
 - links to coach related social accounts
-- code of conduct page
 
 
 ## Business Plan & Analysis :
@@ -41,22 +33,14 @@ If that does not register as secure when you visit it means the ssl certificate 
 - Some customers will be satisfied with videos, this acts as **passive income** for the coach and filters favourable clients who are familiar and already like coach’s style.
 - Video tutorials are 25 minutes each. They are released in **Tutorial Series**. Access to Tutorials and Tutorial Series can be **purchased individually or bundles**.
 
-- €10 for a single video tutorial, €25 a bundle of three or €50 for Tutorial Series of 6 or more videos. This is considered relatively cheap as the clients who usually require this service are already successful in their field and looking to hone their interpersonal skills to a fine point. (Pricing is difficult from the persepective of the coach, too high and you alienate a portion of your client-base, too low and you undervalue yourself. We have to balance self-valuation with accessibility. Openly addressing this costing challenge in the content can be the most confident thing to do. Stating something along the lines of "videos have been made affordable because session are where the majority of progress is made".
-
-- **E-sessions** start at €120 for a single session. This reduces depending on the number of session **tokens** purchased at one time.
+- €5.95 for a single video tutorial, €34.99 for Tutorial Series of 8 or more videos. This is considered relatively cheap as the clients who usually require this service are already successful in their field and looking to hone their interpersonal skills to a fine point. Pricing is difficult from the persepective of the coach, too high and you alienate a portion of your client-base, too low and you undervalue yourself. We have to balance self-valuation with accessibility. Openly addressing this costing challenge in the content can be the most confident thing to do. Stating something along the lines of "videos have been made affordable because session are where the majority of progress is made".
 
 - My discussion with a working coach made it clear that there is a large range of pricing based on the client themselves. **Students** looking for interview preparation are given vastly reduced rates compared to **CEOs** of large companies which differs again from **civil servants** working in politics for example. In the cash-in-hand analog world this is simple, the coach changes the rate by simply saying a lower or higher number in the moment and agreeing this with the client. When we try to systematize this for the **online business** we need a discreet (in both senses) method for this so that clients paying higher prices do not feel that the price is unfair or inflated. My solution to this is a dynamic system for the Coach User to generate and distribute discount codes along with differentiated coaching sessions.
 - **Discount codes** need to work cleanly and effectively so they can be distributed on **social media**, in **newsletters**, in **direct communications**. We can also use the account registration process to filter the users and target which grade of discount is sent to them in emails, or even inside on-site advertisements. 
 
 - A **newsletter with subscription** option needs to open once with a pop-up including offer of discount. Repeated pop-up are a nuisance and have been avoided. Newsletter is distributed each time a new set of videos is released, or at major events deemed by the coach. I believe a policy of **minimizing spamming** registered clients will encourage retainment of this client-base.
 
-- Online “**E-Session**” slots. Clients can book these appointments and pre-pay by purchasing tokens. The client redeems the tokens by booking a time slot for an appointment. The Coach must keep these appointments and block out unavailability ahead of time to avoid cancellations or clashes. This is achieved with a **calendar booking system**. Similar to the AirBnB booking model.
-- The coach will offer first session free after sign-up for a **discovery and assessment** chat. Usually 15 minutes. 
-- **Discovery sessions** are a chance to engage with a new client. A method of connecting with a tentative potential client. It's important to acknowledge that some, certainly not all, but some clients are interested because they feel they are lacking in confidence, this trait itself means they may struggle to reach out. Knowing that a proportion of the Coaches target market is skittish is important. These people need to be shown that this is a safe, trustworthy, reliable service, even more than other clients. The first interaction needs to be made easy, the coach approachable and the service clearly confidential. **Confidentiality is key** to this industry. 
-
 - **Contact form** for In-person sessions. This is a more intimate service but it is an extension of the business and needs to be available via the platform. 
-
-- Selling tickets to **group sessions** is also a great way to offer an affordable entry for tentative clients. Now it’s likely early on that anyone booking may find themselves in a one-to-one. This can be made clear that it’s a potential on quieter weeks and a bonus for them if they are so lucky to get a private session at a discounted group rate. 
 
 - **About Section** needs to address the history of the coach and blend every story with how that relates to the type of coaching being offered. 
 
@@ -67,21 +51,7 @@ If that does not register as secure when you visit it means the ssl certificate 
 - **Pathing**; un-authorised users can browse all content and videos without playing them while not logged in. Only logged in accounts can access the videos they have paid for.
 Account page of users shows previous purchases and session bookings. Some taster content needs to be available. 
 
-- **Gifting**; session or session bundles as well as video access can be purchased as a gift. This does not authorise the buyer account but generates a code and email sent to a target email address. This is sent to the recipient email. The recipient can create an account and cash in the gift of videos or sessions which will be debited to their account.
-
-- **Business Services**; it’s good to advertise B2B services but we will keep this to a contact form with a brief About Section describing the business courses. No business will buy online and it distracts/intimidates private clients. 
-
-- Only authorised accounts are able to purchase products. All the coaches **payments are contained** to the single platform. No cash or transfers to negotiate. The calendar organises their schedule and leaves room for moving or rebooking sessions.
-- Keeping cash out of the equation feels **more professional** and keeps the coaches interactions **focused on the client**. Also avoids issues with clients forgetting to pay or not bringing cash on the day. Everything is automated and upfront.
-- If the coach needs to rebook, there needs to be a process for this. The client account is refunded a session, an email is sent, and they are able to rebook a free slot in the calendar. 
-
-## Rules : <br>
-**Clear rules and boundaries** are key for keeping the interactions **smooth and professional** and supporting the client's feeling of trust. 
-- Clients can **cancel** up to 24 hours before a session. Session token is **refunded** and they can book again. 
-- **Cancellations** within 24 hours from the booked session slot and the token is consumed.
-- More than 15 minutes **lateness** will result in cancellation. No reason, no problem, this is a no-blame platform. Valid reason given via email then coach can refund token at own discretion. (Simple tool for this in site will be included). 
-- If client buys several session and then doesn’t want the remainder after a session it is fine to **refund** these. No point being stingey if it costed coach no more time. No refund on gifted sessions. 
-- Session must be used within 12 months or they will be **cancelled**. This encourages use.
+- Only authorised accounts are able to purchase products. All the coaches **payments are contained** to the single platform. No cash or transfers to negotiate.
 
 ## Aesthetics, Vibe & Feeling :
 ### Confidence / Clarity / impact 
@@ -94,7 +64,7 @@ Account page of users shows previous purchases and session bookings. Some taster
 - A Trustworthy, Quality service, Approachable by all.
 
 ## CONTENT TYPES :
-Content always needs to include a practical tips for the client. What can they do to improve. It's easy to wax lyrical about confidence and communicating when talking to a camera. We are naturally used to aback and forth interaction, this is when we conversationally handover useful tips organically. However defining this as a media policy encourages the coach and content editor to remember that this is not a standard conversation and they need to impart useful advice as if the user had already expressed their problem and requested specific assistance in the area the video is focusing on. <br>
+Content always needs to include a practical tips for the client. What can they do to improve. It's easy to wax lyrical about confidence and communicating when talking to a camera. We are naturally used to a back and forth interaction, this is when we conversationally handover useful tips organically. However defining this as a media policy encourages the coach and content editor to remember that this is not a standard conversation and they need to impart useful advice as if the user had already expressed their problem and requested specific assistance in the area the video is focusing on. <br>
 #### example of problem behaviour / description of why people do this / practical solutions 
 
 ### Example Video Tutorial Series: 
@@ -114,26 +84,10 @@ Content always needs to include a practical tips for the client. What can they d
 
 ### Standards: 
 - Video quality needs to be high, sound quality needs to be immaculate, setting should be calming and focused on coach. No AI blur effects. Waist to head unless legs are needed for content. Looking at the lense. Should feel natural, like a one to one. 
-- These are tasters for clients to feel a little of what coach’s E-session feel like. They should feel satisfied with the content and keen absorbers should want to feel comfortable with wanting to ask more questions, this is what sessions are for. 
-- Complex videos should be book ended with an acknowledgment that this is an overview and that watchers who find the content helpful but feel they need more should reach out for their free discovery chat which came included with their account, don’t push bookings or further payments. Clients and coach need to speak and see how coach can help first.
+- These are tasters for clients to feel a little of what a coach’s E-session feel like. They should feel satisfied with the content and keen absorbers should want to feel comfortable with wanting to ask more questions, this is what sessions are for. 
+- Complex videos should be book ended with an acknowledgment that this is an overview and that watchers who find the content helpful but feel they need more should reach out for a free discovery chat which came included with their account, don’t push bookings or further payments. Clients and coach need to speak and see how coach can help first.
 - Always remember this is a human interaction in which we are overcoming the distance caused by the camera.
 
-## Coaching Differentiation:
-There are many different types of coaching and often the same coach can offer several forms of coaching based on their skill set. These types of coaching are umbrella terms for groups of skills and techniques as well as types of interactions the coach and client expect to have with each other. <br>
-This is another way to separate price brackets. We could keep the price of a token fixed and clients can exchange a token for any type of session booking; the price differentiated with discount codes. Or there are different types of session tokens as well as discount codes. This seems to me to be a more effective way of handling. Different coaching session types can also have an effect of the booking system, longer or shorter session slots for example. The coach will be able to see on their schedule the type of coaching sessions they have for the day ahead.<br>
-Session type examples:
-- Communication Coaching
-- Confidence Coaching
-- Mindset Coaching
-- Vocal Coaching
-- Interview Coaching
-- Corporate Interaction Coaching
-- Management Coaching
-- Parenting Coaching
-- Role Playing Session
-- 6-Week Confident Course
-The last example is a bundle course. The purchase buys 6 tokens, for one session each week. <br>
-The Coach should be able to book slots for clients and manage tokens in user accounts.  
 
 ## Social Media Theory:
 ### Instgram Post Schedule:
@@ -149,10 +103,14 @@ The Coach should be able to book slots for clients and manage tokens in user acc
 Rinse & Repeat <br>
 
 #### Instagram content details:
-- We will always include an extensicve list of keywords hidden within videos and images for search engine optimization to reach the largest number of relevant users connect by the social platforms algorithm.
+- We will always include an extensive list of keywords hidden within videos and images for search engine optimization to reach the largest number of relevant users connect by the social platforms algorithm.
 - A backlog of this content can be made so that posting is a 5 minute activity for the coach each morning or every other morning. 
 - Creating an account which is connected to as many organisations and groups as possible to increase reach of content to users who are interested is key to this social media strategy. 
 
+#### Facebook content details:
+- The Facebook business page the same content as instagram and could easily use the same copy and images. For added networking via the facebook algorithm the coach or a media manager would need to be on this daily and staying in contact with other. 
+- View ImpactClarity's Facebook business page [here](https://www.facebook.com/profile.php?id=61559749910439)
+- Or is the Facebook algorithm catches the page for not being a real business [here](https://impactclarity.s3.eu-north-1.amazonaws.com/static/pdfs/impact_clarity_facebook_business_page.pdf)
 
 ## UX
 This site was created respecting the Five Planes Of Website Design:<br>
