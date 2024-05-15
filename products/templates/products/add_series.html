@@ -15,19 +15,25 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <hr>
-                <h2 class="logo-font mb-4">Series Management</h2>
-                <h5 class="text-muted">Add a Series</h5>
+                <h2 class="logo-font mb-4">Product Management</h2>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="text-muted mb-0">Add a Series or </h5>
+                    <a href="{% url 'add_product' %}" class="btn btn-success ml-3">Add a Product</a>
+                </div>
                 <hr>
             </div>
         </div>
-
         <div class="row">
             <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'add_series' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
+                            {% if field.name != 'screenshot_1' %}
+                                {{ field|as_crispy_field }}
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
                         {% else %}
                             {{ field }}
                         {% endif %}
@@ -37,7 +43,7 @@
                         <button class="btn btn-black rounded-0" type="submit">Add Series</button>
                     </div>
                 </form>
-            </div>            
+            </div>
         </div>
     </div>
 {% endblock %}

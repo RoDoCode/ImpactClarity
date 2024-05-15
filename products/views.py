@@ -182,7 +182,7 @@ def add_series(request):
     else:
         form = SeriesForm()
 
-    template = 'series/add_series.html'
+    template = 'products/add_series.html'
     context = {
         'form': form,
     }
@@ -212,7 +212,7 @@ def edit_series(request, series_id):
         form = SeriesForm(instance=series)
         messages.info(request, f'You are editing {series.name}')
 
-    template = 'series/edit_series.html'
+    template = 'products/edit_series.html'
     context = {
         'form': form,
         'series': series,

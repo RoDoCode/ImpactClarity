@@ -36,10 +36,20 @@ class SeriesForm(forms.ModelForm):
         model = Series
         fields = '__all__'
 
-    screenshot = forms.ImageField(
+    screenshot_1 = forms.ImageField(
         label='Screenshot',
         required=False,
-        widget=CustomClearableFileInput
+        widget=forms.ClearableFileInput
+    )
+    image = forms.ImageField(
+        label='Image',
+        required=False,
+        widget=forms.ClearableFileInput
+    )
+    video = forms.FileField(
+        label='Video',
+        required=False,
+        widget=forms.ClearableFileInput
     )
 
     def __init__(self, *args, **kwargs):
@@ -47,6 +57,8 @@ class SeriesForm(forms.ModelForm):
         categories = Category.objects.all()
         friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
 
-        self.fields['category'].choices = friendly_names
+        self.fields['categories'].queryset = categories
+        self.fields['categories'].label_from_instance = lambda obj: obj.get_friendly_name()
+
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
