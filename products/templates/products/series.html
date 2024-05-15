@@ -36,11 +36,11 @@
                     {% for series in series %}
                         <div class="col-sm-5 col-md-5 col-lg-3 col-xl-2 mx-3 mb-3 hover-shadow faint-shadow" style="background:white; min-width:20.5%;">
                             <div class="card h-80 border-0 mt-3">
-                                {% if series.image_url %}
+                                {% if series.image.url %}
                                 <a href="{% url 'series_detail' series.pk %}">
                                     <img class="card-img-top img-fluid" src="{{ series.image.url }}" alt="{{ series.friendly_name }}">
                                 </a>
-                                {% elif series.screenshot %}
+                                {% elif series.screenshot_1 %}
                                 <a href="{% url 'series_detail' series.pk %}">
                                     <img class="card-img-top img-fluid" src="{{ series.screenshot_1.url }}" alt="{{ series.friendly_name }}">
                                 </a>
