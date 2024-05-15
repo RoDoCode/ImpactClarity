@@ -33,7 +33,7 @@
                     {% for product in product_list %}
                         <li>
                             <a href="{% url 'product_viewer' product.pk %}">
-                                <img class="img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}"><p>{{ product.name }}</p>
+                                <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"><p>{{ product.name }}</p>
                             </a>
                         </li> 
                         {% if forloop.counter|divisibleby:1 %}
