@@ -21,18 +21,18 @@
                         <img id="main-image" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }}">
                     {% endif %}
                     <video id="main-video" style="display:none; width: 100%; height: auto;" controls>
-                        <source src="{{ product.series_no.video_url }}" type="video/mp4">
+                        <source src="{{ product.series_no.video.url }}" type="video/mp4">
                     </video>
                     <div class="thumbnails">
                         <img class="thumbnail" src="{{ product.image.url }}" alt="Thumbnail 1" data-large="{{ product.image.url }}">
-                        <div class="thumbnail video_thumbnail_container" data-large="{{ product.series_no.video_url }}" data-type="video">
+                        <div class="thumbnail video_thumbnail_container" data-large="{{ product.series_no.video.url }}" data-type="video">
                             <video class="video_container" alt="Video Thumbnail" style="width:100%; height:25%; cursor:pointer; padding: 5px; border: 2px solid transparent; vertical-align: middle; object-fit:cover;">
-                                <source src="{{ product.series_no.video_url }}" type="video/mp4">
+                                <source src="{{ product.series_no.video.url }}" type="video/mp4">
                             </video>
                             <i class="fa fa-play-circle play-icon"></i>
                         </div>
                         {% if product.series_no.screenshot %}
-                            <img class="thumbnail" src="{{ product.series_no.screenshot }}" alt="{{ product.name }} thumbnail 2" data-large="{{ product.series_no.screenshot }}">
+                            <img class="thumbnail" src="{{ product.series_no.screenshot_1 }}" alt="{{ product.name }} thumbnail 2" data-large="{{ product.series_no.screenshot_1 }}">
                         {% else %}
                             <img class="thumbnail" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }} thumbnail 2" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png">
                         {% endif %}
