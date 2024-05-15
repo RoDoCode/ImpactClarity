@@ -27,7 +27,7 @@
                     <div class="library-card col-sm-5 col-md-5 col-lg-4 col-xl-3 faint-shadow hover-shadow position-relative mx-3">
                         <div class="card h-80 border-0 mt-3">
                             <a class="lib-prod-disc mx-3 my-3" href="{% url 'series_library' series.pk %}">
-                                <img class="card-img-top img-fluid" src="{{ series.image_url }}" alt="{{ series.friendly_name }}">
+                                <img class="card-img-top img-fluid" src="{{ series.image.url }}" alt="{{ series.friendly_name }}">
                                 <p class="text-center text-black"><strong>{{ series.friendly_name }}</strong></p>
                                 <p class="text-center text-black" style="color: black !important; text-align: center !important;">{{ series.description|truncatechars:100|safe }}</p>
                             </a>
