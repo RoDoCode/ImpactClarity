@@ -30,8 +30,9 @@ class SeriesAdmin(admin.ModelAdmin):
         'friendly_name',
         'name',
         'series_no',
-        'video_url',
-        'screenshot',
+        'video',
+        'screenshot_1',
+        'image',
     )
 
 

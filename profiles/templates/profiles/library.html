@@ -22,9 +22,9 @@
         {% if series_list %}
         <div class="row">
             <h3 class="logo-font ml-5 mt-3 my-3">My Tutorial Series</h3>
-            <div class="row ml-4 justify-content-between">
+            <div class="row ml-4 justify-content-start">
                 {% for series in series_list %}
-                    <div class="library-card col-sm-6 col-md-6 col-lg-4 col-xl-3 faint-shadow hover-shadow position-relative">
+                    <div class="library-card col-sm-5 col-md-5 col-lg-4 col-xl-3 faint-shadow hover-shadow position-relative mx-3">
                         <div class="card h-80 border-0 mt-3">
                             <a class="lib-prod-disc mx-3 my-3" href="{% url 'series_library' series.pk %}">
                                 <img class="card-img-top img-fluid" src="{{ series.image_url }}" alt="{{ series.friendly_name }}">
@@ -66,9 +66,9 @@
         {% if product_list %}
         <div class="row">
             <h3 class="logo-font ml-5 mt-3 my-3">My Individual Tutorials</h3>
-            <div class="row ml-4 justify-content-between">
+            <div class="row ml-4 justify-content-start">
                 {% for product in product_list %}
-                    <div class="library-card col-sm-6 col-md-6 col-lg-3 col-xl-3 faint-shadow hover-shadow position-relative mb-5">
+                    <div class="library-card col-sm-5 col-md-5 col-lg-3 col-xl-3 faint-shadow hover-shadow position-relative mb-5 mx-3">
                         <div class="card h-80 border-0 mt-3">
                             <a class="mx-3 my-3" href="{% url 'product_viewer' product.pk %}">
                                 <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">

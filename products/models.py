@@ -34,9 +34,9 @@ class Series(models.Model):
         related_name='series',
         blank=True,
     )
-    video_url = models.URLField(max_length=1024, null=True, blank=True)
-    screenshot = models.URLField(max_length=1024, null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    video = models.FileField(upload_to='series_videos/', null=True, blank=True)
+    screenshot_1 = models.ImageField(upload_to='series_screenshots/', null=True, blank=True)
+    image = models.ImageField(upload_to='series_images/', null=True, blank=True)
 
     def count_products(self):
         return self.product_set.count()
