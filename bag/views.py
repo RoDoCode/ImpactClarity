@@ -116,7 +116,7 @@ def remove_from_bag(request, item_id):
 # ADDING/ADJUSTING/REMOVING SERIES IN BAG
 
 def add_series_to_bag(request, item_id):
-    """ Add a quantity of the specified series to the shopping bag """
+    """Add a quantity of the specified series to the shopping bag."""
     series = get_object_or_404(Series, pk=item_id)
     products = Product.objects.filter(series_no=series)
     quantity = int(request.POST.get('quantity', 1))
@@ -128,9 +128,11 @@ def add_series_to_bag(request, item_id):
     if series_key in bag:
         messages.info(
             request,
-            f'Oops {series.name} is already in your bag, you only need 1'
+            f'Oops {series.friendly_name} is already in your bag, you only need 1'
         )
-    elif request.user.is_authenticated:
+        return redirect(redirect_url)
+
+    if request.user.is_authenticated:
         try:
             user_profile = UserProfile.objects.get(user=request.user)
             series_list = user_profile.series_access.all()
@@ -140,31 +142,33 @@ def add_series_to_bag(request, item_id):
                     f"Oops, you already own "
                     f"'{series.friendly_name}', check your library"
                 )
-            else:
-                pass
+                return redirect(redirect_url)
         except UserProfile.DoesNotExist:
             messages.error(request, "Your user profile could not be found.")
             return redirect(redirect_url)
+
+    any_removed = False
+    for product in products:
+        product_key = f'product_{product.pk}'
+        if product_key in bag:
+            del bag[product_key]
+            any_removed = True
+
+    bag[series_key] = quantity
+
+    if any_removed:
+        messages.info(
+            request,
+            f'Some of the episodes in your bag were already in '
+            f'{series.friendly_name}, so we removed them from your '
+            f'bag and added the series.'
+        )
     else:
-        any_removed = False
-        for product in products:
-            product_key = f'product_{product.pk}'
-            if product_key in bag:
-                del bag[product_key]
-                any_removed = True
-        bag[series_key] = quantity
-        if any_removed:
-            messages.info(
-                request,
-                f'Some of the episodes in your bag were already in '
-                f'{series.friendly_name}, so we removed them from your '
-                f'bag and added the series')
-        else:
-            messages.success(
-                request, 
-                f'Added {series.friendly_name} '
-                f'to your bag'
-            )
+        messages.success(
+            request, 
+            f'Added {series.friendly_name} '
+            f'to your bag.'
+        )
 
     request.session['bag'] = bag
     return redirect(redirect_url)

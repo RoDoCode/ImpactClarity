@@ -91,7 +91,7 @@ def checkout(request):
                         series = Series.objects.get(id=item_id)
                         order_line_item = OrderLineItem(
                             order=order,
-                            product=product,
+                            series=series,
                             quantity=item_data,
                         )
                         order_line_item.save()
