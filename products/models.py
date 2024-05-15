@@ -61,7 +61,6 @@ class Product(models.Model):
         null=True,
         blank=True
     )
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     duration = models.CharField(
         default="20 minutes",
@@ -75,7 +74,8 @@ class Product(models.Model):
         null=True,
         verbose_name='Series Number'
     )
-    video_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(upload_to='product_images/', null=True, blank=True)
+    video = models.FileField(upload_to='product_videos/', null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
