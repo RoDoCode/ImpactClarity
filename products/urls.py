@@ -14,7 +14,7 @@ urlpatterns = [
     path('series/<int:series_no>/', series_detail, name='series_detail'),
     path('series/all/', views.series, name='series'),
     path('add/series', views.add_series, name='add_series'),
-    path('edit/<int:series_id>/', views.edit_series, name='edit_series'),
+    path('edit/series/<int:series_id>/', views.edit_series, name='edit_series'),
     path('delete/<int:series_id>/',
          views.delete_series,
          name='delete_series'),
