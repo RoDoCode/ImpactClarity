@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from .models import About
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import user_passes_test
+from .models import About, Resource
+from .forms import ResourceForm
 
 
 def about_me(request):
@@ -17,6 +19,20 @@ def about_me(request):
 
 def resources(request):
     """
-    Renders the resources page
+    Renders the resources page with dynamic content
     """
-    return render(request, "about/resources.html",)
+    resources = Resource.objects.all().order_by('title')
+    
+    if request.method == "POST" and request.user.is_superuser:
+        form = ResourceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('resources')
+    else:
+        form = ResourceForm()
+    
+    return render(
+        request,
+        "about/resources.html",
+        {"resources": resources, "form": form}
+    )

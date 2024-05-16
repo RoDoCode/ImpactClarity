@@ -14,9 +14,9 @@ class About(models.Model):
 
 class Resource(models.Model):
     title = models.CharField(max_length=200)
-    name_1 = models.CharField(max_length=200)
+    name_1 = models.CharField(max_length=200, null=True, blank=True)
     url_1 = models.URLField(max_length=1024, null=True, blank=True)
-    name_2 = models.CharField(max_length=200)
+    name_2 = models.CharField(max_length=200, null=True, blank=True)
     url_2 = models.URLField(max_length=1024, null=True, blank=True)
 
     def __str__(self):
