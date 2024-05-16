@@ -41,9 +41,13 @@ If that does not register as secure when you visit it means the ssl certificate 
 - **Discount codes** need to work cleanly and effectively so they can be distributed on **social media**, in **newsletters**, in **direct communications**. We can also use the account registration process to filter the users and target which grade of discount is sent to them in emails, or even inside on-site advertisements. 
 
 - A **newsletter with subscription** option needs to open once with a pop-up including offer of discount. Repeated pop-up are a nuisance and have been avoided. Newsletter is distributed each time a new set of videos is released, or at major events deemed by the coach. I believe a policy of **minimizing spamming** registered clients will encourage retainment of this client-base.
+
 <br>
+
 [pdf of newsletter](static/pdfs/ic_email_newsletter.pdf)
+
 <br>
+
 - **Contact form** for In-person sessions. This is a more intimate service but it is an extension of the business and needs to be available via the platform. 
 
 - **About Section** needs to address the history of the coach and blend every story with how that relates to the type of coaching being offered. 
