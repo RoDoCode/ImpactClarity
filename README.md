@@ -61,6 +61,8 @@ Account page of users shows previous purchases and session bookings. Some taster
 
 - Only authorised accounts are able to purchase products. All the coaches **payments are contained** to the single platform. No cash or transfers to negotiate.
 
+<br><img src="static/ReadMeFiles/images/Wireframes.png" ><br>
+
 ## Aesthetics, Vibe & Feeling :
 ### Confidence / Clarity / impact 
 - Practicing what you preach is important. Messages and processes need to be extra clear and effective.
