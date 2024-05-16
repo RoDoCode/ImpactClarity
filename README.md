@@ -11,6 +11,10 @@ The fully deployed project can be accessed at [this link](https://www.impactclar
 If that does not register as secure when you visit it means the ssl certificate generated for the site may have expired. Use this link to visit the heroku direct url [here](https://impactclarity-158dbf752d6b.herokuapp.com/)
 <br><br>
 
+The sites payment system uses Stripe. The connection is set in test-mode so no real money is taken if you process a purchase. To remain extra safe it's recommended you use card details offered by Stripe for this purpose. Here is one set of details for a test card below, feel free to use this one. 
+
+Card No: 4242 4242 4242 4242, expiry any future date, CVC is any 3 numbers, and if it requests a ZIP code use anything that fits the format, 90210 is an example code used during the testing of the site. 
+
 
 ## Site Features :
 - Single Payment system (not subscription), using Stripe. Users can pay by card or using ApplePay or GooglePay.
