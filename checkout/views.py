@@ -4,6 +4,10 @@ from django.shortcuts import (
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 from django.contrib import messages
 from django.conf import settings
 
@@ -112,7 +116,6 @@ def checkout(request):
 
             order.update_total()
 
-            # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
                                     args=[order.order_number]))
@@ -135,8 +138,6 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any info
-        # the user maintains in their profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -180,11 +181,9 @@ def checkout_success(request, order_number):
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
 
-        # Save the user's info
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
@@ -215,7 +214,6 @@ def checkout_success(request, order_number):
                 except Series.DoesNotExist:
                     messages.error(request, f"Series with id {item_id} does not exist.")
 
-        # Save any changes to the user profile
         profile.save()
 
     messages.success(request, f'Order successfully processed! \
@@ -224,6 +222,14 @@ def checkout_success(request, order_number):
 
     if 'bag' in request.session:
         del request.session['bag']
+
+    subject = render_to_string('checkout/confirmation_emails/confirmation_email_subject.txt', {'order': order}).strip()
+    body = render_to_string('checkout/confirmation_emails/confirmation_email_body.txt', {'order': order})
+    from_email = settings.DEFAULT_FROM_EMAIL
+    to = order.email
+
+    send_mail(subject, body, from_email, [to])
+
 
     template = 'checkout/checkout_success.html'
     context = {
