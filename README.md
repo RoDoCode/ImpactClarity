@@ -390,10 +390,11 @@ The live link can be found here - https://impactclarity-158dbf752d6b.herokuapp.c
 * The content of the website is taken from several websites. 
 ### Media
 * All images have been generated using Googles beta AI image generation tool Image-FX (https://aitestkitchen.withgoogle.com/tools/image-fx). 
+* All video footage on the site is my own footage taken in interviews with Jo Dow who has given his explicit consent for any and all footage to be used on the site in this capacity. 
 * The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
 
 ## Acknowledgements
-- Code Institute for the knowledge and all the tutor support. And my amazing wife who is 9 and a half months pregnant as i submit this site for markiing and has been extremely patient with me and my foragings through the web. <br><br>
+- Code Institute for the knowledge and all the tutor support. Jo Dow my father for allowing me to grill him about his work and study his business practices. And my amazing wife who is 9 and a half months pregnant as i submit this site for markiing and has been extremely patient with me and my foragings through the web. <br><br>
 <hr>
 
-Thanks you for taking the time to inspect my project. 
+Thank you for taking the time to inspect my project. 
