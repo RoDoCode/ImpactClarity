@@ -5,7 +5,6 @@ from .models import Contact, ContactRequest
 from .forms import ContactForm
 from django.conf import settings
 
-
 def contact(request):
     if request.method == "POST":
         contact_form = ContactForm(data=request.POST)
@@ -14,19 +13,28 @@ def contact(request):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                "Collaboration request received! I endeavour"
-                " to respond within 2 working days."
+                "Collaboration request received! "
+                "I endeavour to respond within "
+                "2 working days."
+            )
+
+            customer_message = (
+                f"Dear {contact_request.name},\n\n"
+                f"Thank you for reaching out. We have received your message "
+                f"and will respond within 2 working days.\n\n"
+                f"Message: {contact_request.message}\n\n"
+                f"Best regards,\nYour Company Name"
+            )
+
+            admin_message = (
+                f"Name: {contact_request.name}\n"
+                f"Email: {contact_request.email}\n"
+                f"Message: {contact_request.message}"
             )
 
             send_mail(
                 subject='Thank you for contacting us',
-                message=(
-                    f"Dear {contact_request.name},\n\nThank you for"
-                    f" reaching out. We have received your message "
-                    f"and will respond within 2 working days."
-                    f"\n\nMessage: {contact_request.message}\n\nBest "
-                    f"regards,\nYour Company Name",
-                ),
+                message=customer_message,
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[contact_request.email],
                 fail_silently=False,
@@ -34,11 +42,7 @@ def contact(request):
 
             send_mail(
                 subject=f"New contact request from {contact_request.name}",
-                message=(
-                    f"Name: {contact_request.name}\n"
-                    f"Email: {contact_request.email}\n"
-                    f"Message: {contact_request.message}",
-                ),
+                message=admin_message,
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[settings.DEFAULT_FROM_EMAIL],
                 fail_silently=False,
