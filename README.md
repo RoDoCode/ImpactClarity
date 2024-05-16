@@ -29,6 +29,8 @@ If that does not register as secure when you visit it means the ssl certificate 
 ## Business Plan & Analysis :
 - After **discussion with a coach** currently working in the industry it's clear this is a **premium service**, generally expected to be more expensive than psychotherapy sessions for example which have a continuous expectation of repeated sessions, Communications Coaching is more often a sort of finishing schooling, sometimes a single session is all that's required to teach the necessary skill or technique to solve a clients specific challenge. Most commonly a **short set of 5 or 6 sessions** is what clients settle on. They iterate and perfect communication techniques by taking what they have learned in a session back into their lives, trying it out, then returning to the coach with the result for further development, practice and advice. This model means that clients have a much shorter half-life in communication coaching than in other comparable coaching industries. An active media strategy to encourage high enough traffic to make the business sustainable is required for this reason. 
 
+<br><img src="static/ReadMeFiles/images/tutorials.PNG" ><br>
+
 - **Video tutorials** are purposefully affordable, designed to encourage sign up to online or in-person coaching sessions. They are an introduction to the coaches voice and style. 
 - Some customers will be satisfied with videos, this acts as **passive income** for the coach and filters favourable clients who are familiar and already like coach’s style.
 - Video tutorials are 25 minutes each. They are released in **Tutorial Series**. Access to Tutorials and Tutorial Series can be **purchased individually or bundles**.
@@ -39,7 +41,9 @@ If that does not register as secure when you visit it means the ssl certificate 
 - **Discount codes** need to work cleanly and effectively so they can be distributed on **social media**, in **newsletters**, in **direct communications**. We can also use the account registration process to filter the users and target which grade of discount is sent to them in emails, or even inside on-site advertisements. 
 
 - A **newsletter with subscription** option needs to open once with a pop-up including offer of discount. Repeated pop-up are a nuisance and have been avoided. Newsletter is distributed each time a new set of videos is released, or at major events deemed by the coach. I believe a policy of **minimizing spamming** registered clients will encourage retainment of this client-base.
-
+<br>
+[pdf of newsletter](static/pdfs/impact_clarity_facebook_business_page.pdf)
+<br>
 - **Contact form** for In-person sessions. This is a more intimate service but it is an extension of the business and needs to be available via the platform. 
 
 - **About Section** needs to address the history of the coach and blend every story with how that relates to the type of coaching being offered. 
@@ -63,6 +67,8 @@ Account page of users shows previous purchases and session bookings. Some taster
 - A three word mantra for a tag line. This defines your brand. They are the words the client says to their friend across the water cooler.
 - A Trustworthy, Quality service, Approachable by all.
 
+<br><img src="static/ReadMeFiles/images/Series.PNG" ><br>
+
 ## CONTENT TYPES :
 Content always needs to include a practical tips for the client. What can they do to improve. It's easy to wax lyrical about confidence and communicating when talking to a camera. We are naturally used to a back and forth interaction, this is when we conversationally handover useful tips organically. However defining this as a media policy encourages the coach and content editor to remember that this is not a standard conversation and they need to impart useful advice as if the user had already expressed their problem and requested specific assistance in the area the video is focusing on. <br>
 #### example of problem behaviour / description of why people do this / practical solutions 
@@ -82,12 +88,15 @@ Content always needs to include a practical tips for the client. What can they d
     - Feeling Comfortable in Social Settings
     - First Impressions with Gravity
 
+<br><img src="static/ReadMeFiles/images/viewer.PNG" ><br>
+
 ### Standards: 
 - Video quality needs to be high, sound quality needs to be immaculate, setting should be calming and focused on coach. No AI blur effects. Waist to head unless legs are needed for content. Looking at the lense. Should feel natural, like a one to one. 
 - These are tasters for clients to feel a little of what a coach’s E-session feel like. They should feel satisfied with the content and keen absorbers should want to feel comfortable with wanting to ask more questions, this is what sessions are for. 
 - Complex videos should be book ended with an acknowledgment that this is an overview and that watchers who find the content helpful but feel they need more should reach out for a free discovery chat which came included with their account, don’t push bookings or further payments. Clients and coach need to speak and see how coach can help first.
 - Always remember this is a human interaction in which we are overcoming the distance caused by the camera.
 
+<br><img src="static/ReadMeFiles/images/facebook.PNG" ><br>
 
 ## Social Media Theory:
 ### Instgram Post Schedule:
@@ -111,6 +120,8 @@ Rinse & Repeat <br>
 - The Facebook business page the same content as instagram and could easily use the same copy and images. For added networking via the facebook algorithm the coach or a media manager would need to be on this daily and staying in contact with other. 
 - View ImpactClarity's Facebook business page [here](https://www.facebook.com/profile.php?id=61559749910439)
 - Or is the Facebook algorithm catches the page for not being a real business [here](https://impactclarity.s3.eu-north-1.amazonaws.com/static/pdfs/impact_clarity_facebook_business_page.pdf)
+
+<br><img src="static/ReadMeFiles/images/popup.PNG" ><br>
 
 ## UX
 This site was created respecting the Five Planes Of Website Design: Surface, Skeleton, Structure, Scope, and Strategy<br>
@@ -189,6 +200,8 @@ Create a website for purchasing and viewing purchased content with the goal of b
 **Responsiveness**<br>
 * Create a responsive design for desktop, tablet and mobile devices.<br><br>
 
+<br><img src="static/ReadMeFiles/images/contact.PNG" ><br>
+
 ### Structure<hr>
 The structure of the website is divided into six pages; with content depending on account specifications <br>
 -The **Home** page is visible for new and returning users, is clear and simple, introduces the coach and directs towards product;<br>
@@ -213,17 +226,17 @@ The project uses the PostgreSQL relational database for storing the data.<br>
 Two diagrams were made to represent the relation between the tables
 
 ## Agile Methodology
-This project was developed using the Agile methodology. User stories were central in planning steps taken. User stories were broken down into acceptance criteria and these were checked off using githubs project KanBan board functionality. These can all be seen publicly attached to this repo.<br> 
-<img src="static/images/screen_02.png" >
+This project was developed using the Agile methodology. User stories were central in planning steps taken. User stories were broken down into acceptance criteria and these were checked off using githubs project KanBan board functionality. These can all be seen publicly attached to this repo.
+<br> 
+<img src="static/ReadMeFiles/images/library.PNG" >
 <br>
 
 ## Features
 ### Existing Features<hr>
 #### Create, Read, Update, Delete
-Creation of 
-
-<img src="static/images/screen_03.png" >
-
+<br>
+<img src="static/ReadMeFiles/images/popup2.PNG" >
+<br>
 #### Client Profiles
 The users' accounts have been created using the **django allauth** module. This way, information about the current user can be accessed from the template and displayed for the user to access the site. The client profile model contains a editable address details, contact details and order history. These are displayed on the user's profile. The profile can be edited easily and has accessible links in the nav to all the user's purchased content, such as their tutorials and video series in the library, for easy access and management.<br>
 
@@ -233,7 +246,7 @@ Each user experience function .
 
 The defensive programming has also been tested manually. By finding the url of a particular post, then logging out, and attempting to access this same url. The @login_required decorator on the views for post_details stops unauthorised users from accessing anything other than the index, which only shows a welcome and prompt for registering and the about and contact pages. The @login_required addition to settings allows us to set a specified redirect for any unauthorised attempt to any accepted url and view which uses this decorator. My setting simply returns the attempt to the index. 
 
-<img src="static/images/.png" >
+[Manual Testing Documentation](static/pdfs/Manual_Testing_Record.pdf)
 
 The admin functionalities, for creating, editing, deleting, authorizing and managing all models in the database has been thoroughly tested in the making of the site. 
 
