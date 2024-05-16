@@ -26,10 +26,10 @@
             <h2>{{ resource.title }}</h2>
             <ul>
                 {% if resource.name_1 and resource.url_1 %}
-                    <li><a href="{{ resource.url_1 }}" target="_blank">{{ resource.name_1 }}</a></li>
+                    <li><a href="{{ resource.url_1 }}" target="_blank" rel="Recommended extra reading on {{ resource.name_1 }}, suggested by Jo">{{ resource.name_1 }}</a></li>
                 {% endif %}
                 {% if resource.name_2 and resource.url_2 %}
-                    <li><a href="{{ resource.url_2 }}" target="_blank">{{ resource.name_2 }}</a></li>
+                    <li><a href="{{ resource.url_2 }}" target="_blank" rel="Recommended extra reading on {{ resource.name_2 }}, suggested by Jo">{{ resource.name_2 }}</a></li>
                 {% endif %}
             </ul>
         {% endfor %}
