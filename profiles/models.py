@@ -44,7 +44,6 @@ class UserProfile(models.Model):
         related_name='product_user',
         blank=True,)
 
-
     def __str__(self):
         return self.user.username
 

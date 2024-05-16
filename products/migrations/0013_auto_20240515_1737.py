@@ -34,12 +34,20 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='image',
-            field=models.ImageField(blank=True, null=True, upload_to='product_images/'),
+            field=models.ImageField(
+                blank=True,
+                null=True,
+                upload_to='product_images/'
+            ),
         ),
         migrations.AddField(
             model_name='product',
             name='video',
-            field=models.FileField(blank=True, null=True, upload_to='product_videos/'),
+            field=models.FileField(
+                blank=True,
+                null=True,
+                upload_to='product_videos/'
+            ),
         ),
 
         migrations.RunPython(copy_urls_to_files),

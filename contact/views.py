@@ -5,16 +5,28 @@ from .models import Contact, ContactRequest
 from .forms import ContactForm
 from django.conf import settings
 
+
 def contact(request):
     if request.method == "POST":
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():
             contact_request = contact_form.save()
-            messages.add_message(request, messages.SUCCESS, "Collaboration request received! I endeavour to respond within 2 working days.")
-            
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "Collaboration request received! I endeavour"
+                " to respond within 2 working days."
+            )
+
             send_mail(
                 subject='Thank you for contacting us',
-                message=f"Dear {contact_request.name},\n\nThank you for reaching out. We have received your message and will respond within 2 working days.\n\nMessage: {contact_request.message}\n\nBest regards,\nYour Company Name",
+                message=(
+                    f"Dear {contact_request.name},\n\nThank you for"
+                    f" reaching out. We have received your message "
+                    f"and will respond within 2 working days."
+                    f"\n\nMessage: {contact_request.message}\n\nBest "
+                    f"regards,\nYour Company Name",
+                ),
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[contact_request.email],
                 fail_silently=False,
@@ -22,7 +34,11 @@ def contact(request):
 
             send_mail(
                 subject=f"New contact request from {contact_request.name}",
-                message=f"Name: {contact_request.name}\nEmail: {contact_request.email}\nMessage: {contact_request.message}",
+                message=(
+                    f"Name: {contact_request.name}\n"
+                    f"Email: {contact_request.email}\n"
+                    f"Message: {contact_request.message}",
+                ),
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[settings.DEFAULT_FROM_EMAIL],
                 fail_silently=False,

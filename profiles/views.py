@@ -60,7 +60,11 @@ def library(request):
         try:
             user_profile = UserProfile.objects.get(user=request.user)
         except UserProfile.DoesNotExist:
-            return render(request, 'profiles/library.html', {'error': 'UserProfile not found.'})
+            return render(
+                request,
+                'profiles/library.html',
+                {'error': 'UserProfile not found.'}
+            )
         series_list = user_profile.series_access.all()
         product_list = user_profile.product_access.all()
         context = {
@@ -103,8 +107,10 @@ def product_viewer(request, product_id):
             has_access = False
 
     if not has_access:
-        return HttpResponseForbidden("You do not have access to this tutorial.")
-    
+        return HttpResponseForbidden(
+            "You do not have access to this tutorial."
+        )
+
     context = {
         'product': product,
     }

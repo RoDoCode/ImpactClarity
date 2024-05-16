@@ -194,7 +194,10 @@ def checkout_success(request, order_number):
                 'default_street_address2': order.street_address2,
                 'default_county': order.county,
             }
-            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            user_profile_form = UserProfileForm(
+                profile_data,
+                instance=profile
+            )
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
@@ -206,13 +209,19 @@ def checkout_success(request, order_number):
                     product = Product.objects.get(id=item_id)
                     profile.product_access.add(product)
                 except Product.DoesNotExist:
-                    messages.error(request, f"Product with id {item_id} does not exist.")
+                    messages.error(
+                        request,
+                        f"Product with id {item_id} does not exist."
+                    )
             elif item_type == 'series':
                 try:
                     series = Series.objects.get(id=item_id)
                     profile.series_access.add(series)
                 except Series.DoesNotExist:
-                    messages.error(request, f"Series with id {item_id} does not exist.")
+                    messages.error(
+                        request,
+                        f"Series with id {item_id} does not exist."
+                    )
 
         profile.save()
 
@@ -223,8 +232,14 @@ def checkout_success(request, order_number):
     if 'bag' in request.session:
         del request.session['bag']
 
-    subject = render_to_string('checkout/confirmation_emails/confirmation_email_subject.txt', {'order': order}).strip()
-    body = render_to_string('checkout/confirmation_emails/confirmation_email_body.txt', {'order': order})
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'order': order}
+    ).strip()
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'order': order}
+    )
     from_email = settings.DEFAULT_FROM_EMAIL
     to = order.email
 

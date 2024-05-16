@@ -1,7 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.utils import timezone
-import uuid
 
 
 class Category(models.Model):
@@ -34,9 +31,21 @@ class Series(models.Model):
         related_name='series',
         blank=True,
     )
-    video = models.FileField(upload_to='series_videos/', null=True, blank=True)
-    screenshot_1 = models.ImageField(upload_to='series_screenshots/', null=True, blank=True)
-    image = models.ImageField(upload_to='series_images/', null=True, blank=True)
+    video = models.FileField(
+        upload_to='series_videos/',
+        null=True,
+        blank=True
+    )
+    screenshot_1 = models.ImageField(
+        upload_to='series_screenshots/',
+        null=True,
+        blank=True
+    )
+    image = models.ImageField(
+        upload_to='series_images/',
+        null=True,
+        blank=True
+    )
 
     def count_products(self):
         return self.product_set.count()
@@ -74,8 +83,16 @@ class Product(models.Model):
         null=True,
         verbose_name='Series Number'
     )
-    image = models.ImageField(upload_to='product_images/', null=True, blank=True)
-    video = models.FileField(upload_to='product_videos/', null=True, blank=True)
+    image = models.ImageField(
+        upload_to='product_images/',
+        null=True,
+        blank=True
+    )
+    video = models.FileField(
+        upload_to='product_videos/',
+        null=True,
+        blank=True
+    )
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):

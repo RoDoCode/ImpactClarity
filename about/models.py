@@ -12,6 +12,7 @@ class About(models.Model):
     def __str__(self):
         return self.title
 
+
 class Resource(models.Model):
     title = models.CharField(max_length=200)
     name_1 = models.CharField(max_length=200, null=True, blank=True)

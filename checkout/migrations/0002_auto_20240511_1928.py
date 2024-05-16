@@ -19,11 +19,21 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='orderlineitem',
             name='series',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='products.series'),
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to='products.series'
+            ),
         ),
         migrations.AlterField(
             model_name='orderlineitem',
             name='product',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='products.product'),
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to='products.product'
+            ),
         ),
     ]

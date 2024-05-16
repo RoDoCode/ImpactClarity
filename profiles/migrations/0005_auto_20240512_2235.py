@@ -1,6 +1,7 @@
 from django.db import migrations, models
 import django_countries.fields
 
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -36,6 +37,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='userprofile',
             name='default_country',
-            field=django_countries.fields.CountryField(blank_label='Country', null=True, blank=True),
+            field=django_countries.fields.CountryField(
+                blank_label='Country',
+                null=True,
+                blank=True
+            ),
         ),
     ]

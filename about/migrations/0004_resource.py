@@ -13,12 +13,25 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Resource',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(
+                    auto_created=True,
+                    primary_key=True,
+                    serialize=False,
+                    verbose_name='ID'
+                )),
                 ('title', models.CharField(max_length=200)),
                 ('name_1', models.CharField(max_length=200)),
-                ('url_1', models.URLField(blank=True, max_length=1024, null=True)),
+                ('url_1', models.URLField(
+                    blank=True,
+                    max_length=1024,
+                    null=True
+                )),
                 ('name_2', models.CharField(max_length=200)),
-                ('url_2', models.URLField(blank=True, max_length=1024, null=True)),
+                ('url_2', models.URLField(
+                    blank=True,
+                    max_length=1024,
+                    null=True
+                )),
             ],
         ),
     ]

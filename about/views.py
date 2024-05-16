@@ -22,7 +22,7 @@ def resources(request):
     Renders the resources page with dynamic content
     """
     resources = Resource.objects.all().order_by('title')
-    
+
     if request.method == "POST" and request.user.is_superuser:
         form = ResourceForm(request.POST)
         if form.is_valid():

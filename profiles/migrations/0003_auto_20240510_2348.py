@@ -18,11 +18,21 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='userprofile',
             name='product_access',
-            field=models.ManyToManyField(blank=True, null=True, related_name='product_user', to='products.Product'),
+            field=models.ManyToManyField(
+                blank=True,
+                null=True,
+                related_name='product_user',
+                to='products.Product'
+            ),
         ),
         migrations.AlterField(
             model_name='userprofile',
             name='series_access',
-            field=models.ManyToManyField(blank=True, null=True, related_name='series_user', to='products.Series'),
+            field=models.ManyToManyField(
+                blank=True,
+                null=True,
+                related_name='series_user',
+                to='products.Series'
+            ),
         ),
     ]
