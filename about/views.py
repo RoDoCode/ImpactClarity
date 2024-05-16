@@ -30,7 +30,7 @@ def resources(request):
             return redirect('resources')
     else:
         form = ResourceForm()
-    
+
     return render(
         request,
         "about/resources.html",

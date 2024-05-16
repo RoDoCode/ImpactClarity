@@ -245,7 +245,6 @@ def checkout_success(request, order_number):
 
     send_mail(subject, body, from_email, [to])
 
-
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,

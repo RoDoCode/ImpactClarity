@@ -128,7 +128,8 @@ def add_series_to_bag(request, item_id):
     if series_key in bag:
         messages.info(
             request,
-            f'Oops {series.friendly_name} is already in your bag, you only need 1'
+            f'Oops {series.friendly_name} is '
+            f'already in your bag, you only need 1'
         )
         return redirect(redirect_url)
 
@@ -165,7 +166,7 @@ def add_series_to_bag(request, item_id):
         )
     else:
         messages.success(
-            request, 
+            request,
             f'Added {series.friendly_name} '
             f'to your bag.'
         )

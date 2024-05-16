@@ -70,17 +70,37 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False,
-                              on_delete=models.CASCADE,
-                              related_name='lineitems')
-    product = models.ForeignKey(Product, null=True, blank=True,
-                                on_delete=models.CASCADE)
-    series = models.ForeignKey(Series, null=True, blank=True,
-                                on_delete=models.CASCADE)
-    quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
-                                         null=False, blank=False,
-                                         editable=False)
+    order = models.ForeignKey(
+        Order,
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+        related_name='lineitems'
+    )
+    product = models.ForeignKey(
+        Product,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE
+    )
+    series = models.ForeignKey(
+        Series,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE
+    )
+    quantity = models.IntegerField(
+        null=False,
+        blank=False,
+        default=0
+    )
+    lineitem_total = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        null=False,
+        blank=False,
+        editable=False
+    )
 
     def save(self, *args, **kwargs):
         """
@@ -102,4 +122,7 @@ class OrderLineItem(models.Model):
             return f'SKU {product_sku} on order {self.order.order_number}'
         if self.series is not None:
             product_sku = self.series.series_no
-            return f'Series number {product_sku} on order {self.order.order_number}'
+            return (
+                f'Series number {product_sku} on '
+                f'order {self.order.order_number}'
+            )
