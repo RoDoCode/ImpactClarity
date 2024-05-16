@@ -92,8 +92,19 @@ def product_viewer(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     user_profile = UserProfile.objects.get(user=request.user)
-    if product not in user_profile.product_access.all():
+
+    if product in user_profile.product_access.all():
+        has_access = True
+    else:
+        series = product.series_no
+        if series and series in user_profile.series_access.all():
+            has_access = True
+        else:
+            has_access = False
+
+    if not has_access:
         return HttpResponseForbidden("You do not have access to this tutorial.")
+    
     context = {
         'product': product,
     }
