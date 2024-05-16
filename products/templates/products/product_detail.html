@@ -32,7 +32,7 @@
                             <i class="fa fa-play-circle play-icon"></i>
                         </div>
                         {% if product.series_no.screenshot_1 %}
-                            <img class="thumbnail" src="{{ product.series_no.screenshot_1 }}" alt="{{ product.name }} thumbnail 2" data-large="{{ product.series_no.screenshot_1 }}">
+                            <img class="thumbnail" src="{{ product.series_no.screenshot_1.url }}" alt="{{ product.name }} thumbnail 2" data-large="{{ product.series_no.screenshot_1.url }}">
                         {% else %}
                             <img class="thumbnail" src="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png" alt="{{ product.name }} thumbnail 2" data-large="https://impactclarity.s3.eu-north-1.amazonaws.com/media/noimage+(1).png">
                         {% endif %}
