@@ -42,7 +42,7 @@ If that does not register as secure when you visit it means the ssl certificate 
 
 - A **newsletter with subscription** option needs to open once with a pop-up including offer of discount. Repeated pop-up are a nuisance and have been avoided. Newsletter is distributed each time a new set of videos is released, or at major events deemed by the coach. I believe a policy of **minimizing spamming** registered clients will encourage retainment of this client-base.
 <br>
-[pdf of newsletter](static/pdfs/impact_clarity_facebook_business_page.pdf)
+[pdf of newsletter](static/pdfs/ic_email_newsletter.pdf)
 <br>
 - **Contact form** for In-person sessions. This is a more intimate service but it is an extension of the business and needs to be available via the platform. 
 
@@ -120,7 +120,7 @@ Rinse & Repeat <br>
 - The Facebook business page the same content as instagram and could easily use the same copy and images. For added networking via the facebook algorithm the coach or a media manager would need to be on this daily and staying in contact with other. 
 - View ImpactClarity's Facebook business page [here](https://www.facebook.com/profile.php?id=61559749910439)
 - Or is the Facebook algorithm catches the page for not being a real business [here](https://impactclarity.s3.eu-north-1.amazonaws.com/static/pdfs/impact_clarity_facebook_business_page.pdf)
-
+or [here](static/pdfs/impact_clarity_facebook_business_page.pdf)
 <br><img src="static/ReadMeFiles/images/popup.PNG" ><br>
 
 ## UX
@@ -242,33 +242,32 @@ The users' accounts have been created using the **django allauth** module. This 
 
 ### Testing
 ## Manual Testing
-Each user experience function .
-
-The defensive programming has also been tested manually. By finding the url of a particular post, then logging out, and attempting to access this same url. The @login_required decorator on the views for post_details stops unauthorised users from accessing anything other than the index, which only shows a welcome and prompt for registering and the about and contact pages. The @login_required addition to settings allows us to set a specified redirect for any unauthorised attempt to any accepted url and view which uses this decorator. My setting simply returns the attempt to the index. 
+Each user experience function has been manually recorded and tested for functionality and misuse. All functions were successful within the bounds of the testing scheme laid out in the document linked below.
 
 [Manual Testing Documentation](static/pdfs/Manual_Testing_Record.pdf)
 
-The admin functionalities, for creating, editing, deleting, authorizing and managing all models in the database has been thoroughly tested in the making of the site. 
+The defensive programming has also been tested manually. By finding the url of a particular page, then logging out, and attempting to access this same url. The @login_required decorator on the views for protected content stops unauthorised users from accessing anything other than content open to the public or pages they have paid for acces to. The @login_required addition to settings allows us to set a specified redirect for any unauthorised attempt to any accepted url and view which uses this decorator. My setting simply returns the attempt to the index. 
 
-All the forms used in the site have been thoroughly tested for non-valid attempts and valid attempts with unusual entries. The slug generator in particular caused some unfortunate bugs when spaces and non-alphanumeric characters were used which had to be handled in the views.py file with several methods to remove any non-alpha characters and spaces as well as adding a distinct number to each newly generated string. This was all thanks to manual testing. 
+The admin functionalities, for creating, editing, deleting, and managing product models in the database has been thoroughly tested in the making of the site.  
 
-Image uploads have all been tested.
+Media uploads have all been tested for various ranges of aspect ratios and sizes. The worst of these requires some extra scrollings but allow users to view even the most distended of video format with a simple zoom out and all pages remain responsive.
 
 ## Django Testing
 
 All forms and views were tested for validation and unvalid responses.
 
 ## Validator Testing 
-[JsHint](https://jshint.com/) - used for validating the javascript code<br>Reports [here](static/images/testing_01.png) and [here](static/images/testing_02.png)<br><br>
+[JsHint](https://jshint.com/) - used for validating the javascript code<br>Reports <br><br>
 [PEP8 Validator](https://www.pythonchecker.com/) - used for validating the python code<br>Report example [here](static/images/testing_04.png)<br><br>
 [HTML - W3C HTML Validator](https://validator.w3.org/#validate_by_uri+with_options) - used for validating the HTML<br><br>
 [CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) - used for validating the CSS<br>Report [here](static/images/testing_05.png)<br><br>
 [W.A.V.E.](https://wave.webaim.org/) - for testing accessibility<br>Report example [here](static/images/testing_03.png)<br><br>
 LightHouse - for testing performance<br>Report[here](static/images/testing_06.png)<br>
+Flake8 - for testing all python code for PEP8 standardisation. 
 
 ## Unfixed Bugs
 
-There are no unfixed bugs that I am aware of at this time. My aim was to have everything which is included working smoothly before submission, rather than adding lots of extra features which were not properly tested or unfinished and beyond the requirements of the project scope. 
+There are no unfixed bugs that I am aware of at this time. My aim was to have everything which is included working smoothly before submission, rather than adding lots of extra features which were not properly tested or unfinished and beyond the requirements of the project scope. Removal of the delivery details fields during checkout was attempted but caused a cascade of errors that cost a whole day to recover from so the feature was left in as it is harmless and does not block the flow of the user experience in a significant way. 
 
 ## Responsive Layout and Design
 The project design has been adapted to all types of devices using Bootstrap predefined breakpoints and Chrome's DevTools to digitally test the platform across a number of devices. Three specific media queries were added to solve minor layout issues at specific breakpoints.
@@ -309,8 +308,13 @@ The project design has been adapted to all types of devices using Bootstrap pred
 [CSS - Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri) - used for validating the CSS<br>
 [Chrome Del Tools](https://developer.chrome.com/docs/devtools/) - for debugging the project<br>
 [W.A.V.E.](https://wave.webaim.org/) - for testing accessibility<br>
-[Cloudinary](https://cloudinary.com/) - for storing static data<br>
+[AWS](https://aws.amazon.com/) - for storing media and static data<br>
 [LightHouse] - for testing performance<br>
+[mailchimp](https://mailchimp.com/) - used for popups and mailing list management
+[elephantsql](https://www.elephantsql.com/) - for the sites database
+[PunchSalad](https://punchsalad.com/) - to produce a free SSL certificate necessary to secure the custom domain
+[GoDaddy](https://www.godaddy.com/en-ie) - used to purchase and manage the DNS on the custom domain
+
 
 ### Python packages
 
@@ -371,7 +375,7 @@ The project design has been adapted to all types of devices using Bootstrap pred
     * Choose the main branch for deploying and enable automatic deployment 
     * Select manual deploy for building the App 
     
-The live link can be found here - https://jdcoaching-49c095ee8d82.herokuapp.com/
+The live link can be found here - https://impactclarity-158dbf752d6b.herokuapp.com/
 
 <hr>
 
@@ -379,11 +383,11 @@ The live link can be found here - https://jdcoaching-49c095ee8d82.herokuapp.com/
 ### Content
 * The content of the website is taken from several websites. 
 ### Media
-* All images have been. 
+* All images have been generated using Googles beta AI image generation tool Image-FX (https://aitestkitchen.withgoogle.com/tools/image-fx). 
 * The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-### Code
-* The me [here](https://django.html)
 
 ## Acknowledgements
-- Code Institute for the knowledge and all the tutor support.<br><br>
+- Code Institute for the knowledge and all the tutor support. And my amazing wife who is 9 and a half months pregnant as i submit this site for markiing and has been extremely patient with me and my foragings through the web. <br><br>
 <hr>
+
+Thanks you for taking the time to inspect my project. 
